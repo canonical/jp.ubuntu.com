@@ -94,12 +94,15 @@ def engage_thank_you(engage_pages):
                 # we can only fit 3 related posts, no need to finish the loop
                 break
 
+        thank_you_text = metadata.get("thank_you_text", None)
+
         return flask.render_template(
             "engage/shared/thank-you.html",
             request_url=flask.request.referrer,
             resource_name=metadata["type"],
             resource_url=metadata["resource_url"],
             related=related,
+            thank_you_text=thank_you_text,
         )
 
     return render_template
