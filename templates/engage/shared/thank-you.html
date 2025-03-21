@@ -31,10 +31,11 @@
     <div class="col-8">
       {% if thank_you_text %}
         {{ thank_you_text }}
-      {% elif 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
-      <p>
-        きみの{{ resource_name }}ダウンロード中です...
-      </p>
+      {% endif %}         
+      {% if 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
+        <p>
+          きみの{{ resource_name }}ダウンロード中です...
+        </p>
       <p>
         <a class="p-button--positive" href="{{ resource_url }}">ダウンロード中</a>
       </p>
