@@ -24,13 +24,14 @@
        <h1 class="p-heading--2">ありがとうございました！</h1>
     </div>
   </div>
-</div>
 </section>
 
 <section class="p-strip">
   <div class="row">
     <div class="col-8">
-      {% if 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
+      {% if thank_you_text %}
+        {{ thank_you_text }}
+      {% elif 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
       <p>
         きみの{{ resource_name }}ダウンロード中です...
       </p>
