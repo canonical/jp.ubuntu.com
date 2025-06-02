@@ -1,6 +1,6 @@
 {% extends "_base/base.html" %}
 
-{% block title %}ダウンロード {{ resource_name }}{% endblock %}
+{% block title %}{{ resource_name }}のダウンロード{% endblock %}
 
 {% block outer_content %}
 
@@ -21,7 +21,7 @@
   </div>
   <div class="row">
     <div class="col-8">
-       <h1 class="p-heading--2">ありがとうございました！</h1>
+       <h1 class="p-heading--2">ありがとうございます！</h1>
     </div>
   </div>
 </section>
@@ -34,14 +34,14 @@
       {% endif %}         
       {% if 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
         <p>
-          きみの{{ resource_name }}ダウンロード中です...
+          {{ resource_name }}をダウンロード中です...
         </p>
       <p>
-        <a class="p-button--positive" href="{{ resource_url }}">ダウンロード中</a>
+        <a class="p-button--positive" href="{{ resource_url }}">ダウンロード</a>
       </p>
       {% else %}
         <p>
-          申し訳ありませんが、ダウンロードを認識できませんでした。 から報告してください <a class="p-link--external" href="https://github.com/canonical-web-and-design/cn.ubuntu.com/issues/new?body=Bad+resource+download+link+from {{ request.url | urlencode }}">GitHub</a> 。
+          申し訳ありませんが、ダウンロードを開始できませんでした。 <a class="p-link--external" href="https://github.com/canonical-web-and-design/cn.ubuntu.com/issues/new?body=Bad+resource+download+link+from {{ request.url | urlencode }}">GitHub</a>から報告してください。
         </p>
       {% endif %}
     </div>
