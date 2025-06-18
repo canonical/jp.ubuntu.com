@@ -48,8 +48,6 @@ jobs:
           warnings=0
           ignoreerrors=
           ^http?s://.* ^.*(471|500|503|504|400|403|521|401)
-          nofollow=
-            https://jp.ubuntu.com/static/css/styles.css
           EOF
 
       - name: Run linkchecker for 404 errors only
