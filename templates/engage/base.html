@@ -87,7 +87,12 @@
     </div>
     {% endif %}
   </div>
-
+  
+  <!-- calendly -->
+  {% if "calendly_url" in metadata and metadata.calendly_url != "" %}
+    <div class="calendly-inline-widget" data-url="{{ metadata.calendly_url }}" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  {% endif %}
 </section>
 
 {% if "webinar_code" in metadata and metadata.webinar_code != "" %}
