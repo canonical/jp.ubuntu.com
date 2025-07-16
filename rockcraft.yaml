@@ -1,7 +1,7 @@
 name: jp-ubuntu-com
 base: ubuntu@22.04 
 version: "0.1" 
-summary: https://canonical.com
+summary: https://jp.ubuntu.com
 description: |
   This is the charm for the jp.ubuntu.com website. 
 platforms:

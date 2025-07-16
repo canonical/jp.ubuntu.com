@@ -13,10 +13,8 @@ bases:
     - name: ubuntu
       channel: "22.04"
 
-# (Required)
 summary: https://jp.ubuntu.com
 
-# (Required)
 description: |
   This is the flask charm for the jp.ubuntu.com website.
 
