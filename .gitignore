@@ -48,6 +48,8 @@ package-lock.json
 _site/
 *.*.map
 static/js/dist
+*.charm
+*.rock
 
 # [env] Local environment settings
 .docker-project
