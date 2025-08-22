@@ -7,6 +7,10 @@
 {% block meta_description %}{{metadata['subtitle']}}{% endblock %}
 {% block meta_image %}{{metadata['meta_image']}}{% endblock %}
 
+{% block head_extra %}
+  <meta name="discourse-url" value="{{ metadata['topic_path'] }}" />
+{% endblock %}
+
 {% block meta_copydoc %}{metadata["meta_copydoc]}{% endblock meta_copydoc %}
 
 {% block outer_content %}
