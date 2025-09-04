@@ -25,10 +25,20 @@
         <ul class="p-list">
           <li class="p-list__item">
             <label class="p-checkbox">
-              <input class="p-checkbox__input" value="yes" aria-labelledby="canonicalUpdatesOptIn" type="checkbox">
+              <input class="p-checkbox__input" name="canonicalUpdatesOptIn" aria-labelledby="canonicalUpdatesOptIn" value="yes" type="checkbox" />
               <span class="p-checkbox__label" id="canonicalUpdatesOptIn">不定期配信のニュースメールを希望の方はこちらをチェックください。</span>
             </label> <!-- I would like to receive occasional news from Canonical by email. -->
           </li>
+          {% if "partner_permission" in metadata %}
+            <li>
+              <label class="p-checkbox">
+                <input class="p-checkbox__input" name="Partner_Marketing_Opt_in__c" aria-label="Partner Permission" value="true" type="checkbox" />
+                <span class="p-checkbox__label" id="Partner_Marketing_Opt_in__c">
+                  Canonical または指定された共同主催者から、イベント情報やニュース、製品アップデートなどをご案内する場合があります。受信をご希望の場合は、チェックボックスにご選択ください。個人データの取り扱いについては <a href="https://canonical.com/legal/data-privacy/newsletter">Canonical のプライバシー通知</a>をご覧ください。ご同意後も、メール下部の「購読解除」からいつでも受信を停止できます。
+                </span>
+              </label>
+            </li>
+          {% endif %}
           <li class="p-list__item">
             <p><a href="https://ubuntu.com/legal" target="_blank">記載頂いた情報はCanonicalの個人情報保護ポリシーに基づき管理いたします。</a>.</p>
           </li> <!-- All information provided will be handled in accordance with the Canonical privacy policy -->
@@ -36,7 +46,7 @@
         <ul class="p-list u-no-margin--bottom">
           <li class="p-list__item">
             <button type="submit" class="p-button--positive">
-              ダウンロード
+              {% if metadata['form_cta'] != '' %}{{ metadata['form_cta'] }}{% else %}ダウンロード{% endif %}
             </button>
           </li> <!-- Submit -->
         </ul>
