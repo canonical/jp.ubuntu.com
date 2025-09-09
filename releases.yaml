@@ -8,7 +8,7 @@ latest:
   release_date: "2025年4月"
   eol: "2026年1月"
   past_eol_date: false
-  release_notes_url: "https://discourse.ubuntu.com/t/plucky-puffin-release-notes"
+  release_notes_url: "https://discourse.ubuntu.com/t/plucky-puffin-release-notes/48687"
   iso_download_size: "5.8GB"
   arm_iso_download_size: "3.6GB"
   server_iso_size: "1.9GB"
