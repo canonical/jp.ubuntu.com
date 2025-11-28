@@ -19,6 +19,11 @@ env:
       key: ubuntu-api-username
       name: discourse-api
 
+  - name: COOKIE_SERVICE_API_KEY
+    secretKeyRef:
+      key: cookies-api-key
+      name: cookies-canonical-com-credentials
+
 # Overrides for production
 production:
   replicas: 5
