@@ -63,6 +63,12 @@ cookie_service = CookieConsent().init_app(
     start_health_check=True,
 )
 
+# test redirect route
+@app.route('/test-redirect')
+def test_redirect():
+    return flask.redirect('https://nixos.org/')
+                    
+
 blog_views = BlogViews(
     api=BlogAPI(
         session=session,
