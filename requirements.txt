@@ -5,7 +5,7 @@ canonicalwebteam.blog==6.8.2
 canonicalwebteam.image-template==1.3.1
 canonicalwebteam.templatefinder==1.0.0
 # canonicalwebteam.cookie-service==1.0.1
-git+https://github.com/canonical/canonicalwebteam.cookie-service.git@e6879806ff036f09686b390117fff00e68e572fb
+git+https://github.com/canonical/canonicalwebteam.cookie-service.git@aa06a9c483b933ab141b3eee4c010d468d5a95cc
 Flask-Caching==2.1.0
 filelock==3.12.0
 python-dateutil==2.8.2
