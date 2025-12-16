@@ -42,6 +42,7 @@ app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SECURE"] = True
 
+
 # Initialize Flask-Caching
 app.config["CACHE_TYPE"] = "SimpleCache"
 cache = Cache(app)
