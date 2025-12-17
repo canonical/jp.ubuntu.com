@@ -43,7 +43,7 @@
     "webpack-cli": "5.0.1"
   },
   "dependencies": {
-    "@canonical/cookie-policy": "3.8.4",
+    "@canonical/cookie-policy": "3.8.3",
     "@canonical/global-nav": "3.4.0",
     "vanilla-framework": "4.21.1"
   }
