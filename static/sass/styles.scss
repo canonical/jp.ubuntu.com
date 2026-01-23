@@ -33,6 +33,13 @@ html {
   scroll-behavior: smooth;
 }
 
+// Ensure minimum height for main content area
+#main-content {
+  @media (min-width: $breakpoint-large) {
+    min-height: 1024px;
+  }
+}
+
 // Remove all max widths on headings
 .u-align--center h1,
 .u-align--center h2,

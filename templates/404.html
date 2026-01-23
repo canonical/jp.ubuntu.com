@@ -1,18 +1,21 @@
 {% extends "_base/base.html" %}
 
-{% block title %}404: ページが見つかりません | Ubuntu{% endblock %}
+{% block title %}404 - Page not found | Ubuntu{% endblock %}
 
-{% block header %}
-<div class="p-strip">
-  <div class="row u-equal-height">
-    <div class="col-6">
-      <img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/18907710-image-404.svg" alt="" />
-    </div>
-    <div class="col-6">
-      <h1>404: ページが見つかりません</h1>
-      <p class="p-heading--5">申し訳ありませんが、お探しのページが見つかりません。</p>
-      <p>If you think this is an error on our site, please <a href="https://github.com/canonical-websites/jp.ubuntu.com/issues/new">file a bug</a>.</p>
+{% block content_container %}
+  <div class="p-strip is-deep">
+    <div class="grid-row--25-75">
+      <hr class="p-rule" />
+      <div class="grid-col">
+        <h1>404</h1>
+      </div>
+      <div class="grid-col">
+        <p class="p-heading--1">ページが見つかりません</p>
+        <p class="p-heading--2">
+          お探しのページは見つかりませんでした。
+          エラーの可能性がある場合は、<a href="https://github.com/canonical/jp.ubuntu.com/issues/new">問題を報告してください</a>。
+        </p>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}

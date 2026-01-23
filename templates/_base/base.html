@@ -1,137 +1,174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja" dir="ltr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>{% block title %}{% endblock %} | Ubuntu</title>
+    <title>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="{{ versioned_static( 'css/styles.css') }}" />
+      {% block title %}{% endblock %}
+    | Ubuntu</title>
 
-  <link rel="preconnect" href="https://www.google-analytics.com">
-  <link rel="preconnect" href="https://www.gstatic.com">
-  <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="{{ versioned_static("css/styles.css") }}" />
 
-  <script src="https://assets.ubuntu.com/v1/703e23c9-lazysizes+noscript+native-loading.5.1.2.min.js" defer></script>
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
 
-  <link rel="preload" as="font" type="font/woff2" href="https://assets.ubuntu.com/v1/e8c07df6-Ubuntu-L_W.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="https://assets.ubuntu.com/v1/7f100985-Ubuntu-Th_W.woff2" crossorigin>
+    <script src="https://assets.ubuntu.com/v1/703e23c9-lazysizes+noscript+native-loading.5.1.2.min.js"
+            defer></script>
 
-  <!-- Navigation -->
-  <script defer src="{{ versioned_static('js/navigation.js') }}"></script>
+    <link rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://assets.ubuntu.com/v1/e8c07df6-Ubuntu-L_W.woff2"
+          crossorigin />
+    <link rel="preload"
+          as="font"
+          type="font/woff2"
+          href="https://assets.ubuntu.com/v1/7f100985-Ubuntu-Th_W.woff2"
+          crossorigin />
 
-  <!-- Cookie policy -->
-  <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
-  <script>
-    cpNs.cookiePolicy();
-  </script>
+    <!-- Navigation -->
+    <script defer src="{{ versioned_static('js/navigation.js') }}"></script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WNDC2VM');</script>
-  <!-- End Google Tag Manager -->
+    <!-- Cookie policy -->
+    <script src="{{ versioned_static('js/dist/cookie-policy.js') }}"></script>
+    <script>
+      cpNs.cookiePolicy();
+    </script>
 
-  {% block head_extra %}{% endblock %}
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-WNDC2VM');
+    </script>
+    <!-- End Google Tag Manager -->
 
-  <meta name="description" content="{% block meta_description %}Ubuntuは、PCからサーバーとクラウドまであらゆる場所で動作するオープンソースのソフトウェアプラットフォームです。{% endblock %}" />
-  <meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
-  <meta name="author" content="Canonical" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="image" value="{% block meta_image %}{% endblock %}" />
+    {% block head_extra %}{% endblock %}
 
-  <meta name="theme-color" content="#E95420" />
-  <meta name="twitter:account_id" content="4503599627481511" />
-  <meta name="twitter:site" content="@ubuntu">
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jp.ubuntu.com{{ request.get_full_path }}" />
-  <meta property="og:site_name" content="Ubuntu Japan" />
-  <meta name="copydoc"
-        content="{% block meta_copydoc %}https://drive.google.com/drive/folders/0B4s80tIYQW4BMjNiMGFmNzQtNDkxZC00YmQ0LWJiZWUtNTk2YThlY2MzZmJh{% endblock %}" />
+    <meta name="description" content="
+      {% block meta_description %}Ubuntuは、PCからサーバーとクラウドまであらゆる場所で動作するオープンソースのソフトウェアプラットフォームです。{% endblock %}" />
+      <meta name="keywords" content="
+        {% block meta_keywords %}{% endblock %}" />
+        <meta name="author" content="Canonical" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="image" value="
+          {% block meta_image %}{% endblock %}" />
 
-  {% if self.title() %}
-      <meta name="twitter:title" content="{{ self.title() }}" />
-      <meta property="og:title" content="{{ self.title() }}" />
-  {% endif %}
-  {% if self.meta_description() %}
-      <meta name="twitter:description" content="{{ self.meta_description() }}">
-      <meta property="og:description" content="{{ self.meta_description() }}" />
-  {% endif %}
-  {% if self.meta_image() %}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="{{ self.meta_image() }}">
-      <meta property="og:image" content="{{ self.meta_image() }}" />
-  {% endif %}
+          <meta name="theme-color" content="#E95420" />
+          <meta name="twitter:account_id" content="4503599627481511" />
+          <meta name="twitter:site" content="@ubuntu" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url"
+                content="https://jp.ubuntu.com{{ request.get_full_path }}" />
+          <meta property="og:site_name" content="Ubuntu Japan" />
+          <meta name="copydoc" content="
+            {% block meta_copydoc %}https://drive.google.com/drive/folders/0B4s80tIYQW4BMjNiMGFmNzQtNDkxZC00YmQ0LWJiZWUtNTk2YThlY2MzZmJh{% endblock %}" />
 
+            {% if self.title() %}
+              <meta name="twitter:title" content="{{ self.title() }}" />
+              <meta property="og:title" content="{{ self.title() }}" />
+            {% endif %}
+            {% if self.meta_description() %}
+              <meta name="twitter:description" content="{{ self.meta_description() }}" />
+              <meta property="og:description" content="{{ self.meta_description() }}" />
+            {% endif %}
+            {% if self.meta_image() %}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:image" content="{{ self.meta_image() }}" />
+              <meta property="og:image" content="{{ self.meta_image() }}" />
+            {% endif %}
 
-  <link rel="apple-touch-icon"
-        sizes="180x180"
-        href="https://assets.ubuntu.com/v1/f38b9c7e-COF%20apple-touch-icon.png" />
-  <link rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="https://assets.ubuntu.com/v1/be7e4cc6-COF-favicon-32x32.png" />
-  <link rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="https://assets.ubuntu.com/v1/16c27f81-COF%20favicon-16x16.png" />
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="https://assets.ubuntu.com/v1/f38b9c7e-COF%20apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="https://assets.ubuntu.com/v1/be7e4cc6-COF-favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="https://assets.ubuntu.com/v1/16c27f81-COF%20favicon-16x16.png" />
 
-  <link type="text/plain" rel="author" href="{{ versioned_static( 'files/humans.txt') }}" />
+            <link type="text/plain"
+                  rel="author"
+                  href="{{ versioned_static("files/humans.txt") }}" />
 
-</head>
+          </head>
 
-<body class="{% block body_class %}{% endblock %}">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNDC2VM"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+          <body class="
+            {% block body_class %}{% endblock %} l-site">
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNDC2VM"
+        height="0"
+        width="0"
+        style="display:none;
+               visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
 
-  {% include "_base/navigation.html" %}
+            {% include "_base/navigation.html" %}
 
-  {% block header %}{% endblock %}
-<div id="main-content">
-  {% block content_container %}
-    {% block outer_content %}
-    {% endblock outer_content %}
-  {% endblock content_container %}
-</div><!-- end main-content -->
-  {% include "_base/footer.html" %}
-  {% block footer_extra %}{% endblock %}
+            {% block header %}{% endblock %}
+            <div id="main-content">
 
-  <script type="text/javascript">
-    (function () {
-      document.addEventListener("DOMContentLoaded", function () {
+              {% block content_container %}
+                {% block outer_content %}
+                {% endblock outer_content %}
+              {% endblock content_container %}
+            </div>
+            <!-- end main-content -->
+            {% include "_base/footer.html" %}
 
-        var params = new URLSearchParams(window.location.search);
-        var utm_campaign = document.getElementById("utm_campaign");
-        if (utm_campaign) {
-          utm_campaign.value = params.get("utm_campaign");
-        }
-        var utm_source = document.getElementById("utm_source");
-        if (utm_source) {
-          utm_source.value = params.get("utm_source");
-        }
-        var utm_medium = document.getElementById("utm_medium");
-        if (utm_medium) {
-          utm_medium.value = params.get("utm_medium");
-        }
+            {% block footer_extra %}{% endblock %}
 
-        var utm_content = document.getElementById("utm_content");
-        if (utm_content) {
-          utm_content.value = params.get("utm_content");
-        }
+            <script type="text/javascript">
+              (function() {
+                document.addEventListener("DOMContentLoaded", function() {
 
-        var utm_term = document.getElementById("utm_term");
-        if (utm_term) {
-          utm_term.value = params.get("utm_term");
-        }
+                  var params = new URLSearchParams(window.location.search);
+                  var utm_campaign = document.getElementById("utm_campaign");
+                  if (utm_campaign) {
+                    utm_campaign.value = params.get("utm_campaign");
+                  }
+                  var utm_source = document.getElementById("utm_source");
+                  if (utm_source) {
+                    utm_source.value = params.get("utm_source");
+                  }
+                  var utm_medium = document.getElementById("utm_medium");
+                  if (utm_medium) {
+                    utm_medium.value = params.get("utm_medium");
+                  }
 
-      });
-    })();
+                  var utm_content = document.getElementById("utm_content");
+                  if (utm_content) {
+                    utm_content.value = params.get("utm_content");
+                  }
 
-  </script>
-</body>
+                  var utm_term = document.getElementById("utm_term");
+                  if (utm_term) {
+                    utm_term.value = params.get("utm_term");
+                  }
 
-</html>
+                });
+              })();
+            </script>
+          </body>
+
+        </html>
