@@ -56,6 +56,7 @@ def get_cache(key):
 def set_cache(key, value, timeout):
     cache.set(key, value, timeout)
 
+
 cookie_service = None
 if not app.debug:
     cookie_service = CookieConsent().init_app(
