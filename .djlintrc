@@ -1,6 +1,6 @@
 {
   "blank_line_after_tag": "load,extends",
-  "blank_line_before_tag": "load,extends,block, macro",
+  "blank_line_before_tag": "load,extends,block,macro",
   "close_void_tags": true,
   "ignore": "J018,H006,H021,H023,H029,T002,T003,T028,D018",
   "include": "H017",
