@@ -1,4 +1,4 @@
-{% extends "openstack/_base_openstack.html" %}
+{% extends "_base/base.html" %} 
 
 {% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
 {% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
@@ -21,7 +21,7 @@
   https://docs.google.com/document/d/1eqHK0hc9v7Mn-XV36QRyNkJenTXgBQR_-RULKm5rZ5o/edit
 {% endblock meta_copydoc %}
 
-{% block content %}
+{% block outer_content %}
   <style>
     .bar-chart-container {
       display: flex;
@@ -1009,6 +1009,7 @@
 
   <script src="{{ versioned_static('js/dist/cloud-price-slider.js') }}" defer></script>
   <script src="{{ versioned_static('js/dist/accordion.js') }}" defer></script>
+  <script src='https://d3js.org/d3.v6.min.js' async></script>
   <script src="{{ versioned_static('js/dist/openstack-deployment-chart.js') }}" defer></script>
 
-{% endblock content %}
+{% endblock outer_content %}

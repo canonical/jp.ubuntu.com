@@ -146,7 +146,11 @@ def takeovers_index():
     all_takeovers.sort(
         key=lambda takeover: takeover["active"] == "true", reverse=True)
     active_count = len(
-        [takeover for takeover in all_takeovers if takeover["active"] == "true"]
+        [
+            takeover
+            for takeover in all_takeovers
+            if takeover["active"] == "true"
+        ]
     )
 
     return flask.render_template(
