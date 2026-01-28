@@ -1,6 +1,9 @@
-fetch("https://ubuntu.com/static/js/data/openstack-deployment-stats.json")
+// fetch("https://ubuntu.com/static/js/data/openstack-deployment-stats.json")
+fetch("/static/js/data/openstack-deployment-stats.json")
   .then(response => response.json())
   .then(data => {
+    console.log("data >>>>", data);
+    console.table(data.stats);
     data.stats.sort((a, b) => b.percentage - a.percentage);
     drawChart(data.stats);
     drawTable(data.stats);
