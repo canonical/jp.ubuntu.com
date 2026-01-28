@@ -1,0 +1,1028 @@
+{% extends "openstack/_base_openstack.html" %}
+
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+{% from "_macros/vf_logo-section.jinja" import vf_logo_section %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+{% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
+
+{% block title %}Charmed OpenStack{% endblock %}
+
+{% block meta_description %}
+  Charmed OpenStack is an enterprise cloud platform engineered for price-performance. Run with confidence: supported or fully-managed.
+{% endblock meta_description %}
+
+{% block body_class %}
+  is-paper
+{% endblock body_class %}
+
+{% block meta_copydoc %}
+  https://docs.google.com/document/d/1eqHK0hc9v7Mn-XV36QRyNkJenTXgBQR_-RULKm5rZ5o/edit
+{% endblock meta_copydoc %}
+
+{% block content %}
+  <style>
+    .bar-chart-container {
+      display: flex;
+      position: relative;
+    }
+
+    .bar-chart {
+      width: 100%;
+    }
+
+    .bars {
+      align-items: flex-end;
+      height: 150px;
+      margin: 1rem 0.25rem;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 0.5rem;
+    }
+
+    .bar {
+      height: 150px;
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+
+    .bar.ex-bar {
+      border: 2px solid #E95420;
+      background: #FDE8DA;
+    }
+
+    .bar.tco-bar {
+      border: 2px solid #0E8420;
+      background: rgba(14, 132, 32, 0.10);
+    }
+
+    #hours__range {
+      width: 400px;
+    }
+
+    .js-cloud-price-slider {
+      position: relative;
+      padding: 1.5rem;
+      margin-top: 0.1rem;
+    }
+
+    .js-cloud-price-slider__range {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vm-table {
+      min-width: 24rem;
+    }
+  </style>
+
+  {% call(slot) vf_hero(
+    title_text='Charmed OpenStack',
+    subtitle_text='コスト効果を重視した
+企業向けクラウドプラットフォーム',
+    layout='50/50'
+  ) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        マルチクラウド環境のコスト効果は自社クラウドによって向上し、自社クラウドのコスト効果はCharmed OpenStackによって向上します。
+      </p>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <a href="/contact-us?product=openstack" class="p-button--positive">OpenStackを使用する</a>
+      <a href="#">ハイパースケーラーの最大3分の2のコストを節約 ›</a>
+    {%- endif -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--3-2 is-cover">
+          {{ image(url="https://assets.ubuntu.com/v1/d4c3865e-hero_img.jpg",
+            alt="",
+            width="1800",
+            height="1200",
+            hi_def=True,
+            loading="auto",
+            attrs={"class": "p-image-container__image"}
+            ) | safe
+          }}
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+
+  {% call(slot) vf_logo_section(
+    title={
+      "text": "豊富な導入実績"
+    },
+    blocks=[
+      {
+        "type": "logo-block",
+        "item": {
+          "logos": [
+              image(url="https://assets.ubuntu.com/v1/9a341b9d-telefonica-logo.png",
+                    alt="Telefonica",
+                    width="399",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/a50bb8ad-aci-logo.png",
+                    alt="ACI UNIVERSAL PAYMENTS",
+                    width="315",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/d0983b50-cisco-logo.png",
+                    alt="Cisco",
+                    width="195",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/9c01b2b2-gendarmerie-logo.png",
+                    alt="Gendarmerie",
+                    width="318",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/a149ccde-Bloomberg-Logo.png",
+                    alt="Bloomberg",
+                    width="318",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/b189b354-bnp-paribas-logo.png",
+                    alt="BNP Paribas",
+                    width="492",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/dccb2b0d-t-systems-logo.png",
+                    alt="T systems",
+                    width="309",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/8702a577-kadokawa-logo.png",
+                    alt="Kadokawa",
+                    width="468",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/db5ea14e-mercedes-benz-group-logo.png",
+                    alt="Mercedes Benz",
+                    width="657",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/82fcc758-Nayatel-logo.png",
+                    alt="Nayatel",
+                    width="246",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/adfa6d0f-rabobank-logo.png",
+                    alt="Rabobank",
+                    width="312",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/015afc07-nec-logo.png",
+                    alt="NEC",
+                    width="198",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"}),
+              image(url="https://assets.ubuntu.com/v1/717fcc92-spectrum-health-logo.png",
+                    alt="Spectrum Health",
+                    width="313",
+                    height="313",
+                    hi_def=True,
+                    loading="lazy",
+                    output_mode="attrs",
+                    attrs={"class": "p-logo-section__logo"})
+          ]
+        }
+      }
+    ]
+  ) -%}
+    {%- if slot == 'description' -%}
+      <p>電気通信事業者、金融機関、ハードウェアメーカー、行政機関、民間企業……。OpenStackとUbuntuは、世界中のあらゆる市場セクターでインフラストラクチャコストを最適化しています。</p>
+    {%- endif -%}
+  {% endcall -%}
+
+  {{ vf_basic_section(
+    title={"text": "コストパフォーマンスを保証"},
+    items=[
+      {
+        "type": "image",
+        "item": {
+          "aspect_ratio": "16-9",
+          "attrs": image(url="https://assets.ubuntu.com/v1/03c555de-price-performance-guaranteed.png",
+                        alt="",
+                        width="2748",
+                        height="1833",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs")
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "あらゆる面で経済性を優先しました。"
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": "<p>スマートな運用、最適なアーキテクチャ、お得な料金。このすべてがクラウドの総所有コストを抑え、革新のための予算を拡大します。</p>"
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "secondaries": [
+            {
+              "content_html": "データシートをダウンロード",
+              "attrs": {
+                "href": "https://assets.ubuntu.com/v1/117a9275-Charmed%20OpenStack.pdf"
+              }
+            },
+          ]
+        }
+      }
+    ],
+    attrs= {"id": "mixed-content-section"}
+  ) }}
+
+  <section class="p-section">
+    <hr class="is-fixed-width p-rule" />
+    <div class="u-fixed-width">
+      <div class="row--50-50-on-large">
+        <div class="col">
+          <h2>マルチクラウドのコストを最大限に最適化</h2>
+        </div>
+        <div class="col">
+          <div>
+            <div class="bar-chart-container">
+              <div class="bar-chart">
+                <h3 class="p-heading--5">Public Cloud</h3>
+                <div class="bars">
+                  <div>
+                    <div id="public-capex" class="bar ex-bar"></div>
+                    <div>CapEx</div>
+                  </div>
+                  <div>
+                    <div id="public-opex" class="bar ex-bar"></div>
+                    <div>OpEx</div>
+                  </div>
+                  <div>
+                    <div id="public-tco" class="bar tco-bar"></div>
+                    <div>TCO</div>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-chart">
+                <h3 class="p-heading--5">Private Cloud</h3>
+                <div class="bars">
+                  <div>
+                    <div id="private-capex" class="bar ex-bar"></div>
+                    <div>CapEx</div>
+                  </div>
+                  <div>
+                    <div id="private-opex" class="bar ex-bar"></div>
+                    <div>OpEx</div>
+                  </div>
+                  <div>
+                    <div id="private-tco" class="bar tco-bar"></div>
+                    <div>TCO</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="js-cloud-price-slider u-align--center">
+              <div class="js-cloud-price-slider__range">
+                <p class="u-no-margin--bottom">Low</p>
+                <input type="range"
+                       id="hours__range"
+                       min="1"
+                       max="150"
+                       value="96"
+                       step="1"
+                       aria-label="Cost of public cloud versus private cloud" />
+                <p class="u-no-margin--bottom">High</p>
+              </div>
+              <div>VM hours</div>
+            </div>
+          </div>
+
+          <p>
+            <span class="p-heading--5">ワークロードの実行は経済的に最も有利な場所で。インフラストラクチャの未来は<a href="https://ubuntu.com/cloud/multi-cloud">マルチクラウド</a>です。プライベートクラウドとパブリッククラウドのインフラストラクチャを同時に使用すれば、初期投資と運用コストの最適化が可能です。
+              
+          </p>
+          <hr class="p-rule--muted" />
+          <a class="p-button--positive u-no-margin--bottom"
+             href="https://ubuntu.com/engage/cloud-cost-optimisation-best-practices">クラウドコストを最適化</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section">
+    <hr class="is-fixed-width p-rule" />
+    <div class="u-fixed-width">
+      <div class="row--50-50-on-large p-section--shallow">
+        <div class="col">
+          <h2>低コストの仮想マシン</h2>
+        </div>
+        <div class="col">
+          <p class="p-heading--5 u-no-margin--bottom">クラウドで実行すればマシンのコストは下がります。</p>
+          <p>
+            ベースラインのCharmed OpenStackクラウドでサンプルVMを実行するコストを3年間で比較してみましょう。この計算には、ハードウェアコスト、標準的なホスト料金、 <a href="https://ubuntu.com/openstack/managed">フルマネージドサービス</a> *が含まれます。
+          </p>
+          <div class="p-cta-block">
+
+            <a href="https://ubuntu.com/openstack/tco-calculator">他のVMの価格を確認&nbsp;&rsaquo;</a>
+          </div>
+          <hr class="p-rule--muted" />
+          <p class="u-text--muted">
+            * 正確な価格は使用するハードウェア、クラウドの設定、ローカルでホストするコスト、人件費によって変動する場合があります。
+          </p>
+        </div>
+      </div>
+      <div class="row--25-75-on-large">
+        <div class="col u-align--center" style="overflow-x:auto;">
+          <table aria-label="Comparison table for pricing of VMs" class="vm-table">
+            <thead>
+              <tr>
+                <th>VMのフレーバー</th>
+                <th>VM数</th>
+                <th>時間あたりの料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <aside class="p-accordion">
+                    <ul class="p-accordion__list">
+                      <li class="p-accordion__group">
+                        <div role="heading" aria-level="3" class="p-accordion__heading">
+                          <button type="button"
+                                  class="p-accordion__tab u-fixed-width"
+                                  id="tab1"
+                                  aria-controls="tab1-section"
+                                  aria-expanded="false">c.small</button>
+                        </div>
+                        <section class="p-accordion__panel"
+                                 style="padding-left: 1rem"
+                                 id="tab1-section"
+                                 aria-hidden="true"
+                                 aria-labelledby="tab1">
+                          <p>vCPUs: 1</p>
+                          <p>RAM: 4 GB</p>
+                          <p>Ephemeral storage: 8 GB</p>
+                          <p>Persistent storage: 40 GB</p>
+                        </section>
+                      </li>
+                    </ul>
+                  </aside>
+                </td>
+                <td>3078</td>
+                <td>$0.0132</td>
+              </tr>
+              <tr>
+                <td>
+                  <aside class="p-accordion">
+                    <ul class="p-accordion__list">
+                      <li class="p-accordion__group">
+                        <div role="heading" aria-level="3" class="p-accordion__heading">
+                          <button type="button"
+                                  class="p-accordion__tab u-fixed-width"
+                                  id="tab2"
+                                  aria-controls="tab2-section"
+                                  aria-expanded="false">c.medium</button>
+                        </div>
+                        <section class="p-accordion__panel"
+                                 style="padding-left: 1rem"
+                                 id="tab2-section"
+                                 aria-hidden="true"
+                                 aria-labelledby="tab2">
+                          <p>vCPUs: 2</p>
+                          <p>RAM: 8 GB</p>
+                          <p>Ephemeral storage: 8 GB</p>
+                          <p>Persistent storage: 80 GB</p>
+                        </section>
+                      </li>
+                    </ul>
+                  </aside>
+                </td>
+                <td>1539</td>
+                <td>$0.0264</td>
+              </tr>
+              <tr>
+                <td>
+                  <aside class="p-accordion">
+                    <ul class="p-accordion__list">
+                      <li class="p-accordion__group">
+                        <div role="heading" aria-level="3" class="p-accordion__heading">
+                          <button type="button"
+                                  class="p-accordion__tab u-fixed-width"
+                                  id="tab3"
+                                  aria-controls="tab3-section"
+                                  aria-expanded="false">c.large</button>
+                        </div>
+                        <section class="p-accordion__panel"
+                                 style="padding-left: 1rem"
+                                 id="tab3-section"
+                                 aria-hidden="true"
+                                 aria-labelledby="tab3">
+                          <p>vCPUs: 4</p>
+                          <p>RAM: 16 GB</p>
+                          <p>Ephemeral storage: 8 GB</p>
+                          <p>Persistent storage: 160 GB</p>
+                        </section>
+                      </li>
+                    </ul>
+                  </aside>
+                </td>
+                <td>769</td>
+                <td>$0.0529</td>
+              </tr>
+              <tr>
+                <td>
+                  <aside class="p-accordion">
+                    <ul class="p-accordion__list">
+                      <li class="p-accordion__group">
+                        <div role="heading" aria-level="4" class="p-accordion__heading">
+                          <button type="button"
+                                  class="p-accordion__tab u-fixed-width"
+                                  id="tab4"
+                                  aria-controls="tab4-section"
+                                  aria-expanded="false">c.xlarge</button>
+                        </div>
+                        <section class="p-accordion__panel"
+                                 style="padding-left: 1rem"
+                                 id="tab4-section"
+                                 aria-hidden="true"
+                                 aria-labelledby="tab4">
+                          <p>vCPUs: 8</p>
+                          <p>RAM: 32 GB</p>
+                          <p>Ephemeral storage: 8 GB</p>
+                          <p>Persistent storage: 320 GB</p>
+                        </section>
+                      </li>
+                    </ul>
+                  </aside>
+                </td>
+                <td>384</td>
+                <td>$0.1059</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section">
+    <hr class="is-fixed-width p-rule" />
+    <div class="grid-row">
+      <div class="grid-col-4">
+        <h2>コスト効果の高いクラウドインフラストラクチャ</h2>
+      </div>
+      <div class="grid-col-4">
+        <div class="p-section--shallow">
+          <div class="p-image-container is-highlighted">
+          {{ image(url="https://assets.ubuntu.com/v1/5fbc138a-sbi_bits_img.png",
+            alt="",
+            width="1800",
+            height="1200",
+            hi_def=True,
+            loading="lazy",
+            attrs={"class": "p-image-container__image"}
+            ) | safe
+          }}
+          </div>
+        </div>
+        <p>
+          SBI BITSは、事業を中断することなくミッションクリティカルなワークロードを最新版のOpenStackに移行するため、専門家による移行計画の入念な計画と実行を必要としていました。Canonicalのサポートとコンサルティングサービスにより、SBI BITSは3つの新しいOpenstack環境を無事に導入し、事業継続性を確保する段階的な移行を開始しました。現在、SBI BITSは最新のOpenStackの機能によって優れた顧客サービスを提供し、旧環境に残ったワークロードについてはCanonicalのレガシーサポートで環境のセキュリティを維持しています。
+        </p>
+        <div class="p-cta-block">
+          <a href="/engage/sbi-bits-openstack-cs-jp">ケーススタディを読む&nbsp;&rsaquo;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+    {%- if slot == 'title' -%}
+      <h2 id="get-your-openstack">OpenStackを使用する</h2>
+    {%- endif -%}
+
+    {%- if slot == 'description' -%}
+      <p>選択において考慮すべきは、OpenStackを誰が管理するかです。</p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_title_1' -%}
+      <h3 class="p-heading--5">Canonicalが管理する OpenStack</h3>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_description_1' -%}
+        <p>CanonicalがOpenStackをデプロイし、24時間体制で管理します。これには、一般的な日常のメンテナンスタスク、インシデントや問題の解決、アップグレードなどが含まれます。専門家にクラウドの管理を任せることで、パブリッククラウドのように安心して運用できます。</p>
+        <p class="u-no-margin--bottom">
+          <a class="p-button"
+             href="/contact-us?product=openstack">Canonicalが管理するOpenStackを注文</a>
+        </p>
+        <p>
+          <a href="https://ubuntu.com/openstack/managed">Canonicalが管理するOpenStackの詳細&nbsp;›</a>
+        </p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_title_2' -%}
+      <h3 class="p-heading--5">自社管理の OpenStack</h3>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_description_2' -%}
+      <p>お客様が自社でOpenStackを管理します。Canonicalはご要望に応じて計画や適切なハードウェア選びをお手伝いし、OpenStackをデプロイします。また、有償サポートや担当者向けのトレーニングコースもご用意しています。</p>
+      <div>
+        <h4 class="p-heading--5">
+          OpenStackをデプロイするのは誰？
+        </h4>
+        <div class="p-section--shallow p-list--divided">
+          <br class="u-hide" />
+          <p class="p-text--small-caps p-list__item">CanonicalがデプロイするOpenStack</p>
+          <p>
+            Canonicalがお客様に代わってOpenStackをデプロイします。お客様と相談の上、最善の設計を判断し、ベストプラクティスやリファレンスハードウェアの仕様を共有します。デプロイのプロセスが完全に自動化され、反復可能であることを確認した後で、クラウドをお客様に引き渡します。
+          </p>
+          <p class="u-no-margin--bottom">
+            <a class="p-button"
+              href="https://ubuntu.com/openstack/contact-us">CanonicalがデプロイするOpenStackを注文</a>
+          </p>
+          <p>
+            <a href="https://ubuntu.com/openstack/consulting">CanonicalがデプロイするOpenStackの詳細 &nbsp;›</a>
+          </p>
+        </div>
+
+        <div class="p-list--divided">
+          <br class="u-hide" />
+          <p class="p-text--small-caps p-list__item">自社デプロイのOpenStack</p>
+          <p>お客様が自社でOpenStackをデプロイします。製品ドキュメント、ホワイトペーパーなどの公開資料を参照してください。<a href="https://canonical.com/microstack">MicroStack</a>を使用した自社デプロイのクラウドも<a href="https://jp.ubuntu.com/pro">Ubuntu Pro + サポートサブスクリプション</a>を通じた有償サポートの対象となります。</p>
+          <p>
+            <a class="p-button" href="https://ubuntu.com/openstack/install">自社でOpenStackをデプロイ</a>
+          </p>
+          <p>
+            ほかに何か必要ですか？
+            <br />
+            Canonicalの<a href="https://ubuntu.com/openstack/support">OpenStackサポートページ</a>で他のオプションやプランの情報をご覧ください。
+          </p>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_title_3' -%}
+      <h3 class="p-heading--5">自社管理の OpenStack</h3>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_description_3' -%}
+      <p>お客様が自社でOpenStackを管理します。Canonicalはご要望に応じて計画や適切なハードウェア選びをお手伝いし、OpenStackをデプロイします。また、有償サポートや担当者向けのトレーニングコースもご用意しています。</p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_title_4' -%}
+      <p class="p-heading--5 u-text--muted">CanonicalがデプロイするOpenStack</p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_description_4' -%}
+      <p>
+        Canonicalがお客様に代わってOpenStackをデプロイします。お客様と相談の上、最善の設計を判断し、ベストプラクティスやリファレンスハードウェアの仕様を共有します。デプロイのプロセスが完全に自動化され、反復可能であることを確認した後で、クラウドをお客様に引き渡します。
+      </p>
+      <p class="u-no-margin--bottom">
+        <a class="p-button"
+          href="https://ubuntu.com/openstack/contact-us">CanonicalがデプロイするOpenStackを注文</a>
+      </p>
+      <p>
+        <a href="https://ubuntu.com/openstack/consulting">CanonicalがデプロイするOpenStackの詳細 &nbsp;›</a>
+      </p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_title_5' -%}
+      <p class="p-heading--5 u-text--muted">自社デプロイのOpenStack</p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_description_5' -%}
+      <p>お客様が自社でOpenStackをデプロイします。製品ドキュメント、ホワイトペーパーなどの公開資料を参照してください。<a href="https://canonical.com/microstack">MicroStack</a>を使用した自社デプロイのクラウドも<a href="https://jp.ubuntu.com/pro">Ubuntu Pro + サポートサブスクリプション</a>を通じた有償サポートの対象となります。</p>
+      <p>
+        <a class="p-button" href="https://ubuntu.com/openstack/install">自社でOpenStackをデプロイ</a>
+      </p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_title_6' -%}
+      <br />
+    {%- endif -%}
+
+    {%- if slot == 'list_item_description_6' -%}
+      <p>
+        ほかに何か必要ですか？
+        <br />
+        Canonicalの<a href="https://ubuntu.com/openstack/support">OpenStackサポートページ</a>で他のオプションやプランの情報をご覧ください。
+      </p>
+    {%- endif -%}
+  {%- endcall -%}
+
+  {{ vf_basic_section(
+    title={"text": "完全にボトムアップの自動化"},
+    items=[
+      {
+        "type": "image",
+        "item": {
+          "attrs": image(url="https://assets.ubuntu.com/v1/84c7fb7d-bottom-up-automation.png",
+                        alt="",
+                        width="2748",
+                        height="1832",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs")
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "OpenStackのデプロイと運用は完全に自動化されています。"
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "ベアメタルからクラウドのコントロールプレーンまで、Charmed OpenStackはあらゆる場所で自動化を使用します。モデル駆動型の運用に対応した市場唯一のOpenStackプラットフォームで、時間とコストを節約できます。"
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+            "content_html": "OpenStackの有効なデプロイと運用の方法&nbsp;&rsaquo;",
+            "attrs": {"href": "/engage/openstack-ebook-beginners-jp"}
+          }
+        }
+      }
+    ]
+  ) }}
+
+  {{ vf_basic_section(
+    title={"text": "拡張可能なコンテナレイヤー"},
+    items=[
+      {
+        "type": "image",
+        "item": {
+          "attrs": image(url="https://assets.ubuntu.com/v1/287e589b-kuo_zhang_ke_neng_nakontenareiya.png",
+            alt="",
+            width="1800",
+            height="1200",
+            hi_def=True,
+            loading="lazy",
+            output_mode="attrs")
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "コンテナとVMの両方を同じプラットフォームで実行します。"
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": "
+          <p>
+            <a href=\"/kubernetes\">Kubernetes</a>レイヤーを上に重ね、クラウドを拡張することで、コンテナとレガシーワークロードの両方を統一された方法で管理できます。
+          </p>
+          "
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": "
+          <p>
+            スタック全体が同じ<a href=\"/pro\">サブスクリプション</a>でサポートされます。
+          </p>
+          "
+        }
+      },
+    ]
+  ) }}
+
+  {{ vf_basic_section(
+    title={"text": "製品の相互運用性"},
+    items=[
+      {
+        "type": "image",
+        "item": {
+          "attrs": image(url="https://assets.ubuntu.com/v1/d4b93d0f-zhi_pin_noxiang_hu_yun_yong_xing.png",
+            alt="",
+            width="1800",
+            height="1200",
+            hi_def=True,
+            loading="lazy",
+            output_mode="attrs")
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "サーバー、SDNコントローラ、ストレージプラットフォームなど。"
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "Canonicalは、最善のテクノロジーを選択できるよう、大手半導体メーカー、ハードウェアベンダー、ネットワーク機器プロバイダー、オープンソースコミュニティと提携しています。これはすべて、常に最良のアーキテクチャを設計し、最高のコストパフォーマンスを実現するためです。"
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+            "content_html": "サポートされるオプションの詳細&nbsp;&rsaquo;",
+            "attrs": {"href": "https://ubuntu.com/openstack/features"}
+          }
+        }
+      }
+    ]
+  ) }}
+
+  {{ vf_basic_section(
+    title={"text": "100 GbpsのOpenStack"},
+    items=[
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "電気通信事業者、HPC、AI/MLに対応します。"
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": "
+          <p>
+            NFVI/VIMなどの高度なクラウドアーキテクチャを実行するために必要なパフォーマンス拡張機能は、以下のとおりです。
+          </p>
+          "
+        }
+      },
+      {
+        "type": "list",
+        "item": {
+          "list_items": [
+            {
+              "list_item_type": "bullet",
+              "content": "OVNハードウェアオフローディング"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "SR-IOV"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "DPDK"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "CPUピニング"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "NUMAトポロジー"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "HugepPage"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "PCIパススルー"
+            },
+            {
+              "list_item_type": "bullet",
+              "content": "NVIDIA vGPU"
+            }
+          ]
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "Canonicalは、最善のテクノロジーを選択できるよう、大手半導体メーカー、ハードウェアベンダー、ネットワーク機器プロバイダー、オープンソースコミュニティと提携しています。これはすべて、常に最良のアーキテクチャを設計し、最高のコストパフォーマンスを実現するためです。"
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+            "content_html": "サポートされるオプションの詳細&nbsp;&rsaquo;",
+            "attrs": {"href": "https://ubuntu.com/openstack/features"}
+          }
+        }
+      }
+    ]
+  ) }}
+
+  {% include '/openstack/_testimonials.html' %}
+
+  <section>
+    {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+      {%- if slot == 'title' -%}
+        <h2>CanonicalのCharmed OpenStack</h2>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_1' -%}
+        <h3 class="p-heading--5">すべてのOpenStackバージョンをサポート</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_1' -%}
+        <p>
+          OpenStackの各アップストリームバージョンには、ビジネスに大きなメリットをもたらす新しい機能があります。Canonicalはそのことを踏まえ、アップストリームリリースから2週間以内に<a href="https://ubuntu.com/about/release-cycle">各OpenStackバージョンのフルサポート</a>を提供しています。また、5年間のサポートが付属するCharmed OpenStackのLTS（長期サポート）バージョンを2年ごとにリリースします。
+        </p>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_2' -%}
+        <h3 class="p-heading--5">セキュリティ、コンプライアンス、堅牢性</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_2' -%}
+        <p>
+          Canonicalは、安定性を最優先するお客様のために、<a href="/pro">Ubuntu Proのサブスクリプション</a>を通じてCharmed OpenStackに最長10年のセキュリティ更新を提供します。サポートパッケージには、欧州連合（EU）や米国の各種規制コンプライアンスオプションが含まれます。その他の堅牢化ツールとベンチマークも最高レベルのセキュリティを確保します。
+        </p>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_3' -%}
+        <h3 class="p-heading--5">完全に自動化されたアップグレードが付属</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_3' -%}
+        <p>
+          OpenStackのアップグレードは、作業が厄介なことで知られています。モデル駆動型のアーキテクチャを利用し、OpenStack Charmsを自動化の目的に使用すれば、Charmed OpenStackは直近のバージョンに<a href="https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/latest/upgrade-overview.html">簡単にアップグレード</a>できます。これにより、運用チームに負担をかけることなくアップストリーム版の最新機能を入手できます。
+        </p>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_4' -%}
+        <h3 class="p-heading--5">通信事業者グレードのプライベートクラウド</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_4' -%}
+        <p>
+          あらゆる市場の中でも、電気通信企業は、インフラストラクチャの安定性、セキュリティ、復元性を強く必要とする傾向があります。
+        </p>
+        <p>Charmed OpenStackはそのようなニーズに応えます。</p>
+      {%- endif -%}
+    {%- endcall -%}
+  </section>
+
+  {{ vf_basic_section(
+    title={"text": "OpenStack環境で"},
+    items=[
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "人気トップのプラットフォーム"
+        }
+      },
+      {
+        "type": "image",
+        "item": {
+          "attrs": image(url="https://assets.ubuntu.com/v1/d4b93d0f-zhi_pin_noxiang_hu_yun_yong_xing.png",
+            alt="",
+            width="1800",
+            height="1200",
+            hi_def=True,
+            loading="lazy",
+            output_mode="attrs")
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": "
+          <p>
+            <a href=\"https://www.openstack.org/analytics/\">2022年のOpenStackユーザー調査</a>によれば、Ubuntu ServerはOpenStack環境において最も人気の高いオペレーティングシステムです。Ubuntu Serverは、世界中のOpenStackクラウドの48%を動かしています。通信会社、金融機関、ハードウェアメーカーのほか、小売、自動車、医療分野の大手企業にも、プライベートクラウドのプラットフォームとして採用されています。
+          </p>"
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+            "content_html": "各種OpenStackディストリビューションの比較&nbsp;&rsaquo;",
+            "attrs": {"href": "https://ubuntu.com/openstack/compare"}
+          }
+        }
+      }
+    ]
+  ) }}
+
+  <section>
+    {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+      {%- if slot == 'title' -%}
+        <h2>Charmed OpenStackを選ぶ理由</h2>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_1' -%}
+        <h3 class="p-heading--5">長期的なコミュニティのメンバー</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_1' -%}
+        <p>
+          オープンソースを作るのは、コントリビューターとコミュニティ内の協力です。CanonicalはOpenStackコミュニティの長期的なメンバーです。OpenStackのコードへの最大級のコントリビューターであると同時に、Open Infrastructure Foundationのゴールドメンバーでもあります。Canonicalは他のリーダーとともに、OpenStackを新しい試練に向けて常に進化させています。
+        </p>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_2' -%}
+        <h3 class="p-heading--5">最も人気の高いオープンソースクラウドプラットフォーム</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_2' -%}
+        <p>
+          年々、OpenStackの採用は増加し、世界全体での市場規模は80億ドルに近づいています。OpenStackは業界大手にサポートされ、世界で何千もの組織に利用されています。OpenStackの人気は、その経済性、安定性、コードのオープンさに起因します。
+        </p>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_title_3' -%}
+        <h3 class="p-heading--5">VMwareからOpenStackへ</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_3' -%}
+        <p>
+          VMwareのコストが増えても心配は要りません。Charmed OpenStackは、クラウドインフラストラクチャのTCOを大幅に削減します。Canonicalのクラウド専門家はVMwareからCharmed OpenStackへの移行とコスト管理をお手伝いします。
+        </p>
+        <div class="p-cta-block">
+          <a href="/engage/from-vmware-to-openstack-jp">VMwareからOpenStackへの移行&nbsp;&rsaquo;</a>
+        </div>
+      {%- endif -%}
+      
+      {%- if slot == 'list_item_title_4' -%}
+        <h3 class="p-heading--5">OpenStackのインストール</h3>
+      {%- endif -%}
+
+      {%- if slot == 'list_item_description_4' -%}
+        <p>
+          最もシンプルなOpenStackのインストール方法をお探しですか？<a href="https://canonical.com/microstack">MicroStack</a>なら、わずか2つのコマンドでフル機能のOpenStackをワークステーションにインストールできます。インストール全体には約20分かかります。
+        </p>
+        <div class="p-cta-block">
+          <a href="https://ubuntu.com/openstack/install">OpenStackを使ってみる&nbsp;&rsaquo;</a>
+        </div>
+      {%- endif -%}
+    {%- endcall -%}
+  </section>
+
+  {% call(slot) vf_cta_section(
+        title_text='お問い合わせ',
+        variant='block',
+        layout='100'
+        ) -%}
+    {%- if slot == 'description' -%}
+     <p>OpenStackへの移行サポートについて、ぜひCanonicalにご相談ください。クラウド専門家のチームがあらゆる疑問にお答えします。</p>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <a href="/contact-us?product=openstack" class="p-button--positive">お問い合わせ</a>
+    {%- endif -%}
+  {% endcall -%}
+
+  <script src="{{ versioned_static('js/dist/cloud-price-slider.js') }}" defer></script>
+
+{% endblock content %}
