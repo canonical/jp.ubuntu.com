@@ -10,40 +10,77 @@
 
 {% block outer_content %}
 
-  <section class="is-bordered p-strip--light">
+  <section class="is-bordered p-strip--light is-shallow">
     <div class="row--50-50-on-large">
-      <div class="col">
+      <div class="col p-heading--display">
         <h1>このたびは、</h1>
-        <h2>お手続きいただき</h2>
-        <h2>ありがとうございます。</h2>
+        <h2 class="u-text--muted p-heading--2 u-text--light">お手続きいただき</h2>
+        <h2 class="u-text--muted p-heading--2">ありがとうございます。</h2>
       </div>
-      <div class="col">
+      <div class="col u-hide--small u-hide--medium">
         <img src="https://assets.ubuntu.com/v1/be940751-thank_you_hero.jpg" alt="happy group" height="400">
       </div>
     </div>
   </section>
-  <section class="p-strip--light">
+  <section class="p-strip--light is-shallow is-bordered">
     <div class="row">
       <div class="col-10">
-        <h2>エンタープライズ向けサービスの詳細</h2>
+        <h2 clas="p-heading--2">エンタープライズ向けサービスの詳細</h2>
       </div>
     </div>
-    <div class="row p-divider">
-      <div class="col-4 p-divider__block">
-        <h3 class="p-heading--4">Ubuntu Pro</h3>
-        <p>Ubuntuのデスクトップサポートの購入で、必要なときにいつでも Ubuntuのエキスパートへお問い合わせいただけます</p>
-        <p><a class="p-link--external" href="https://buy.ubuntu.com">Ubuntu Proの購入</a></p>
-      </div>
-      <div class="col-4 p-divider__block">
-        <h3 class="p-heading--4">Ubuntu OpenStack</h3>
-        <p>業界をリードするCanonicalのOpenStackベースのプライベートクラウドインフラストラクチャプラットフォームの詳細については、こちらをご覧ください。</p>
-        <p><a class="p-link--external" href="/openstack">Learn about Ubuntu OpenStack</a></p>
-      </div>
-      <div class="col-4 p-divider__block">
-        <h3 class="p-heading--4">Landscape</h3>
-        <p>当社のOpenStackベースのプライベートクラウドインフラストラクチャプラットフォームで企業内の Ubuntu を管理できます。</p>
-        <p><a href="/pro">Landscape の詳細&nbsp;&rsaquo;</a></p>
-      </div>
+    <div class="row">
+      <div class="col-3 u-hide--medium u-hide--small"></div>
+      <div class="col-9 p-divider p-strip--light is-shallow">
+        <div class="row">
+          <div>
+            <div class="row p-strip--light is-shallow">
+              <div class="col-3 col-medium-2">
+                <h3 class=p-heading--5>Ubuntu Pro</h3>
+              </div>
+              <div class="col-6 col-medium-3">
+                <p>
+                  CanonicalのUbuntu Proは、企業におけるUbuntu環境にサポートと保証を提供します。Ubuntu Proには、ツール、ビットストリーム、サポートサービスなどを含む多様なパッケージがあります。
+                </p>
+                <a
+                  href="https://jp.ubuntu.com/pro">詳細情報 ›</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr class="p-rule---muted" />
+          <div>
+            <div class="row p-strip--light is-shallow">
+              <div class="col-3 col-medium-2">
+                <h3 class=p-heading--5>Canonical OpenStack</h3>
+              </div>
+              <div class="col-6 col-medium-3">
+                <p>
+                  業界をリードするCanonicalのOpenStackベースのプライベートクラウドインフラストラクチャプラットフォームの詳細については、こちらをご覧ください。
+                </p>
+                <a
+                  href="https://jp.ubuntu.com/openstack">詳細情報 ›</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr class="p-rule---muted" />
+          <div>
+            <div class="row p-strip--light is-shallow">
+              <div class="col-3 col-medium-2">
+                <h3 class=p-heading--5>AI/ML</h3>
+              </div>
+              <div class="col-6 col-medium-3">
+                <p>
+                  安全でサポート付きのCanonical MLOpsを使用すれば、企業グレードのAIプロジェクトを構築できます。
+                </p>
+                <a
+                  href="https://jp.ubuntu.com/ai-ml">詳細情報 ›</a>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </section>
 
