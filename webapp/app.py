@@ -23,7 +23,6 @@ from webapp.views import (
 )
 from canonicalwebteam.cookie_service import CookieConsent
 
-
 session = talisker.requests.get_session()
 app = FlaskBase(
     __name__,
