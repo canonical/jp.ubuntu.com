@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>
 
       {% block title %}{% endblock %}
@@ -12,7 +11,7 @@
     <link rel="stylesheet"
           type="text/css"
           media="screen"
-          href="{{ versioned_static("css/styles.css") }}" />
+          href="{{ versioned_static('css/styles.css') }}" />
 
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://www.gstatic.com" />
@@ -62,13 +61,13 @@
 
     {% block head_extra %}{% endblock %}
 
-    <meta name="description" content="
+    <meta name="description" content=" 
       {% block meta_description %}Ubuntuは、PCからサーバーとクラウドまであらゆる場所で動作するオープンソースのソフトウェアプラットフォームです。{% endblock %}" />
-      <meta name="keywords" content="
+      <meta name="keywords" content=" 
         {% block meta_keywords %}{% endblock %}" />
         <meta name="author" content="Canonical" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="image" value="
+        <meta name="image" value=" 
           {% block meta_image %}{% endblock %}" />
 
           <meta name="theme-color" content="#E95420" />
@@ -78,7 +77,7 @@
           <meta property="og:url"
                 content="https://jp.ubuntu.com{{ request.get_full_path }}" />
           <meta property="og:site_name" content="Ubuntu Japan" />
-          <meta name="copydoc" content="
+          <meta name="copydoc" content=" 
             {% block meta_copydoc %}https://drive.google.com/drive/folders/0B4s80tIYQW4BMjNiMGFmNzQtNDkxZC00YmQ0LWJiZWUtNTk2YThlY2MzZmJh{% endblock %}" />
 
             {% if self.title() %}
@@ -109,11 +108,11 @@
 
             <link type="text/plain"
                   rel="author"
-                  href="{{ versioned_static("files/humans.txt") }}" />
+                  href="{{ versioned_static('files/humans.txt') }}" />
 
           </head>
 
-          <body class="
+          <body class=" 
             {% block body_class %}{% endblock %} l-site">
             <!-- Google Tag Manager (noscript) -->
             <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNDC2VM"
@@ -129,6 +128,7 @@
             <div id="main-content">
 
               {% block content_container %}
+
                 {% block outer_content %}
                 {% endblock outer_content %}
               {% endblock content_container %}

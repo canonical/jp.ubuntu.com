@@ -10,3 +10,4 @@ filelock==3.12.0
 python-dateutil==2.8.2
 pyyaml==6.0
 vcrpy-unittest==0.1.7
+black==25.1.0
