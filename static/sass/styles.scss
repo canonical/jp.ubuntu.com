@@ -29,7 +29,9 @@
 @include jp-p-lists;
 
 html {
-  font-family: "Ubuntu variable", "Noto Sans JP", -apple-system, "Segoe UI", Roboto, Oxygen, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu variable", "Noto Sans JP", -apple-system, "Segoe UI",
+    Roboto, Oxygen, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -46,12 +48,12 @@ html {
 }
 
 // XXX KW 2019-01-11 Japanese quotes fix
-.p-pull-quote>p:first-of-type::before {
+.p-pull-quote > p:first-of-type::before {
   left: -2rem;
   top: 0;
 }
 
-.p-pull-quote>p:last-of-type::after {
+.p-pull-quote > p:last-of-type::after {
   margin-left: 1.5rem;
   margin-top: 0;
 }
@@ -103,7 +105,8 @@ html {
 
 /* stylelint-disable declaration-colon-newline-after */
 .p-takeover-animation {
-  animation: fade-in map-get($animation-duration, "snap") map-get($animation-easing, "in");
+  animation: fade-in map-get($animation-duration, "snap")
+    map-get($animation-easing, "in");
   animation-delay: 2.5s;
   animation-fill-mode: backwards;
 
@@ -111,11 +114,13 @@ html {
     animation-delay: 0s !important;
 
     .col-7 {
-      animation: slide-in-from-left map-get($animation-duration, "fast") map-get($animation-easing, "out");
+      animation: slide-in-from-left map-get($animation-duration, "fast")
+        map-get($animation-easing, "out");
     }
 
     .col-5 {
-      animation: slide-in-from-right map-get($animation-duration, "fast") map-get($animation-easing, "out");
+      animation: slide-in-from-right map-get($animation-duration, "fast")
+        map-get($animation-easing, "out");
     }
   }
 
