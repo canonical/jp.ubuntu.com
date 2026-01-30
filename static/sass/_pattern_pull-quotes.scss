@@ -7,12 +7,12 @@
   .p-pull-quote > p {
     &:first-of-type::before {
       color: $color-brand;
-      content: '「';
+      content: "「";
     }
 
     &:last-of-type::after {
       color: $color-brand;
-      content: '」';
+      content: "」";
       margin-left: 0;
       margin-top: 1rem;
     }

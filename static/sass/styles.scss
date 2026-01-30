@@ -29,7 +29,9 @@
 @include jp-p-lists;
 
 html {
-  font-family: "Ubuntu variable", "Noto Sans JP", -apple-system, "Segoe UI", Roboto, Oxygen, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu variable", "Noto Sans JP", -apple-system, "Segoe UI",
+    Roboto, Oxygen, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -128,7 +130,7 @@ html {
 }
 
 .u-darker-background {
-  background-color: rgba(0  0  0 / 10%);
+  background-color: rgba(0 0 0 / 10%);
 }
 
 .p-rule--highlight {
