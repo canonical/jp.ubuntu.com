@@ -101,10 +101,6 @@
 ) }}
 
   <section class="p-section">
-    <!-- <hr class="p-rule--highlight is-fixed-width" />
-    <div class="u-fixed-width">
-      <h2 class="p-text--small-caps">お客様のコメント</h2>
-    </div> -->
     {% call(slot) vf_quote_wrapper(
       title_text="お客様のコメント",
       quote_size="small",
@@ -430,16 +426,6 @@
                   attrs={"class": "p-image-container__image"}) | safe
         }}
       </div>
-      <!-- <div class="p-image-container u-hide--medium u-hide--small">
-        {{ image(url="https://assets.ubuntu.com/v1/9bcc23aa-on%20openstack.png",
-                  alt="",
-                  width="1800",
-                  height="2701",
-                  hi_def=True,
-                  loading="lazy",
-                  attrs={"class": "p-image-container__image"}) | safe
-        }}
-      </div> -->
     {%- endif -%}
   {% endcall -%}
 
