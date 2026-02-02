@@ -7,567 +7,859 @@
 
 {% block meta_copydoc %}https://docs.google.com/document/d/1t-fQU3HfRNRVoIRjsFJRyDbHq-NvP7YapdnijAqBtNI/edit{% endblock meta_copydoc %}
 
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+{% from "_macros/vf_logo-section.jinja" import vf_logo_section %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+{% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+{% from "_macros/vf_divided-section.jinja" import vf_divided_section %}
+
+{% block body_class %}
+  is-paper
+{% endblock body_class %}
+
 {% block outer_content %}
-  <section class="p-strip is-bordered">
-    <div class="row u-equal-height u-vertically-center">
-      <div class="col-7">
-        <h1>UbuntuはKubernetes向けの先進的なプラットフォームです</h1>
-        <p>Google、Microsoft、Amazon、Cisco、IBMなどがUbuntu上でクラウド向けKubernetesサービスを実行していますが、それは当社が最新のカーネルで最新のコンテナ機能を提供することを重要視しているためです。だからこそUbuntuはオンプレミスのエンタープライズ向けKubernetesにとっても最善の選択肢であり、Microk8s、kubeadm、Charmed Ubuntu KubernetesはすべてCanonicalによってサポートされています。</p>
+  {% call(slot) vf_hero(
+    title_text='マルチクラウド運用に対応する エンタープライズグレードの Kubernetes',
+    layout='50/50-full-width-image'
+    ) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        重要なのは、Kubernetes環境のセキュリティを長期的に確保し、インフラストラクチャではなくアプリケーションに重点を置くこと。Canonical Kubernetesでは、インストールとメンテナンスに労力をかけず、コンテナ化したワークロードを安心して実行できます。
+      </p>
+    {%- endif -%}
+    {%- if slot == 'cta' -%}
+      <a href="/contact-us?product=kubernetes"
+         class="p-button--positive">お問い合わせ</a>
+      <a href="https://ubuntu.com/kubernetes/install">Canonical Kubernetesを使ってみる&nbsp;&rsaquo;</a>
+    {%- endif -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--cinematic is-cover">
+        {{ image(url="https://assets.ubuntu.com/v1/7d724c59-hero.png",
+                alt="",
+                width="3696",
+                height="1540",
+                hi_def=True,
+                loading="auto",
+                attrs={"class": "p-image-container__image"}) | safe
+        }}
       </div>
-      <div class="col-4 prefix-1 u-align--center u-hide--small">
-        <img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/dba11aee-kubernetes.svg?w=275" alt="" width="275" />
-      </div>
-    </div>
+    {% endif -%}
+  {% endcall -%}
+
+  {{ vf_basic_section(
+  title={"text": "Canonical Kubernetesプラットフォームを選ぶ理由"},
+  is_split_on_medium=true,
+  items=[
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "12年間のセキュリティメンテナンスとサポートにより、アップグレードスケジュールを柔軟に設定可能"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "ネットワーキング、ローカルストレージ、DNS、ロードバランサー、メトリクスサーバー、ゲートウェイ、イングレスに対応した最高峰のオープンソースコンポーネントを内蔵しているため、簡単に使用できる"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "設計、開発、運用まで手作業は不要（ZeroOps） ― 小さなKubernetesクラスター単位でノードを簡単に追加して管理"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "自動クラスター機能により、<a href=\"https://canonical.com/juju\">Juju</a>での大規模なメンテナンスが容易"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "セキュリティを管理した同じKubernetesをノートPCから、クラウド、データセンターまで拡張可能"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "CNCFの規格に適合"
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "secondaries": [
+          {
+            "content_html": "Ubuntu Pro購入サポート",
+            "attrs": {
+              "href": "/pro"
+            }
+          }
+        ],
+      }
+    }
+  ]
+) }}
+
+  <section class="p-section">
+    {% call(slot) vf_quote_wrapper(
+      title_text="お客様のコメント",
+      quote_size="small",
+      quote_text="「Kubernetesは変化が速く、難しいため、自社でサポートすることは現実的ではありませんでした。大変な作業になるでしょうから。サポートと更新は、その作業に毎日携わっている専門家に任せるほうが効率的です。」",
+      citation_source_name_text="Michael Hawkshaw氏",
+      citation_source_title_text="ESAミッション運用インフラストラクチャITサービスマネージャー
+欧州宇宙運用センター（ESOC）",
+      is_shallow=True
+      ) -%}
+
+      {%- if slot == 'signpost_image' -%}
+        {{ image(url="https://assets.ubuntu.com/v1/d2f13d46-logo-esa-wide.png",
+                alt="",
+                width="852",
+                height="189",
+                hi_def=True,
+                loading="lazy") | safe
+        }}
+      {%- endif -%}
+
+    {% endcall -%}
+
+    {% call(slot) vf_quote_wrapper(
+      quote_size="small",
+      quote_text="「アップストリームのKubernetesに近く、エンタープライズサポートを提供するKubernetesディストリビューションを探していました。Canonicalのサポートは質が高く、有効で、よく整理されています。」",
+      citation_source_name_text="Patric Lichtsteiner氏",
+      citation_source_title_text="Linuxシニアシステムエンジニア",
+      citation_source_organisation_text="ZHAW",
+      is_shallow=true
+      ) -%}
+
+      {%- if slot == 'signpost_image' -%}
+        {{ image(url="https://assets.ubuntu.com/v1/ecc63b0c-logo-zhaw-wide.png",
+                alt="",
+                width="852",
+                height="222",
+                hi_def=True,
+                loading="lazy") | safe
+        }}
+      {%- endif -%}
+
+    {% endcall -%}
   </section>
 
-  <section class="p-strip is-bordered">
-    <div class="u-fixed-width">
-      <div class="p-logo-section has-misaligned-images">
-        <p class="p-logo-section__title">
-          認定済みパブリッククラウドおよびオンプレミスインフラストラクチャ
+  <section class="p-section">
+    <hr class="p-rule is-fixed-width" />
+    <div class="p-section--shallow u-fixed-width">
+      <h2>2015年からKubernetesをサポート</h2>
+    </div>
+    <div class="p-section--shallow">
+      <div class="grid-row--50-50">
+        <div class="grid-col">
+          <h3>Canonical Kubernetes</h3>
+          <p>
+            信頼できるプロバイダーにKubernetesインフラストラクチャのセキュリティと自動化をお任せください。Canonicalには2015年から蓄積した経験があります。新しいKubernetesディストリビューションは、手間要らずのメンテナンス、シンプルなインストール手順、アップグレードの柔軟性が特徴です。デフォルトでセキュリティを備え、Ubuntu Proのサブスクリプションでは12年間のサポートが保証されます。
+          </p>
+
+        </div>
+        <div class="grid-col">
+          <div class="p-image-container">
+            {{ image(url="https://assets.ubuntu.com/v1/6dffa7f1-kubernetes-platform-updated.png",
+                        alt="",
+                        width="1800",
+                        height="1013",
+                        hi_def=True,
+                        attrs={"class": "p-image-container__image"},
+                        loading="lazy") | safe
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-section--shallow">
+      <div class="grid-row--25-75-on-large">
+        <hr class="p-rule--muted" />
+        <div class="grid-col">
+          <h3>その他のディストリビューション</h3>
+        </div>
+        <div class="grid-col">
+          <div class="grid-row">
+            <div class="grid-col-2 grid-col-medium-2">
+              <h4 class="p-heading--5">MicroK8s</h4>
+            </div>
+            <div class="grid-col-4 grid-col-medium-2">
+              <p>
+                クラウド、エッジ、IoTに対応する軽量でロータッチのKubernetes。すべてのKubernetesサービスと最もよく利用されているアドオンを1つのパッケージにまとめ、簡単なクラスター化、自己修復型のHA（高可用性）、シンプルなアップグレード機能を備えているため、手間がかかりません。デフォルトでセキュリティが確保されており、CNCFの規格に適合します。
+              </p>
+              <p>
+                <a href="https://canonical.com/microk8s">MicroK8sの詳細&nbsp;&rsaquo;</a>
+              </p>
+            </div>
+          </div>
+          <hr class="p-rule--muted" />
+          <div class="grid-row">
+            <div class="grid-col-2 grid-col-medium-2">
+              <h4 class="p-heading--5">Charmed Kubernetes</h4>
+            </div>
+            <div class="grid-col-4 grid-col-medium-2">
+              <p>
+                コンポーザブルで演算子ベースの企業向けKubernetes。<a href="https://canonical.com/juju">Juju</a>によるホストとインクラスターのフルライフサイクル管理に対応します。事業者グレードのハードウェアアクセラレーション機能を備え、サードパーティのコンポーネントやサービスもサポートします。デプロイは全面的にカスタマイズ可能で、CNI、CSI、CRI、モニタリングコンポーネントはプラグインです。デフォルトでセキュリティが確保されており、CNCFの規格に適合します。
+              </p>
+              <p>
+                <a href="https://ubuntu.com/kubernetes/charmed-k8s">Charmed Kubernetesの詳細&nbsp;&rsaquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <hr class="p-rule--muted" />
+      <div class="col-start-large-7 col-6">
+        <p>
+          <a class="p-button"
+             href="/contact-us?product=kubernetes"
+             >詳細のお問い合わせ</a>
         </p>
-        <div class="p-logo-section__items u-no-margin--bottom">
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/8c1c38b0-google-cloud-3.svg" alt="Google Cloud Platform"/>
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/168f7500-download.png" alt="Azure logo"  />
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/bc0dcda4-vmware-logo.svg" alt="VMware" />
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/39002345-AmazonWebservices_Logo.svg" alt="AWS" />
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/d4d3cd69-Joyent+logo.svg" alt="Joyent" />
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/cb1cc368-MAAS_black-orange_rgb.png" alt="MAAS" />
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/123fa920-openstack-logo.svg" alt="OpenStack" />
-          </div>
-
-          <div class="p-logo-section__item">
-            <img class="p-logo-section__logo" src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/5388bcc1-2018-logo-local-host.svg" alt="Local host">
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <section class="p-strip is-bordered">
-    <div class="row">
-      <div class="col-8">
-        <h2>Ubuntu上のマルチクラウドKubernetes</h2>
-        <p>パブリッククラウドからプライベートデータセンターまで、ベアメタルから仮想化インフラストラクチャまで、幅広いクラウドでテスト済みのピュアアップストリームKubernetes（K8s）を、以下のオプションから選択できます。</p>
-      </div>
-    </div>
-  </section>
+  {% call(slot) vf_rich_vertical_list(
+    title_text='Ubuntuベースの
+パブリッククラウドKubernetes',
+    list_item_tick_style="tick",
+    is_flipped=true
+  ) -%}
+    {%- if slot == 'description' -%}
+    <p class="u-no-margin--bottom">
+      クラウド向けの機能、最適化したカーネル、無限のオプション
+    </p>
+    {%- endif -%}
 
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-      <div class="col-12">
-        <h2>アップストリームK8sのオプション</h2>
-      </div>
-    </div>
+    {%- if slot == 'list_item_1' -%}
+      Ubuntuは、世界で最も人気の高いクラウドホスト型KubernetesのホストOS
+    {%- endif -%}
+    {%- if slot == 'list_item_2' -%}
+      すべての主要パブリッククラウドでパフォーマンス、ブート速度、ドライバーを最適化
+    {%- endif -%}
+    {%- if slot == 'list_item_3' -%}
+      そのままでクラウドと統合し、エンタープライズグレードの商用サポートオプションも利用可能
+    {%- endif -%}
+    {%- if slot == 'list_item_4' -%}
+      Ubuntu Proによってさらに深くクラウドサービスと統合
+    {%- endif -%}
+    {%- if slot == 'list_item_5' -%}
+      クラウド内のUbuntuパッケージミラーによる高帯域幅とローカル更新
+    {%- endif -%}
+    {%- if slot == 'list_item_6' -%}
+      Canonical Livepatchによってカーネルのセキュリティパッチ適用を全面的に制御
+    {%- endif -%}
 
-    <div class="row u-equal-height">
-      <div class="col-6 p-card">
-        <div class="p-card__header">
-          <h2 class="p-heading--4">MicroK8s</h2>
-          <p><em>ワークステーションとアプライアンス</em></p>
+    {%- if slot == 'logo_section' -%}
+      <div class="p-logo-section--dense">
+        <div class="p-logo-section__items">
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/15f4f759-aws-logo.png",
+                          alt="AWS",
+                          width="151",
+                          height="312",
+                          hi_def=True,
+                          loading="lazy",
+                          attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/f1ec4ff5-microsoft-azure-logo%20[DEPRECATED]%20.png",
+                          alt="Microsoft Azure",
+                          width="272",
+                          height="312",
+                          hi_def=True,
+                          loading="lazy",
+                          attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/c09079b4-google-cloud-logo-horizontal.png",
+                          alt="Google Cloud",
+                          width="382",
+                          height="313",
+                          hi_def=True,
+                          loading="lazy",
+                          attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
+          <br class="u-hide--small u-hide--medium" />
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/4a30e5f7-ibm-cloud-logo.png",
+                          alt="IBM Cloud",
+                          width="437",
+                          height="312",
+                          hi_def=True,
+                          loading="lazy",
+                          attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/dbab531e-oracle-cloud-logo.png",
+                          alt="Oracle Cloud",
+                          width="387",
+                          height="312",
+                          hi_def=True,
+                          loading="lazy",
+                          attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
         </div>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">シングルパッケージのインストール</li>
-          <li class="p-list__item is-ticked">アップストリームリリースの追跡</li>
-          <li class="p-list__item is-ticked">Istio、組み込みレジストリ</li>
-          <li class="p-list__item is-ticked">ローカルインスタンスストレージ</li>
-        </ul>
-        <p>Microk8sはラピッドイテレーション向けの高速で効率的なアップストリームK8sとして開発者に人気です。また、IoTやアプライアンス向けのセキュアで堅牢なK8sとしても人気があります。</p>
-        <p><a href="https://microk8s.io/" class="p-link--external">インストールガイド</a></p>
       </div>
-      <div class="col-6 p-card">
-        <div class="p-card__header">
-          <h2 class="p-heading--4">Charmed Kubernetes</h2>
-          <p><em>推奨マルチクラウドクラスター</em></p>
+    {%- endif -%}
+
+    {%- if slot == 'cta' -%}
+      <a href="https://ubuntu.com/cloud/public-cloud">パブリッククラウド上のUbuntuの詳細 &rsaquo;</a>
+    {%- endif -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
+        {{ image(url="https://assets.ubuntu.com/v1/5a2779e1-public%20cloud.png",
+                  alt="",
+                  width="1800",
+                  height="2701",
+                  hi_def=True,
+                  loading="lazy",
+                  attrs={"class": "p-image-container__image"}) | safe
+        }}
+      </div>
+      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
+        {{ image(url="https://assets.ubuntu.com/v1/5a2779e1-public%20cloud.png",
+                  alt="",
+                  width="1800",
+                  height="2701",
+                  hi_def=True,
+                  loading="lazy",
+                  attrs={"class": "p-image-container__image"}) | safe
+        }}
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+
+  {% call(slot) vf_rich_vertical_list(
+    title_text='総合的な
+クラスター管理プラットフォーム',
+    list_item_tick_style="tick"
+  ) -%}
+    {%- if slot == 'description' -%}
+    <p class="u-no-margin--bottom">
+      Kubernetesクラスター管理の面倒を解消
+    </p>
+    {%- endif -%}
+
+    {%- if slot == 'list_item_1' -%}
+      yamlやcliは不要、一般的なGUIを統合
+    {%- endif -%}
+    {%- if slot == 'list_item_2' -%}
+      1つの画面でKubernetesとコンテナを可視化
+    {%- endif -%}
+    {%- if slot == 'list_item_3' -%}
+      マルチクラスター管理とリアルタイムモニタリングを統一
+    {%- endif -%}
+    {%- if slot == 'list_item_4' -%}
+      ポリシーベースの管理、ガバナンス、セキュリティ、コンプライアンス
+    {%- endif -%}
+    {%- if slot == 'list_item_5' -%}
+      GitOpsでアプリケーションの大規模な管理と設定に対応
+    {%- endif -%}
+    {%- if slot == 'list_item_6' -%}
+      パブリッククラウドからエッジまで共通する柔軟性
+    {%- endif -%}
+
+    {%- if slot == 'logo_section' -%}
+      <div class="p-logo-section--dense">
+        <div class="p-logo-section__items">
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/58440b6b-rancher-logo.png",
+                            alt="Rancher",
+                            width="107",
+                            height="96",
+                            hi_def=True,
+                            loading="lazy",
+                            attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/19c3c265-spectrocloud-logo.png",
+                            alt="Spectro Cloud",
+                            width="87",
+                            height="96",
+                            hi_def=True,
+                            loading="lazy",
+                            attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
+          <div class="p-logo-section__item">
+            {{ image(url="https://assets.ubuntu.com/v1/9ffbe97e-azure-arc-logo.png",
+                            alt="Azure arc",
+                            width="42",
+                            height="96",
+                            hi_def=True,
+                            loading="lazy",
+                            attrs={"class": "p-logo-section__logo"}) | safe
+            }}
+          </div>
         </div>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">ベアメタル、VMware</li>
-          <li class="p-list__item is-ticked">AWS、Azure、Google、Oracle、Rackspace、OpenStack</li>
-          <li class="p-list__item is-ticked">パブリッククラウドLBaaS（Load Balancer as a Service）、ストレージ、ネットワーキングの統合</li>
-          <li class="p-list__item is-ticked">高可用性の組み込み</li>
-          <li class="p-list__item is-ticked">Istioとレジストリの組み込み</li>
-          <li class="p-list__item is-ticked">適切なアップグレード</li>
-          <li class="p-list__item is-ticked">自動スケーリング</li>
-        </ul>
-        <p>複数の物理マシンまたは仮想マシンでのK8sクラスターのデプロイ、スケール、アップグレード。長期サポートと運用の自動化。Graylog、Prometheus、Grafanaとの統合。</p>
-
-        <p><a href="https://conjure-up.io/" class="p-link--external">インストールガイド</a></p>
       </div>
-    </div>
-  </section>
+    {%- endif -%}
 
-  <section class="p-strip is-bordered">
-    <div class="row">
-      <h2>Charmed Kubernetesの特長</h2>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <ul class="p-matrix is-trisected">
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">マルチクラウド</h3>
-              <p class="p-matrix__desc">AWS、Azure、Google、Oracle、Rackspace、SoftLayer、またはプライベートVMwareやOpenStackで安定してデプロイおよび運用されます</p>
-            </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">Kubernetesの最新状態を維持</h3>
-              <p class="p-matrix__desc">Canonicalでは、新しい安定版アップストリームK8sの各リリースやエッジビルドへのアップグレードが可能であり、必要に応じてすぐに最新バージョンに移行できます</p>
-            </div>
-            </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">セキュア</h3>
-              <p class="p-matrix__desc">CanonicalのK8sディストリビューションの各コンポーネントはセキュリティメンテナンスを受け、すべてのコンポーネントがTLS暗号で通信します</p>
-            </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">サポート</h3>
-              <div class="p-matrix__desc">
-                <p>CanonicalによるK8sのエンタープライズ向けサポートは、一連のSLAと物理/仮想/クラウドの選択肢と合わせて、標準のUbuntuサポートパッケージに含まれています。Canonicalは、カーネルからK8sまでフルスタックをサポートします</p>
-                <p><a href="/pro#kubernetes">Kubernetesのサポートに関する詳細&nbsp;&rsaquo;</a></p>
+    {%- if slot == 'image' -%}
+    <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
+        {{ image(url="https://assets.ubuntu.com/v1/9bcc23aa-on%20openstack.png",
+                  alt="",
+                  width="1800",
+                  height="2701",
+                  hi_def=True,
+                  loading="lazy",
+                  attrs={"class": "p-image-container__image"}) | safe
+        }}
+      </div>
+      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
+        {{ image(url="https://assets.ubuntu.com/v1/9bcc23aa-on%20openstack.png",
+                  alt="",
+                  width="1800",
+                  height="2701",
+                  hi_def=True,
+                  loading="lazy",
+                  attrs={"class": "p-image-container__image"}) | safe
+        }}
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+
+  <section class="p-section">
+    {{ vf_basic_section(
+      title={"text": "Kubernetesへの
+                <br class=\"u-hide--medium u-hide--small\" />
+                移行をスタート"},
+      padding="shallow",
+      is_split_on_medium=true,
+      items=[
+        {
+          "type": "description",
+          "item": {
+            "type": "text",
+            "content": "CanonicalのKubernetesコンサルティング/クラスターデプロイサービス"
+          }
+        },
+        {
+          "type": "cta-block",
+          "item": {
+            "link": {
+              "content_html": "詳細を問い合わせる ›",
+              "attrs": {
+                "href": "/contact-us?product=kubernetes"
+              }
+            }
+          }
+        }
+      ]
+    ) }}
+    <div class="p-section--shallow">
+      <div class="grid-row--50-50">
+        <div class="grid-col">
+          <hr class="p-rule--highlight u-no-margin--bottom" />
+          <div class="p-card--overlay u-no-padding--top"
+               style="padding: 1.5rem;
+                      height: 95%;
+                      overflow: hidden">
+            <div class="row p-section--shallow">
+              <div class="col">
+                <h3>Kubernetes Explorer</h3>
+                <p class="u-text--muted">チームのスキルを高める3日間のKubernetesトレーニングです。</p>
               </div>
             </div>
-            </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">拡張可能</h3>
-              <p class="p-matrix__desc">標準オープンソースのログ記録、モニタリング、アラート、ストレージ、ネットワーキング、コンテナランタイムを容易に統合。詳細なカスタマイズのためのコンサルティングを提供しています</p>
-            </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">マネージドKubernetes</h3>
-              <div class="p-matrix__desc">
-                <p>リクエストに応じて、Canonicalのリモート運用部門がお客様の代わりにオンプレミスまたはお客様の選択したパブリッククラウドでKubernetesを構築および運用します。お客様の運用部門へのクラスター管理の引き渡しは、必要な時にいつでも行っていただけます</p>
-                <p><a href="#managed-packages">マネージドKubernetesに関する詳細&nbsp;&rsaquo;</a></p>
+            <hr class="p-rule--muted u-no-margin--bottom" />
+            <div class="grid-row">
+              <div class="grid-col-1">
+                <h4 class="p-text--small-caps">内容</h4>
+              </div>
+              <div class="grid-col-3">
+                <ul class="p-list--divided">
+                  <li class="p-list__item is-ticked">Kubernetesの基本</li>
+                  <li class="p-list__item is-ticked">コンテナ開発の基礎</li>
+                  <li class="p-list__item is-ticked">MicroK8sの運用準備</li>
+                  <li class="p-list__item is-ticked">Charmed Kubernetesの運用準備</li>
+                  <li class="p-list__item is-ticked">モニタリングとログ記録</li>
+                  <li class="p-list__item is-ticked">Kubernetesのライフサイクル管理</li>
+                  <li class="p-list__item is-ticked">セキュリティに関する知識</li>
+                </ul>
               </div>
             </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">GPUとCUDAに対応</h3>
-              <p class="p-matrix__desc">K8sでの機械学習、AI、トランスコーディングのワークロードを加速するため、GPGPUリソースを自動的に検出し、構成します</p>
-            </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--p-heading--4">コンバージド</h3>
-              <p class="p-matrix__desc">ストレージ、ネットワーキング、コンピュートは当社のハイパーコンバージドリファレンスアーキテクチャにオーバーレイされ、リソースの効率的な使用と高可用性フェイルオーバーが確保されます</p>
-            </div>
-            </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">準拠</h3>
-              <p class="p-matrix__desc">Charmed Kubernetesはこれまで一貫して、K8sテストスイートのパフォーマンスとAPI仕様準拠の分野をリードしてきました</p>
-            </div>
-          </li>
-
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">回復力</h3>
-              <p class="p-matrix__desc">Charmed K8sのデプロイは高可用性の設計になっており、ダウンタイムなしでアップグレード可能です</p>
-            </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">ベアメタル</h3>
-              <p class="p-matrix__desc">ベアメタルサーバー上でデプロイすることで、高可用性、GPGPUの自動検出、ソフトウェア定義ストレージ（SDS）を持った最高のパフォーマンスが可能になります</p>
-            </div>
-          </li>
-          <li class="p-matrix__item">
-            <div class="p-matrix__content">
-              <h3 class="p-matrix__title p-heading--4">ネイティブ</h3>
-              <p class="p-matrix__desc">ストレージ、アイデンティティ、その他のサービスを最適化するために、下層のパブリッククラウドSaaS（Software as a Service）との統合が可能です</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="p-strip--light is-bordered" id="bare-metal">
-    <div class="row">
-      <div class="col-10">
-        <h2>Charmed KubernetesはOpenStack、VMware、ベアメタルと完璧に適合します</h2>
-        <p>あらゆるマルチクラウド業務にとって、Kubernetesが運用レイヤの新しいスタンダードであることは間違いありません。Canonicalは、OpenStack、VMware、パブリッククラウド、MAAS（Metal as a Service）を伴ったベアメタルクラスター上で、DevOps（開発と運用）部門向けにオンデマンドでのK8sを可能にします。</p>
-        <p>CanonicalのKubernetesのディストリビューションにより、エンタープライズ全体を網羅した「Containers as a Service」の提供が可能になります。各プロジェクトは集中型の運用管理により、任意の規模の標準化されたK8sをオンデマンドでスピンアップできます。</p>
-      </div>
-    </div>
-    <div class="row">
-      <ul class="p-list is-split">
-        <li class="p-list__item is-ticked">Ubuntuによるマルチクラウドでのワークロードの移植性</li>
-        <li class="p-list__item is-ticked">OpenStack、VMware、AWS、GCP、Azureでの、LBaaSなどの仮想基板機能、ストレージ、ネットワーキングとの密接な統合</li>
-        <li class="p-list__item is-ticked">Google、Azure、AWSのK8sサービスと同じUbuntu OSおよびカーネル</li>
-        <li class="p-list__item is-ticked">Charmed Kubernetesとkubeadmを使ってデプロイされたK8sのサポート</li>
-        <li class="p-list__item is-ticked">CNCF Kubernetesバイナリのサポート</li>
-        <li class="p-list__item is-ticked">GPGPU、FPGA、SR-IOVのワークロードに対するPCIデバイスパススルー</li>
-        <li class="p-list__item is-ticked">NVIDIAとGoogleによるAIと機械学習の最適化</li>
-        <li class="p-list__item is-ticked">Google、Azure、AWS上のパブリッククラウドK8sに適合するFlavours</li>
-        <li class="p-list__item is-ticked">標準アップストリームKubernetes、CNCFビルドが利用可能</li>
-        <li class="p-list__item is-ticked">CI/CD向けサードパーティ認定ソリューションのポートフォリオ</li>
-        <li class="p-list__item is-ticked">Day-2オペレーションのカプセル化と標準装備</li>
-        <li class="p-list__item is-ticked">K8sのリリース間のアップグレード保証</li>
-        <li class="p-list__item is-ticked">Ubuntuと同様のCanonicalによるセキュリティアップデート</li>
-        <li class="p-list__item is-ticked">Dockerおよびコンテナランタイムとの完全なOCI互換性</li>
-        <li class="p-list__item is-ticked">PrometheusおよびELKのログ記録とモニタリングの標準装備</li>
-        <li class="p-list__item is-ticked">ストレージ、ネットワーキング向けの拡張可能なサードパーティのエコシステム</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="p-strip is-bordered">
-    <div class="row">
-      <div class="col-8">
-        <h2>ネットワーキング</h2>
-        <p>Kubernetesではお客様のネットワーキングの実装に以下の基本要件が課されます</p>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">すべてのコンテナが、NAT不要で他のすべてのコンテナと通信可能</li>
-          <li class="p-list__item is-ticked">すべてのノードが、NAT不要ですべてのコンテナと通信可能（その逆も可能）</li>
-          <li class="p-list__item is-ticked">コンテナがそのコンテナ自身を参照するIPが、他のコンテナがそのコンテナを参照するIPと同じ</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <p>Kubernetesは、Container Network Interface（CNI）をネットワークプロバイダーとKubernetesネットワーキングとの間のインターフェイスとして使用します。CNIは、Cloud Native Computing Foundationプロジェクト傘下のライブラリ定義とツールセットです。</p>
-      </div>
-    </div>
-    <div class="row u-equal-height">
-      <div class="col-8">
-        <h3>CNIプラグイン</h3>
-        <p>Ubuntu K8sはCalicoやFlannelなど複数のテスト済みCNIプラグインによって、事前にパッケージ化されています。CanonicalのKubernetesのディストリビューションはオープンで拡張可能です。お客様が自由にCNIプラグインを取り込み、Charmed Kubernetesを拡張できます。</p>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">コンテナや仮想マシンに対するセキュアなネットワーク接続性</li>
-          <li class="p-list__item is-ticked">カプセル化されていないフラットなレイヤ3ネットワーク</li>
-          <li class="p-list__item is-ticked">完全にルーティング可能なIPアドレス</li>
-          <li class="p-list__item is-ticked">ベアメタルのパフォーマンス</li>
-          <li class="p-list__item is-ticked">オーバーレイのサポートのためのIP-in-IPトンネリング</li>
-          <li class="p-list__item is-ticked">ダイナミックネットワークセキュリティルール</li>
-          <li class="p-list__item is-ticked">コンテナ間の通信、仮想マシンのワークロード、ベアメタルのホストエンドポイントの詳細な制御</li>
-          <li class="p-list__item is-ticked">本番環境の規模</li>
-        </ul>
-      </div>
-      <div class="col-4 u-vertically-center u-align--center u-hide--small">
-        <img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/a6fdc787-logo.png" alt="">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <p>お客様のプライベートクラウドネットワークのアンダーレイ（物理または仮想ホスト間を接続するネットワーク）の支援には、Canonicalがハイパースケールパブリッククラウドとの協業を通して得た、大規模なマルチテナント運用におけるクラウドネットワークのパフォーマンスとセキュリティのベストプラクティスのダイナミクスに関する優れた知見を活用いただけます。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-      <h1>ストレージ</h1>
-    </div>
-    <div class="row u-equal-height">
-      <div class="col-8">
-        <p>Kubernetesは多数のプラグインシステムを提供しており、さまざまな種類のストレージシステムで以下のことを行えます</p>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">必要に応じたストレージの自動作成</li>
-          <li class="p-list__item is-ticked">スケジュールされたコンテナでのストレージの使用</li>
-          <li class="p-list__item is-ticked">不要になったストレージの自動削除</li>
-        </ul>
-        <p>ストレージ機能一式とプラグインエコシステムの拡張性を向上させるため、Kubernetesは新たな戦略としてContainer Storage Interface（CSI）を発表しました。現時点ではベータ版です。CSIによって、ストレージプラグインをKubernetes GitHubツリーから独立して開発し、コンテナ化を行い、標準Kubernetesプリミティブを通じてデプロイし、ユーザーが使い慣れたお気に入りのKubernetesストレージプリミティブ（PersistentVolumeClaims, PersistentVolumes, StorageClasses）を通じて利用できます。Charmed Kubernetesの次期ドットリリースではCSIへのアーリーアクセスが提供されます。</p>
-      </div>
-      <div class="col-4 u-vertically-center u-align--center u-hide--small">
-        <img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/4bf27234-logo+%281%29.png" alt="">
-      </div>
-    </div>
-  </section>
-
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-      <h2>エンタープライズ向けのKubernetesを開始する</h2>
-      <p>Canonicalはコンサルティング、サポート、マネージドK8sパッケージを提供します。</p>
-    </div>
-    <div class="row">
-      <div class="col-4 p-card">
-        <a href="#consulting-packages">コンサルティングパッケージ&nbsp;&rsaquo;</a>
-      </div>
-      <div class="col-4 p-card">
-        <a href="#supported-packages">K8sのサポート&nbsp;&rsaquo;</a>
-      </div>
-      <div class="col-4 p-card">
-        <a href="#managed-packages">コンサルティングパッケージ&nbsp;&rsaquo;</a>
-      </div>
-    </div>
-    <div class="row">
-      <h2 id="consulting-packages">Kubernetesコンサルティングパッケージ</h2>
-    </div>
-    <div class="row u-equal-height">
-      <div class="col-6 p-card">
-        <div class="p-card__header">
-          <h2 class="p-heading--4">Kubernetes Explorer</h2>
-          <p><span class="p-heading--2">23,500ドル</span><br />1回限りの料金</p>
+          </div>
         </div>
-        <p>Canonical Kubernetesとツールに関する3日間のトレーニングです。お客様のKubernetesのスキルを強化し、独自環境でのデプロイを可能にします。</p>
-        <p>内容：</p>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">Kubernetesとコンテナの基礎</li>
-          <li class="p-list__item is-ticked">リファレンスアーキテクチャ</li>
-          <li class="p-list__item is-ticked">複数の基板でのデプロイ</li>
-          <li class="p-list__item is-ticked">セキュリティとパッチ</li>
-          <li class="p-list__item is-ticked">モニタリングとログ記録</li>
-          <li class="p-list__item is-ticked">ライフサイクル管理</li>
-          <li class="p-list__item is-ticked">バックアップとリカバリ</li>
-        </ul>
-        <p><a href="/contact-us?product=kubernetes">Kubernetes Explorerに関するお問い合わせ&nbsp;&rsaquo;</a></p>
-      </div>
-      <div class="col-6 p-card">
-        <div class="p-card__header">
-          <h2 class="p-heading--4">Kubernetes Discoverer</h2>
-          <p><span class="p-heading--2">45,000ドル</span><br />1回限りの料金</p>
+        <div class="grid-col">
+          <hr class="p-rule--highlight u-no-margin--bottom" />
+          <div class="p-card--overlay u-no-padding--top"
+               style="padding: 1.5rem;
+                      height: 95%;
+                      overflow: hidden">
+            <div class="row">
+              <div class="col">
+                <div class="p-section--shallow">
+                  <h3 class="js-discoverer-text">Kubernetes Discoverer</h3>
+                  <p class="u-text--muted js-discoverer-description">
+                    3日間のトレーニングの後、2週間でKubernetesのリファレンスアーキテクチャをデプロイします。
+                  </p>
+                </div>
+                <div style="display:inline-flex;">
+                  <span class="p-heading--5">Discoverer</span>
+                  <label class="p-switch"
+                         aria-label="Toggle between Kubernetes Discoverer and Discoverer Plus plans"
+                         style="display: inline-block;
+                                padding-left: 32px;
+                                padding-right: 32px">
+                    <input type="checkbox"
+                           class="p-switch__input js-discoverer-switch"
+                           role="switch" />
+                    <span class="p-switch__slider"></span>
+                  </label>
+                  <span class="p-heading--5">Discoverer Plus</span>
+                </div>
+              </div>
+            </div>
+            <hr class="p-rule--muted u-no-margin--bottom" />
+            <div class="grid-row">
+              <div class="grid-col-1">
+                <h4 class="p-text--small-caps">内容</h4>
+              </div>
+              <div class="grid-col-3">
+                <ul class="p-list--divided">
+                  <li class="p-list__item is-ticked">高可用性</li>
+                  <li class="p-list__item is-ticked js-discoverer-item">
+                    <a href="https://ubuntu.com/public-cloud">パブリッククラウド</a>, VMware, <a href="/openstack">OpenStack</a>
+                  </li>
+                  <li class="p-list__item is-ticked u-hide js-discoverer-pro-item">
+                    <a href="https://ubuntu.com/public-cloud">パブリッククラウド</a>, VMware, <a href="/openstack">OpenStack</a>, <a href="https://canonical.com/maas/">ベアメタル</a>
+                  </li>
+                  <li class="p-list__item is-ticked js-discoverer-item">ストレージとSDNの基本オプション</li>
+                  <li class="p-list__item is-ticked u-hide js-discoverer-pro-item">ログ記録、モニタリング、アラート</li>
+                  <li class="p-list__item is-ticked">ログ記録、モニタリング、アラート</li>
+                  <li class="p-list__item is-ticked">Kubernetesのライフサイクル管理</li>
+                  <li class="p-list__item is-ticked">セキュリティに関する知識</li>
+                  <li class="p-list__item is-ticked">サポート型とフルマネージド型</li>
+
+                  <li class="p-list__item is-crossed u-text--muted js-discoverer-muted-item">サードパーティ製品との統合</li>
+                  <li class="p-list__item is-crossed u-text--muted js-discoverer-muted-item">GPUアクセラレーション</li>
+                  <li class="p-list__item is-crossed u-text--muted js-discoverer-muted-item">プライベートレジストリオプション</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <p>仮想化環境、プライベートクラウド、パブリッククラウドでのデプロイなど、お客様の要件に合わせたカスタムアーキテクチャを 1 週間で構築して運用します。</p>
-        <p>内容:</p>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">可用性の高いKubernetesをパブリッククラウド、VMware、OpenStackでデプロイ</li>
-          <li class="p-list__item is-ticked">お客様のワークロードに合わせて最適化されたカスタムKubernetesアーキテクチャ</li>
-          <li class="p-list__item is-ticked">Calico、Canal、Flannelのネットワーキング</li>
-          <li class="p-list__item is-ticked">3 日間の対面でのCanonical Kubernetesオンサイトトレーニング</li>
-        </ul>
-        <p><a href="/contact-us?product=kubernetes">Kubernetes Discovererについてのお問い合わせ先&nbsp;&rsaquo;</a></p>
-      </div>
-      <div class="col-6 p-card">
-        <div class="p-card__header">
-          <h2 class="p-heading--4">Kubernetes Discoverer Plus</h2>
-          <p><span class="p-heading--2">95,000ドル</span><br />1回限りの料金</p>
-        </div>
-        <p>お客様の要件に適したモジュール式のエコシステムによる本番稼働レベルのKubernetesクラスターを、3週間で構築して運用します。仮想化環境またベアメタルをデプロイします。</p>
-        <p>内容:</p>
-        <ul class="p-list">
-          <li class="p-list__item is-ticked">可用性の高い本番稼働レベルのKubernetesをパブリッククラウド、VMware、OpenStack、ベアメタルでデプロイ</li>
-          <li class="p-list__item is-ticked">GPUアクセラレーション</li>
-          <li class="p-list__item is-ticked">永続ボリューム用ストレージ</li>
-          <li class="p-list__item is-ticked">カスタムネットワーキングのオプション</li>
-          <li class="p-list__item is-ticked">管理プラットフォーム</li>
-          <li class="p-list__item is-ticked">プライベートレジストリ</li>
-          <li class="p-list__item is-ticked">ロードバランサー</li>
-          <li class="p-list__item is-ticked">アプリケーションカタログ</li>
-          <li class="p-list__item is-ticked">2日間の対面でのKubernetesオペレーターへのオンサイトでの知識提供</li>
-        </ul>
-        <p><a href="/contact-us?product=kubernetes">Kubernetes Discoverer Plusに関するお問い合わせ&nbsp;&rsaquo;</a></p>
+
       </div>
     </div>
   </section>
 
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-      <div class="col-12">
-        <h3>DiscovererおよびDiscoverer Plus向けのAI（人工知能）/ ML（機械学習）アドオン</h3>
-        <p>機械学習のツールと運用を幅広く理解するためにK8sワークショップを活用してください。開発者ワークステーションからデータセンターやパブリッククラウドまで、完全なAI分析パイプラインの構築が可能です。GPGPUの統合、パブリッククラウドの最適化、KubeflowやTensorflowなどのツールが対象です。ワークショップには独立系のデータサイエンティストによる評価が含まれています。Canonicalはハードウェア、クラウド、データ分析の大手企業との協力により、お客様のAI戦略への統合のための幅広い選択肢を提供しています。</p>
-        <p><a href="/ai-ml">KubernetesとAI/MLに関する詳細&nbsp;&rsaquo;</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-    <div class="col-9">
-      <h2 id="supported-packages">Kubernetesエンタープライズ向けサポート</h2>
-    </div>
+  {{ vf_basic_section(
+  title={"text": "フルマネージドKubernetes"},
+  padding="shallow",
+  is_split_on_medium=true,
+  items=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "パブリッククラウドとプライベートクラウド上で使用できる経済的な Kubernetes-as-a-service",
+      }
+    },
+    {
+      "type": "list",
+      "item": {
+        "list_items": [
+          {
+            "list_item_type": "tick",
+            "content": "予測可能なコスト、フルスタックのモニタリング、責任の明確な所在"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "ユーザーのニーズに応じてKubernetesデプロイをカスタマイズ"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "専門チームが24時間無休で管理"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "稼働時間99.9%のSLAでビジネスに全力を集中"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "トラフィックのピークがある場合は、要望に応じて規模を調整"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "SAASとして最新の安定版Kubernetesに速やかにアップグレード"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "データとセキュリティは業界規格に適合"
+          },
+          {
+            "list_item_type": "tick",
+            "content": "いつでもKubernetesを自社管理に戻すことが可能"
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "link": {
+            "content_html": "マネージドKubernetesの詳細",
+            "attrs": {
+              "href": "https://ubuntu.com/kubernetes/managed"
+            }
+          }
+      }
+    }
+  ]
+) }}
+<div class="p-section">
+  <div class="p-image-container--cinematic u-fixed-width">
+    {{ image(url="https://assets.ubuntu.com/v1/e8cb6c61-fully-managed.png",
+          alt="",
+          width="3696",
+          height="1541",
+          hi_def=True,
+          loading="lazy",
+          attrs={"class":"p-image-container__image"}) | safe
+    }}
   </div>
-    <div class="row">
-      <div class="col-8">
-        <p>UbuntuのKubernetesエンタープライズ向けサポートは、<a href="/pro">Ubuntu Pro</a>の一部としてCanonicalが提供しています。また、Ubuntu Proには長期のセキュリティメンテナンス、カーネルのライブパッチ、カーネルからコンテナまでフルスタックのミッションクリティカルなインフラストラクチャのサポートが含まれています。Canonicalは、パブリッククラウド、VMware、OpenStack、ベアメタルでのUbuntu上のK8sをサポートしています。</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12" style="overflow-x: auto;">
-        <table class="p-table" style="width: auto;">
-          <thead>
-            <tr>
-              <th>&nbsp;</th>
-              <th class="u-align--center">Ubuntu</th>
-              <th class="p-table__cell--highlight u-align--center" colspan="2">Kubernetes向けUbuntu Pro</th>
-              <th class="p-table__cell--highlight u-align--center">マネージドKubernetes</th>
-            </tr>
-            <tr>
-              <th>&nbsp;</th>
-              <th class="u-align--center">サポートなし</th>
-              <th class="p-table__cell--highlight u-align--center">スタンダード</th>
-              <th class="p-table__cell--highlight u-align--center">アドバンスト</th>
-              <th class="p-table__cell--highlight u-align--center">マネージド</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ノードあたりの価格（物理） <sup><a href="#fn-ks">*</a></sup></td>
-              <td class="u-align--center">0ドル</td>
-              <td class="p-table__cell--highlight u-align--center">750ドル/年</td>
-              <td class="p-table__cell--highlight u-align--center">1,500ドル/年</td>
-              <td class="p-table__cell--highlight u-align--center">4,380ドル/年</td>
-            </tr>
-            <tr>
-              <td>ノードあたりの価格 (virtual) <sup><a href="#fn-ks">*</a></sup></td>
-              <td class="u-align--center">0ドル</td>
-              <td class="p-table__cell--highlight u-align--center">250ドル/年</td>
-              <td class="p-table__cell--highlight u-align--center">500ドル/年</td>
-              <td class="p-table__cell--highlight u-align--center">1,460ドル/年</td>
-            </tr>
-            <tr>
-              <td>電話およびウェブチケットによるサポート</td>
-              <td class="u-align--center">なし</td>
-              <td class="p-table__cell--highlight u-align--center">平日の午前8時～午後6時</td>
-              <td class="p-table__cell--highlight u-align--center">毎日24時間</td>
-              <td class="p-table__cell--highlight u-align--center">毎日24時間</td>
-            </tr>
-            <tr>
-              <td>業界有数のクラウド運用ツール（Ubuntu、MAAS、Juju、LXD）</td>
-              <td class="u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>K8sのデプロイ、実行、拡張、アップグレード</td>
-              <td class="u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>モニタリングとログ記録</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>Landscapeによる管理</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>Livepatch</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>Knowledge Base</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>高可用性サポート</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>Canonicalのクラウドエキスパートによる24時間体制のリモート運用、スマートアラート、予防的なモニタリング</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight">&nbsp;</td>
-              <td class="p-table__cell--highlight">&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-            <tr>
-              <td>災害時の復旧</td>
-              <td>&nbsp;</td>
-              <td class="p-table__cell--highlight">&nbsp;</td>
-              <td class="p-table__cell--highlight">&nbsp;</td>
-              <td class="p-table__cell--highlight u-align--center"><img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/f1a7515d-tick-darkaubergine.svg" alt="Yes"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="row" id="fn-ks">
-        <div class="col-12">
-          <p><small><sup>*</sup> 最低価格が適用されます</small></p>
-          <p><a href="/contact-us?product=kubernetes">Kubernetesのサポートに関する詳細は、こちらからお問い合わせください&nbsp;&rsaquo;</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="p-strip is-bordered">
-    <div class="row">
-      <h2 id="managed-packages">マネージドKubernetes</h2>
-      <p class="p-heading--4">手頃な予算、信頼性、サポート</p>
-      <p class="u-sv3">プライベートKubernetesクラスターはパブリッククラウドに対してコスト競争力がなければなりません。また、迅速で信頼できる必要があります。Canonicalは、大規模Kubernetesにおける経験と複雑な規制要件への適合によって、SLAを満たす効果的で回復力のあるプライベートKubernetesクラスターを提供します。</p>
-    </div>
-    <div class="row p-divider u-equal-height">
-      <div class="col-4 p-divider__block">
-        <h2 class="p-heading--3">経済性</h2>
-        <p>予測可能な設備投資（CAPEX）と予測可能な運用コスト（OPEX）は、長期間にわたる密度の効果が直接お客様の利益として表れることを意味します。</p>
-      </div>
-      <div class="col-4 p-divider__block">
-        <h2 class="p-heading--3">信頼性</h2>
-        <p>Canonicalによって構築されたKubernetesクラスターはすべて、新しいバージョンにいつでもアップグレードできます。</p>
-      </div>
-      <div class="col-4 p-divider__block">
-        <h2 class="p-heading--3">ピュアアップストリーム</h2>
-        <p>Canonicalは、Googleやコミュニティと直接協力してピュアKubernetesの体験をオンプレミスで提供し、Google GKE、Amazon EKS、Azure AKSなど、すべてのパブリックKubernetesサービスとの互換性を最大化します。</p>
-      </div>
-    </div>
-  </section>
+  {% call(slot) vf_logo_section(
+    mode="default",
+    title={
+      "text": "フルサポートのKubernetesクラウド"
+    },
+    blocks=[
+      {
+        "type": "logo-block",
+        "item": {
+          "logos": [
+            image(url="https://assets.ubuntu.com/v1/3948d6dd-openstack-logo.png",
+                        alt="OpenStack",
+                        width="182",
+                        height="138",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/4452b734-vmware-logo.png",
+                        alt="VMWare",
+                        width="140",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/d987ba27-Rackspace%20logo.png",
+                        alt="Rackspace",
+                        width="155",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/05285685-equinix-logo.png",
+                        alt="Equinix",
+                        width="113",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/dae49585-joyent-logo.png",
+                        alt="Joyent",
+                        width="105",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/b526fd14-cloud-sigma-logo.png",
+                        alt="CloudSigma",
+                        width="141",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/4ec1a195-maas-logo.png",
+                        alt="Canonical MAAS",
+                        width="87",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs"),
+            image(url="https://assets.ubuntu.com/v1/cd584004-lxd-logo.png",
+                        alt="Canonical LXD",
+                        width="66",
+                        height="135",
+                        hi_def=True,
+                        loading="lazy",
+                        output_mode="attrs")
+          ]
+        }
+      }
+    ]
+  ) -%}
+{% endcall -%}
 
-  <section class="p-strip--light is-bordered">
-    <div class="row">
-      <div class="col-8">
-        <h2>お客様のマルチクラウド戦略に適合</h2>
-        <p class="u-sv3">固定ワークロードと可変ワークロードの両方でレイテンシと価格を最適に組み合わせるため、Canonicalではマルチクラウドの運用戦略をお勧めします。Canonicalはすべての大手パブリッククラウドのリーディングパートナーであり、プライベートとパブリックの両方の運用に対してクラウドニュートラルなアドバイスを提供できます。ワークロードにとって最適な場所は、慣習ではなく経済性を基準にして決定する必要があります。自由に選択できることが鍵となります。</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <h3>フルマネージドKubernetes</h3>
-        <ul class="p-list--divided">
-          <li class="p-list__item is-ticked">密度とパフォーマンスの管理</li>
-          <li class="p-list__item is-ticked">ベアメタルの速度対応コンテナ</li>
-          <li class="p-list__item is-ticked">長期的なワークロードに対するCAPEX</li>
-          <li class="p-list__item is-ticked">規制対応</li>
-          <li class="p-list__item is-ticked">データ主権</li>
-          <li class="p-list__item is-ticked">既存のフットプリント</li>
-        </ul>
-      </div>
-      <div class="col-6">
-        <h3>マルチクラウド対応</h3>
-        <ul class="p-list--divided">
-          <li class="p-list__item is-ticked">LBaaS、ストレージ、ネットワーキングなどのクラウド機能との密接な統合</li>
-          <li class="p-list__item is-ticked">変動の大きい負荷に対する弾力性</li>
-          <li class="p-list__item is-ticked">低レイテンシに対する多くのリージョン</li>
-          <li class="p-list__item is-ticked">必要に応じたOPEX</li>
-          <li class="p-list__item is-ticked">ネットワークの切り離し</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <a href="/contact-us?product=kubernetes" class="p-button--positive">マネージドKubernetesに関するお問い合わせ</a></p>
-      </div>
-    </div>
-  </section>
+  {{ vf_divided_section(
+    title={
+      "text": "Canonical Kubernetesの詳細情報",
+    },
+    is_split_on_medium=true,
+    blocks=[
+    {
+      "type": "divided-block",
+      "bullet_type": "none",
+      "items": [
+            {
+              "contents": [
+                {
+                  "type": "cta-block",
+                  "item": {
+                    "link": {
+                      "content_html": "欧州宇宙機関（ESA）がCanonical Kubernetesでインフラストラクチャを整備 ›",
+                      "attrs": {
+                        "href": "https://ubuntu.com/case-study/esa"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "description",
+                  "item": {
+                    "type": "text",
+                    "content": "欧州宇宙機関（ESA）はCanonicalを通じて、複数のミッションに共通のシステムを自動的かつ効率的に短時間で導入するための新しい動的プラットフォームを実装しました。"
+                  }
+                },
+              ]
+            },
+            {
+              "contents": [
+                {
+                  "type": "cta-block",
+                  "item": {
+                    "link": {
+                      "content_html": "KubernetesでMLワークロードを最適化 ›",
+                      "attrs": {
+                        "href": "https://ubuntu.com/engage/optimise-ml-workloads-on-kubernetes"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "description",
+                  "item": {
+                    "type": "text",
+                    "content": "既存の処理性能を利用してモデルトレーニングを高速化し、MLプロジェクトを実運用環境に移行できます。"
+                  }
+                },
+              ]
+            },
+            {
+              "contents": [
+                {
+                  "type": "cta-block",
+                  "item": {
+                    "link": {
+                      "content_html": "MAASを使用し、ベアメタルKubernetesでワークロードを実行するには ›",
+                      "attrs": {
+                        "href": "https://ubuntu.com/engage/bare-metal-kubernetes"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "description",
+                  "padding": "deep",
+                  "item": {
+                    "padding": "deep",
+                    "type": "text",
+                    "content": "ベアメタルKubernetesの特性と仮想マシンとの違いを説明します"
+                  }
+                }
+              ]
+            },
+      ]
+    },
+    {
+      "type": "divided-block",
+      "bullet_type": "none",
+      "items": [
+        {
+          "contents":[
+            {
+              "type": "cta-block",
+              "item": {
+                "secondaries": [
+                  {
+                    "content_html": "その他のリソース",
+                    "attrs": {
+                      "href": "https://ubuntu.com/kubernetes/resources"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  ) 
+  }}
 
-{% endblock %}
+  {% call(slot) vf_cta_section(
+        title_text='Kubernetesに関する疑問に回答',
+        variant='default',
+        layout='100'
+        ) -%}
+  {%- if slot == 'cta' -%}
+    <a href="/contact-us?product=kubernetes">お問い合わせ&rsaquo;</a>
+  {%- endif -%}
+  {% endcall -%}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const switchElement = document.querySelector('.js-discoverer-switch');
+      const discovererText = document.querySelector('.js-discoverer-text');
+      const discovererDescription = document.querySelector('.js-discoverer-description');
+      const discovererProItems = document.querySelectorAll('.js-discoverer-pro-item');
+      const discovererItems = document.querySelectorAll('.js-discoverer-item');
+      const discovererMutedItems = document.querySelectorAll('.js-discoverer-muted-item');
+
+      switchElement.addEventListener('change', function() {
+        if (switchElement.checked) {
+          discovererMutedItems.forEach(item => {
+            item.classList.remove('is-crossed', 'u-text--muted');
+            item.classList.add('is-ticked');
+          });
+          discovererItems.forEach(item => {
+            item.classList.add('u-hide');
+          });
+          discovererProItems.forEach(item => {
+            item.classList.remove('u-hide');
+          });
+          discovererText.textContent = 'Kubernetes Discoverer Plus';
+          discovererDescription.textContent = 'カスタムアーキテクチャのデプロイと知識移転を含む3週間のプログラムです。';
+        } else {
+          discovererMutedItems.forEach(item => {
+            item.classList.remove('is-ticked');
+            item.classList.add('is-crossed', 'u-text--muted');
+          });
+          discovererItems.forEach(item => {
+            item.classList.remove('u-hide');
+          });
+          discovererProItems.forEach(item => {
+            item.classList.add('u-hide');
+          });
+          discovererText.textContent = 'Kubernetes Discoverer';
+          discovererDescription.textContent = '3日間のトレーニングの後、2週間でKubernetesのリファレンスアーキテクチャをデプロイします。';
+        }
+      });
+    });
+  </script>
+
+{% endblock outer_content %}
