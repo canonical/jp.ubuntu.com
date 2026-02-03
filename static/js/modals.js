@@ -81,9 +81,9 @@ function getCustomFields() {
 
   const radioFieldsets = document.querySelectorAll(".js-remove-radio-names");
   if (radioFieldsets.length > 0) {
-    radioFieldsets.forEach((radioFieldset) => {
+    radioFieldsets.forEach(radioFieldset => {
       const radioInputs = radioFieldset.querySelectorAll("input[type='radio']");
-      radioInputs.forEach((radioInput) => {
+      radioInputs.forEach(radioInput => {
         radioInput.removeAttribute("name");
       });
     });
@@ -93,11 +93,11 @@ function getCustomFields() {
     ".js-remove-checkbox-names"
   );
   if (checkboxFieldsets.length > 0) {
-    checkboxFieldsets.forEach((checkboxFieldset) => {
+    checkboxFieldsets.forEach(checkboxFieldset => {
       const checkboxInputs = checkboxFieldset.querySelectorAll(
         "input[type='checkbox']"
       );
-      checkboxInputs.forEach((checkboxInput) => {
+      checkboxInputs.forEach(checkboxInput => {
         checkboxInput.removeAttribute("name");
       });
     });
@@ -105,4 +105,8 @@ function getCustomFields() {
 
   const textarea = document.getElementById("Comments_from_lead__c");
   textarea.value = message;
+}
+
+if (typeof window !== "undefined") {
+  window.getCustomFields = getCustomFields;
 }
