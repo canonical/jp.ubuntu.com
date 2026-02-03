@@ -10,7 +10,6 @@ import os
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
-from jinja2 import ChoiceLoader, FileSystemLoader
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -144,7 +143,8 @@ def takeovers_json():
 def takeovers_index():
     all_takeovers = discourse_takeovers.get_index()
     all_takeovers.sort(
-        key=lambda takeover: takeover["active"] == "true", reverse=True)
+        key=lambda takeover: takeover["active"] == "true", reverse=True
+    )
     active_count = len(
         [
             takeover
