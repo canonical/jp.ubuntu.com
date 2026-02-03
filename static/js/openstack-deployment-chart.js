@@ -1,13 +1,4 @@
-// fetch("https://ubuntu.com/static/js/data/openstack-deployment-stats.json")
-fetch("/static/js/data/openstack-deployment-stats.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log("data >>>>", data);
-    console.table(data.stats);
-    data.stats.sort((a, b) => b.percentage - a.percentage);
-    drawChart(data.stats);
-    drawTable(data.stats);
-  });
+/* global d3 */
 
 const drawChart = data => {
   const piedata = d3.pie().value(d => d.percentage)(data);
@@ -54,30 +45,20 @@ const drawChart = data => {
     .enter()
     .append("rect")
     .attr("x", 140)
-    .attr("y", function (d, i) {
-      return -102 + i * 30; // Adjust for vertical centering with text
-    })
+    .attr("y", (_d, i) => -102 + i * 30)
     .attr("width", 14)
     .attr("height", 14)
-    .style("fill", function (d, i) {
-      return colors(i);
-    });
+    .style("fill", (_d, i) => colors(i));
 
   svg
-    .selectAll("ledgend-label-names")
+    .selectAll("legend-label-names")
     .data(piedata)
     .enter()
     .append("text")
     .attr("x", 160)
-    .attr("y", function (d, i) {
-      return -95 + i * 30;
-    })
-    .style("fill", function (d) {
-      return "#111";
-    })
-    .text(function (d) {
-      return d.data.name;
-    })
+    .attr("y", (_d, i) => -95 + i * 30)
+    .style("fill", "#111")
+    .text(d => d.data.name)
     .attr("text-anchor", "left")
     .attr("font-size", "12px")
     .attr("font-weight", "500")
@@ -85,20 +66,14 @@ const drawChart = data => {
     .style("alignment-baseline", "middle");
 
   svg
-    .selectAll("ledgend-label-percentages")
+    .selectAll("legend-label-percentages")
     .data(piedata)
     .enter()
     .append("text")
     .attr("x", 360)
-    .attr("y", function (d, i) {
-      return -95 + i * 30;
-    })
-    .style("fill", function (d) {
-      return "#111";
-    })
-    .text(function (d) {
-      return d.data.percentage + `%`;
-    })
+    .attr("y", (_d, i) => -95 + i * 30)
+    .style("fill", "#111")
+    .text(d => d.data.percentage + "%")
     .attr("font-size", "12px")
     .style("font-weight", "500")
     .style("text-anchor", "end")
@@ -110,14 +85,14 @@ const drawChart = data => {
     .data(piedata)
     .join("path")
     .attr("d", arc)
-    .attr("fill", (d, i) => colors(i))
+    .attr("fill", (_d, i) => colors(i))
     .attr("stroke", "white")
-    .on("mouseover", (e, d) => {
+    .on("mouseover", (_e, d) => {
       tooltip
         .style("display", "block")
-        .text(`${d.data.name}:` + " " + `${d.data.percentage}%`);
+        .text(`${d.data.name}: ${d.data.percentage}%`);
     })
-    .on("mousemove", (e, d) => {
+    .on("mousemove", e => {
       tooltip
         .style("top", e.pageY - 50 + "px")
         .style("display", "block")
@@ -136,7 +111,8 @@ const drawTable = data => {
       <th class="u-align--right">OpenStack coverage</th>
     </tr>
   </thead>`;
-  let tableContent = ``;
+
+  let tableContent = "";
   data.forEach(d => {
     tableContent += `<tr>
         <td>${d.name}</td>
@@ -145,5 +121,13 @@ const drawTable = data => {
   });
 
   const tableContainer = document.getElementById("openstack-table");
-  tableContainer.innerHTML = `<TABLE> ${tableHeadings} <tbody> ${tableContent} </tbody> </TABLE>`;
+  tableContainer.innerHTML = `<table>${tableHeadings}<tbody>${tableContent}</tbody></table>`;
 };
+
+fetch("/static/js/data/openstack-deployment-stats.json")
+  .then(response => response.json())
+  .then(data => {
+    data.stats.sort((a, b) => b.percentage - a.percentage);
+    drawChart(data.stats);
+    drawTable(data.stats);
+  });

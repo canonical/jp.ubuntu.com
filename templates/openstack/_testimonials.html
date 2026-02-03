@@ -1,6 +1,6 @@
 <section>
   {% call(slot) vf_quote_wrapper(
-    quote_size="small",
+    quote_size="medium",
     title_text="世界中のお客様が推薦",
     quote_text="「Canonicalは、各サーバーを手動で設定している他のプロバイダーよりかなり進んでいます。OpenStackがUbuntuプラットフォームで開発されていることも大きなメリットです。つまり、他のOpenStackプロバイダーのようにリブランディングや互換性テストに半年もかかることはありません。」",
     citation_source_name_text="Hubert Tsang氏",
@@ -10,17 +10,38 @@
     ) -%}
 
     {%- if slot == 'signpost_image' -%}
+      <div class="p-image-container u-hide--medium">
       {{ image(url="https://assets.ubuntu.com/v1/323c6a01-logo-1.png",
             alt="Pacific Textiles",
             width="852",
             height="211",
             hi_def=True,
+            attrs={'class': 'p-image-container__image'},
             loading="lazy") | safe
       }}
+    </div>
+    <div class="p-image-container u-hide--small u-hide--large">
+        {{ image(url="https://assets.ubuntu.com/v1/134307c3-pacific_textiles_logo_updated.png",
+          alt="Pacific Textiles",
+          width="579",
+          height="178",
+          hi_def=True,
+          loading="lazy",
+          attrs={'class': 'p-image-container__image'}
+          ) | safe
+        }}
+    </div>
+      <!-- {{ image(url="https://assets.ubuntu.com/v1/323c6a01-logo-1.png",
+            alt="Pacific Textiles",
+            width="852",
+            height="211",
+            hi_def=True,
+            loading="lazy") | safe
+      }} -->
     {%- endif -%}
   {% endcall -%}
   {% call(slot) vf_quote_wrapper(
-    quote_size="small",
+    quote_size="medium",
     quote_text="「当社が検討したオープンソースベンダーの多くは、コアあたり、サーバーあたりのライセンス料金が非常に高く、拡張コストが膨らむことが予想されました。Canonicalは例外です。」",
     citation_source_name_text="Jahanzeb氏",
     citation_source_title_text="事業運営担当VP",
@@ -29,17 +50,31 @@
     ) -%}
 
     {%- if slot == 'signpost_image' -%}
+      <div class="p-image-container u-hide--medium">
       {{ image(url="https://assets.ubuntu.com/v1/e61d6728-logo-2.png",
             alt="Nayatel",
             width="852",
             height="118",
             hi_def=True,
+            attrs={'class': 'p-image-container__image'},
             loading="lazy") | safe
       }}
+    </div>
+    <div class="p-image-container u-hide--small u-hide--large">
+          {{ image(url="https://assets.ubuntu.com/v1/90ae1779-nayatel_logo_updated.png",
+            alt="Nayatel",
+            width="312",
+            height="132",
+            hi_def=True,
+            loading="lazy",
+            attrs={'class': 'p-image-container__image'}
+            ) | safe
+          }}
+    </div>
     {%- endif -%}
   {% endcall -%}
   {% call(slot) vf_quote_wrapper(
-    quote_size="small",
+    quote_size="medium",
     quote_text="「Canonicalチームの貢献度は語り尽くせません。商業的な合意に至るより前から、OEMやハードウェアの選択について貴重な助言を授けてくれました。まさにプロジェクトの最初から全面的にサポートしてくれました。」",
     citation_source_name_text="Tim Rosenfield氏",
     citation_source_title_text="最高経営責任者（CEO）兼共同設立者",
@@ -48,17 +83,32 @@
     ) -%}
 
     {%- if slot == 'signpost_image' -%}
+    <div class="p-image-container u-hide--medium">
       {{ image(url="https://assets.ubuntu.com/v1/1888eaf2-logo-3.png",
             alt="Firmus",
             width="852",
             height="106",
             hi_def=True,
+            attrs={'class': 'p-image-container__image'},
             loading="lazy") | safe
       }}
+    </div>
+    <div class="p-image-container u-hide--small u-hide--large">
+      {{ image(url="https://assets.ubuntu.com/v1/ba5eace8-firmus_logo_updated.png",
+        alt="Firmus",
+        width="333",
+        height="132",
+        hi_def=True,
+        loading="lazy",
+        attrs={'class': 'p-image-container__image'}
+        ) | safe
+      }}
+    </div>
+      
     {%- endif -%}
   {% endcall -%}
   {% call(slot) vf_quote_wrapper(
-    quote_size="small",
+    quote_size="medium",
     quote_text="「OCSアプリケーションをクラウドに移行することにより、お客様に最高のソリューションをお届けするための基盤と柔軟性が得られます。課金機能を将来の保証されたプライベートクラウドプラットフォームで拡張するために、今回の選択 [Charmed OpenStack] は当然でした。」",
     citation_source_name_text="Flavio Matiello氏",
     citation_source_title_text="プリペイドプラットフォーム＆OCS責任者",
@@ -67,18 +117,32 @@
     ) -%}
 
     {%- if slot == 'signpost_image' -%}
-
-      {{ image(url="https://assets.ubuntu.com/v1/cad5c828-logo-4.png",
-            alt="Telefonica",
-            width="852",
-            height="211",
-            hi_def=True,
-            loading="lazy") | safe
+    <div class="p-image-container u-hide--medium">
+      {{ image(url="https://assets.ubuntu.com/v1/a8a9a398-logo_4.png",
+        alt="Telefonica",
+        width="852",
+        height="210",
+        hi_def=True,
+        loading="lazy",
+        attrs={'class': 'p-image-container__image'}
+        ) | safe
       }}
+    </div>
+    <div class="p-image-container u-hide--small u-hide--large">
+      {{ image(url="https://assets.ubuntu.com/v1/4939ec50-telefonica_logo.png",
+        alt="Telefonica",
+        width="438",
+        height="312",
+        hi_def=True,
+        loading="lazy",
+        attrs={'class': 'p-image-container__image'}
+        ) | safe
+      }}
+    </div>
     {%- endif -%}
   {% endcall -%}
   {% call(slot) vf_quote_wrapper(
-    quote_size="small",
+    quote_size="medium",
     quote_text="「KADOKAWAはCanonicalのプロジェクトの進め方に非常に満足しています。展開に先立つプリセールスや設計の段階でも十分な情報が提供されました。」",
     citation_source_name_text="辻下卓見氏",
     citation_source_title_text="KCS部データストア課マネージャー",
@@ -86,13 +150,27 @@
     ) -%}
 
     {%- if slot == 'signpost_image' -%}
-      {{ image(url="https://assets.ubuntu.com/v1/94b8cd23-logo_5.png",
-            alt="",
+      <div class="p-image-container u-hide--medium">
+        {{ image(url="https://assets.ubuntu.com/v1/94b8cd23-logo_5.png",
+            alt="kadokawa",
             width="852",
             height="243",
             hi_def=True,
+            attrs={'class': 'p-image-container__image'},
             loading="lazy") | safe
       }}
+      </div>
+      <div class="p-image-container u-hide--small u-hide--large">
+        {{ image(url="https://assets.ubuntu.com/v1/4f88c0dc-kadokawa_logo_updated.png",
+            alt="kadokawa",
+            width="570",
+            height="225",
+            hi_def=True,
+            attrs={'class': 'p-image-container__image'},
+            loading="lazy"
+            ) | safe
+          }}
+      </div>
     {%- endif -%}
   {% endcall -%}
 </section>

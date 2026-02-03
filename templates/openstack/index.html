@@ -7,19 +7,21 @@
 {% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
 {% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
 
-{% block title %}Charmed OpenStack{% endblock %}
+{% block title %}
+  Ubuntu上のOpenStackはCanonicalの拡張可能なプライベートクラウドです
+{% endblock %}
 
 {% block meta_description %}
-  Charmed OpenStack is an enterprise cloud platform engineered for price-performance. Run with confidence: supported or fully-managed.
-{% endblock meta_description %}
+  Canonical OpenStackは最も信頼がある、かつ経済的なプライベートOpenStackクラウドの構築方法です。Canonicalによりサポート、またはフルマネージされています。
+{% endblock %}
+
+{% block meta_copydoc %}
+  https://docs.google.com/document/d/1wkXMN1OeBp9mqY5lA7ImrTIADSJ9wi55/edit
+{% endblock meta_copydoc %}
 
 {% block body_class %}
   is-paper
 {% endblock body_class %}
-
-{% block meta_copydoc %}
-  https://docs.google.com/document/d/1eqHK0hc9v7Mn-XV36QRyNkJenTXgBQR_-RULKm5rZ5o/edit
-{% endblock meta_copydoc %}
 
 {% block outer_content %}
   <style>
@@ -84,6 +86,7 @@
     title_text='Charmed OpenStack',
     subtitle_text='コスト効果を重視した
 企業向けクラウドプラットフォーム',
+    is_split_on_medium=true,
     layout='50/50'
   ) -%}
     {%- if slot == 'description' -%}
@@ -93,7 +96,7 @@
     {%- endif -%}
     {%- if slot == 'cta' -%}
       <a href="/contact-us?product=openstack" class="p-button--positive">OpenStackを使用する</a>
-      <a href="#">ハイパースケーラーの最大3分の2のコストを節約 ›</a>
+      <a href="/engage/cloud-pricing-report-jp">ハイパースケーラーの最大3分の2のコストを節約 ›</a>
     {%- endif -%}
     {%- if slot == 'image' -%}
       <div class="p-image-container--3-2 is-cover">
@@ -236,6 +239,7 @@
 
   {{ vf_basic_section(
     title={"text": "コストパフォーマンスを保証"},
+    is_split_on_medium=true,
     items=[
       {
         "type": "image",
@@ -284,11 +288,11 @@
   <section class="p-section">
     <hr class="is-fixed-width p-rule" />
     <div class="u-fixed-width">
-      <div class="row--50-50-on-large">
-        <div class="col">
+      <div class="grid-row--50-50">
+        <div class="grid-col">
           <h2>マルチクラウドのコストを最大限に最適化</h2>
         </div>
-        <div class="col">
+        <div class="grid-col">
           <div>
             <div class="bar-chart-container">
               <div class="bar-chart">
@@ -346,7 +350,6 @@
             <span class="p-heading--5">ワークロードの実行は経済的に最も有利な場所で。インフラストラクチャの未来は<a href="https://ubuntu.com/cloud/multi-cloud">マルチクラウド</a>です。プライベートクラウドとパブリッククラウドのインフラストラクチャを同時に使用すれば、初期投資と運用コストの最適化が可能です。
 
           </p>
-          <hr class="p-rule--muted" />
           <a class="p-button--positive u-no-margin--bottom"
              href="https://ubuntu.com/engage/cloud-cost-optimisation-best-practices">クラウドコストを最適化</a>
         </div>
@@ -357,7 +360,7 @@
   <section class="p-section">
     <hr class="is-fixed-width p-rule" />
     <div class="u-fixed-width">
-      <div class="grid-row--50-50-on-large p-section--shallow">
+      <div class="grid-row--50-50 p-section--shallow">
         <div class="grid-col">
           <h2>低コストの仮想マシン</h2>
         </div>
@@ -376,7 +379,7 @@
           </p>
         </div>
       </div>
-      <div class="grid-row--25-75-on-large">
+      <div class="grid-row--25-75">
         <div class="grid-col u-align--center" style="overflow-x:auto;">
           <table aria-label="Comparison table for pricing of VMs" class="vm-table">
             <thead>
@@ -510,37 +513,46 @@
     </div>
   </section>
 
-  <section class="p-section">
-    <hr class="is-fixed-width p-rule" />
-    <div class="grid-row">
-      <div class="grid-col-4">
-        <h2>コスト効果の高いクラウドインフラストラクチャ</h2>
-      </div>
-      <div class="grid-col-4">
-        <div class="p-section--shallow">
-          <div class="p-image-container is-highlighted">
-          {{ image(url="https://assets.ubuntu.com/v1/5fbc138a-sbi_bits_img.png",
+  {{ vf_basic_section(
+    title={"text": "コスト効果の高いクラウドインフラストラクチャ"},
+    is_split_on_medium=true,
+    items=[
+      {
+        "type": "image",
+        "item": {
+          "aspect_ratio": "16-9",
+          "attrs": image(url="https://assets.ubuntu.com/v1/5fbc138a-sbi_bits_img.png",
             alt="",
             width="1800",
             height="1200",
             hi_def=True,
             loading="lazy",
-            attrs={"class": "p-image-container__image"}
-            ) | safe
-          }}
-          </div>
-        </div>
-        <p>
-          SBI BITSは、事業を中断することなくミッションクリティカルなワークロードを最新版のOpenStackに移行するため、専門家による移行計画の入念な計画と実行を必要としていました。Canonicalのサポートとコンサルティングサービスにより、SBI BITSは3つの新しいOpenstack環境を無事に導入し、事業継続性を確保する段階的な移行を開始しました。現在、SBI BITSは最新のOpenStackの機能によって優れた顧客サービスを提供し、旧環境に残ったワークロードについてはCanonicalのレガシーサポートで環境のセキュリティを維持しています。
-        </p>
-        <div class="p-cta-block">
-          <a href="/engage/sbi-bits-openstack-cs-jp">ケーススタディを読む&nbsp;&rsaquo;</a>
-        </div>
-      </div>
-    </div>
-  </section>
+            attrs={"class": "p-image-container__image"},
+            output_mode="attrs")
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "SBI BITSは、事業を中断することなくミッションクリティカルなワークロードを最新版のOpenStackに移行するため、専門家による移行計画の入念な計画と実行を必要としていました。Canonicalのサポートとコンサルティングサービスにより、SBI BITSは3つの新しいOpenstack環境を無事に導入し、事業継続性を確保する段階的な移行を開始しました。現在、SBI BITSは最新のOpenStackの機能によって優れた顧客サービスを提供し、旧環境に残ったワークロードについてはCanonicalのレガシーサポートで環境のセキュリティを維持しています。"
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+              "content_html": "ケーススタディを読む&nbsp;&rsaquo;",
+              "attrs": {
+                "href": "/engage/sbi-bits-openstack-cs-jp"
+              }
+            },
+        }
+      }
+    ],
+  ) }}
 
-  {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+  {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=false) -%}
     {%- if slot == 'title' -%}
       <h2 id="get-your-openstack">OpenStackを使用する</h2>
     {%- endif -%}
@@ -570,54 +582,16 @@
 
     {%- if slot == 'list_item_description_2' -%}
       <p>お客様が自社でOpenStackを管理します。Canonicalはご要望に応じて計画や適切なハードウェア選びをお手伝いし、OpenStackをデプロイします。また、有償サポートや担当者向けのトレーニングコースもご用意しています。</p>
-      <div>
-        <h4 class="p-heading--5">
-          OpenStackをデプロイするのは誰？
-        </h4>
-        <div class="p-section--shallow p-list--divided">
-          <br class="u-hide" />
-          <p class="p-text--small-caps p-list__item">CanonicalがデプロイするOpenStack</p>
-          <p>
-            Canonicalがお客様に代わってOpenStackをデプロイします。お客様と相談の上、最善の設計を判断し、ベストプラクティスやリファレンスハードウェアの仕様を共有します。デプロイのプロセスが完全に自動化され、反復可能であることを確認した後で、クラウドをお客様に引き渡します。
-          </p>
-          <p class="u-no-margin--bottom">
-            <a class="p-button"
-              href="https://ubuntu.com/openstack/contact-us">CanonicalがデプロイするOpenStackを注文</a>
-          </p>
-          <p>
-            <a href="https://ubuntu.com/openstack/consulting">CanonicalがデプロイするOpenStackの詳細 &nbsp;›</a>
-          </p>
-        </div>
-
-        <div class="p-list--divided">
-          <br class="u-hide" />
-          <p class="p-text--small-caps p-list__item">自社デプロイのOpenStack</p>
-          <p>お客様が自社でOpenStackをデプロイします。製品ドキュメント、ホワイトペーパーなどの公開資料を参照してください。<a href="https://canonical.com/microstack">MicroStack</a>を使用した自社デプロイのクラウドも<a href="https://jp.ubuntu.com/pro">Ubuntu Pro + サポートサブスクリプション</a>を通じた有償サポートの対象となります。</p>
-          <p>
-            <a class="p-button" href="https://ubuntu.com/openstack/install">自社でOpenStackをデプロイ</a>
-          </p>
-          <p>
-            ほかに何か必要ですか？
-            <br />
-            Canonicalの<a href="https://ubuntu.com/openstack/support">OpenStackサポートページ</a>で他のオプションやプランの情報をご覧ください。
-          </p>
-        </div>
-      </div>
+      <p class="p-heading--5">
+        OpenStackをデプロイするのは誰？
+      </p>
     {%- endif -%}
 
     {%- if slot == 'list_item_title_3' -%}
-      <h3 class="p-heading--5">自社管理の OpenStack</h3>
-    {%- endif -%}
-
-    {%- if slot == 'list_item_description_3' -%}
-      <p>お客様が自社でOpenStackを管理します。Canonicalはご要望に応じて計画や適切なハードウェア選びをお手伝いし、OpenStackをデプロイします。また、有償サポートや担当者向けのトレーニングコースもご用意しています。</p>
-    {%- endif -%}
-
-    {%- if slot == 'list_item_title_4' -%}
       <p class="p-heading--5 u-text--muted">CanonicalがデプロイするOpenStack</p>
     {%- endif -%}
 
-    {%- if slot == 'list_item_description_4' -%}
+    {%- if slot == 'list_item_description_3' -%}
       <p>
         Canonicalがお客様に代わってOpenStackをデプロイします。お客様と相談の上、最善の設計を判断し、ベストプラクティスやリファレンスハードウェアの仕様を共有します。デプロイのプロセスが完全に自動化され、反復可能であることを確認した後で、クラウドをお客様に引き渡します。
       </p>
@@ -630,22 +604,22 @@
       </p>
     {%- endif -%}
 
-    {%- if slot == 'list_item_title_5' -%}
+    {%- if slot == 'list_item_title_4' -%}
       <p class="p-heading--5 u-text--muted">自社デプロイのOpenStack</p>
     {%- endif -%}
 
-    {%- if slot == 'list_item_description_5' -%}
+    {%- if slot == 'list_item_description_4' -%}
       <p>お客様が自社でOpenStackをデプロイします。製品ドキュメント、ホワイトペーパーなどの公開資料を参照してください。<a href="https://canonical.com/microstack">MicroStack</a>を使用した自社デプロイのクラウドも<a href="https://jp.ubuntu.com/pro">Ubuntu Pro + サポートサブスクリプション</a>を通じた有償サポートの対象となります。</p>
       <p>
         <a class="p-button" href="https://ubuntu.com/openstack/install">自社でOpenStackをデプロイ</a>
       </p>
     {%- endif -%}
 
-    {%- if slot == 'list_item_title_6' -%}
+    {%- if slot == 'list_item_title_5' -%}
       <br />
     {%- endif -%}
 
-    {%- if slot == 'list_item_description_6' -%}
+    {%- if slot == 'list_item_description_5' -%}
       <p>
         ほかに何か必要ですか？
         <br />
@@ -656,6 +630,7 @@
 
   {{ vf_basic_section(
     title={"text": "完全にボトムアップの自動化"},
+    is_split_on_medium=true,
     items=[
       {
         "type": "image",
@@ -697,6 +672,7 @@
 
   {{ vf_basic_section(
     title={"text": "拡張可能なコンテナレイヤー"},
+    is_split_on_medium=true,
     items=[
       {
         "type": "image",
@@ -744,6 +720,7 @@
 
   {{ vf_basic_section(
     title={"text": "製品の相互運用性"},
+    is_split_on_medium=true,
     items=[
       {
         "type": "image",
@@ -785,6 +762,7 @@
 
   {{ vf_basic_section(
     title={"text": "100 GbpsのOpenStack"},
+    is_split_on_medium=true,
     subtitle={"text": "電気通信事業者、HPC、AI/MLに対応します。", "heading_level": 5},
     items=[
       {
@@ -843,7 +821,7 @@
   {% include '/openstack/_testimonials.html' %}
 
   <section>
-    {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+    {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=false) -%}
       {%- if slot == 'title' -%}
         <h2>CanonicalのCharmed OpenStack</h2>
       {%- endif -%}
@@ -893,29 +871,30 @@
 
   {{ vf_basic_section(
     title={"text": "OpenStack環境で"},
+    is_split_on_medium=true,
     items=[
-      {
-        "type": "description",
-        "item": {
-          "type": "text",
-          "content": "人気トップのプラットフォーム"
-        }
-      },
       {
         "type": "description",
         "item": {
           "type": "html",
           "content": "
           <div>
-            <div class='u-hide--small u-align--center p-image-container is-highlighted'>
+            <div class='u-hide--small u-hide--medium u-align--center p-image-container is-highlighted'>
               <div id='openstack-pie-chart'></div>
             </div>
-            <div class='u-hide--medium u-hide--large'>
+            <div class='u-hide--large'>
               <div id='openstack-table'></div>
             </div>
             <script src='https://d3js.org/d3.v6.min.js'></script>
           </div>
           "
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": "<p class='p-heading--5'>人気トップのプラットフォーム</p>"
         }
       },
       {
@@ -941,7 +920,7 @@
   ) }}
 
   <section>
-    {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+    {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=false) -%}
       {%- if slot == 'title' -%}
         <h2>Charmed OpenStackを選ぶ理由</h2>
       {%- endif -%}
