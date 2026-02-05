@@ -12,8 +12,9 @@
     "watch-js": "watch -p 'static/js/**/*.js' -p 'static/js/third-party/**/*.js' -c 'webpack --env=development'",
     "watch-css": "watch -p 'static/sass/**/*.scss' -c 'yarn run build-css'",
     "build-css": "sass static/sass/styles.scss static/css/styles.css --load-path=node_modules --style=compressed && postcss --no-map --use autoprefixer --replace 'static/css/**/*.css'",
-    "build-js": "mkdir -p static/dist && webpack && yarn run build-cookie-policy",
+    "build-js": "mkdir -p static/dist && webpack && yarn run build-cookie-policy && yarn run build-vanilla-framework",
     "build-cookie-policy": "cp node_modules/@canonical/cookie-policy/build/js/cookie-policy.js static/js/dist/",
+    "build-vanilla-framework": "mkdir -p static/js/modules/vanilla-framework && cp -r node_modules/vanilla-framework/templates/_macros/ static/js/modules/vanilla-framework",
     "build": "yarn run build-js && yarn run build-css",
     "serve": "./entrypoint 0.0.0.0:$PORT",
     "start": "yarn run build && concurrently --kill-others --raw 'yarn run watch-css' 'yarn run watch-js' 'yarn run serve'",
@@ -45,6 +46,6 @@
   "dependencies": {
     "@canonical/cookie-policy": "3.8.4",
     "@canonical/global-nav": "3.4.0",
-    "vanilla-framework": "4.21.1"
+    "vanilla-framework": "4.41.0"
   }
 }

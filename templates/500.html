@@ -1,19 +1,28 @@
 {% extends "_base/base.html" %}
 
-{% block title %}500: サーバーエラー | Ubuntu{% endblock %}
+{% block title %}500 - Internal server error{% endblock %}
 
-{% block header %}
-<div class="p-strip">
-  <div class="row">
-    <div class="col-6">
-      <img src="https://res.cloudinary.com/canonical/image/fetch/q_auto,f_auto/https://assets.ubuntu.com/v1/94daa2fb-error404-hero-full-canonical.png" alt="" />
-    </div>
-    <div class="col-6">
-      <h1>500: サーバーエラー</h1>
-      <p class="p-heading--5">申し訳ありませんが、サーバーに問題があります。</p>
-      <p>ページを更新してください。</p>
-      <p>If you continue to see this error page, please <a href="https://github.com/canonical-websites/jp.ubuntu.com/issues/new">file a bug</a>.</p>
+{% block body_class %}is-paper{% endblock %}
+
+{% block content_container %}
+  <div class="p-strip is-deep">
+    <div class="grid-row--25-75">
+      <hr class="p-rule" />
+      <div class="grid-col">
+        <h1>500</h1>
+      </div>
+      <div class="grid-col">
+        <p class="p-heading--1">Server error</p>
+        <p class="p-heading--2">
+          ページを読み込めませんでした。
+          <br />
+          再読み込みするか、<a href="https://github.com/canonical/jp.ubuntu.com/issues/new">問題を報告してください</a>。
+        </p>
+        <br />
+        <p class="p-heading--2">
+          ※現在対応中の<a href="https://github.com/canonical/jp.ubuntu.com/issues">既知の問題</a>である可能性があります。
+        </p>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}

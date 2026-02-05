@@ -22,7 +22,7 @@ from webapp.views import (
     engage_thank_you,
 )
 from canonicalwebteam.cookie_service import CookieConsent
-
+from jinja2 import ChoiceLoader, FileSystemLoader
 
 session = talisker.requests.get_session()
 app = FlaskBase(
@@ -47,6 +47,18 @@ app.config["SESSION_COOKIE_SECURE"] = True
 app.config["CACHE_TYPE"] = "SimpleCache"
 cache = Cache(app)
 
+# ChoiceLoader attempts loading templates from each path in successive order
+loader = ChoiceLoader(
+    [
+        FileSystemLoader("templates"),
+        FileSystemLoader("node_modules/vanilla-framework/templates/"),
+        FileSystemLoader("static/js/modules/vanilla-framework/"),
+    ]
+)
+
+# Loader supplied to jinja_loader overwrites default jinja_loader
+app.jinja_loader = loader
+
 
 # Set up cache functions for cookie consent service
 def get_cache(key):
@@ -57,12 +69,14 @@ def set_cache(key, value, timeout):
     cache.set(key, value, timeout)
 
 
-cookie_service = CookieConsent().init_app(
-    app,
-    get_cache_func=get_cache,
-    set_cache_func=set_cache,
-    start_health_check=True,
-)
+cookie_service = None
+if not app.debug:
+    cookie_service = CookieConsent().init_app(
+        app,
+        get_cache_func=get_cache,
+        set_cache_func=set_cache,
+        start_health_check=True,
+    )
 
 
 blog_views = BlogViews(
@@ -173,6 +187,7 @@ def context():
         "platform": flask.request.args.get("platform", ""),
         "version": flask.request.args.get("version", ""),
         "architecture": flask.request.args.get("architecture", ""),
+        "product": flask.request.args.get("product", ""),
     }
 
 
