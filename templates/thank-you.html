@@ -1,5 +1,8 @@
 {% extends "_base/base.html" %}
 
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
 {% block title %}Ubuntuに連絡していただきありがとうございます | Ubuntu{% endblock %}
 
 {% block meta_description %}すべてのUbuntu製品およびサービスに対するエンタープライズサポートについてCanonicalにお問い合わせください。{% endblock meta_description %}
@@ -8,62 +11,69 @@
 
 {% block head_extra%}<meta name="robots" content="noindex" />{% endblock %}
 
+{% block body_class %}is-paper{% endblock %}
+
 {% block outer_content %}
 
-{% if product == 'openstack' %}
-
-  {%  with thanks_context="OpenStackについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% elif product == 'kubernetes' %}
-
-  {% with thanks_context="Kubernetesについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% elif product == 'ai' %}
-
-  {% with thanks_context="AI（人工知能）についてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% elif product == 'iot' %}
-
-  {%  with thanks_context="IoTについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% elif product == 'support' %}
-
-  {% with thanks_context="エンタープライズ向けサポートについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html"  %}
-  {% endwith %}
-
-{% elif product == 'pro' %}
-
-  {% with thanks_context="Ubuntu Proについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% elif product == 'maas' %}
-
-  {% with thanks_context="MAASについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% elif product == 'rfp' %}
-  {% with thanks_context="enquiring about your RFP" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% else %}
-
-  {% with thanks_context="エンタープライズ向けサポートについてお問い合わせいただき、ありがとうございます" %}
-    {% include "shared/_thank-you.html" %}
-  {% endwith %}
-
-{% endif %}
+  {% call(slot) vf_hero(
+    title_text='このたびは、<br/>お手続きいただき <br/>ありがとうございます。',
+    layout='50/50'
+  ) -%}
+    {%- if slot == 'image' -%}
+      <div class="p-image-container--3-2 is-cover">
+        {{ image(url="https://assets.ubuntu.com/v1/be940751-thank_you_hero.jpg",
+                alt="",
+                width="600",
+                height="400",
+                hi_def=True,
+                loading="auto",
+                attrs={"class": "p-image-container__image"}) | safe
+        }} 
+      </div>
+    {%- endif -%}
+  {% endcall -%}
+      
+  {%- call(slot) vf_tiered_list(
+    is_description_full_width_on_desktop=false, 
+    is_list_full_width_on_tablet=false,
+    padding='deep'
+  ) -%}
+    
+    {%- if slot == 'title' -%}
+      <h2>エンタープライズ向けサービスの詳細</h2>
+    {%- endif -%}
+  
+    {%- if slot == 'list_item_title_1' -%}
+      <h3 class="p-heading--5">Ubuntu Pro</h3>
+    {%- endif -%}
+    {%- if slot == 'list_item_description_1' -%}
+      <div class="u-sv3"> {# This adds the extra spacing after the item #}
+        <p>CanonicalのUbuntu Proは、企業におけるUbuntu環境にサポートと保証を提供します。Ubuntu Proには、ツール、ビットストリーム、サポートサービスなどを含む多様なパッケージがあります。</p>
+        <a href="/pro">詳細情報&nbsp;&rsaquo;</a>
+      </div>
+    {%- endif -%}
+    
+    {%- if slot == 'list_item_title_2' -%}
+      <h3 class="p-heading--5">Canonical OpenStack</h3>
+    {%- endif -%}
+    {%- if slot == 'list_item_description_2' -%}
+      <div class="u-sv3">
+        <p>業界をリードするCanonicalのOpenStackベースのプライベートクラウドインフラストラクチャプラットフォームの詳細については、こちらをご覧ください。</p>
+        <a href="/openstack">詳細情報&nbsp;&rsaquo;</a>
+      </div>
+    {%- endif -%}
+    
+    {%- if slot == 'list_item_title_3' -%}
+      <h3 class="p-heading--5">AI/ML</h3>
+    {%- endif -%}
+    {%- if slot == 'list_item_description_3' -%}
+      <div class="u-sv3">
+        <p>安全でサポート付きのCanonical MLOpsを使用すれば、企業グレードのAIプロジェクトを構築できます。</p>
+        <a href="/ai-ml">詳細情報&nbsp;&rsaquo;</a>
+      </div>
+    {%- endif -%}
+    
+  {%- endcall -%}
 
 {% endblock outer_content %}
 
