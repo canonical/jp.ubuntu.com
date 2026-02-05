@@ -187,6 +187,7 @@ def context():
         "platform": flask.request.args.get("platform", ""),
         "version": flask.request.args.get("version", ""),
         "architecture": flask.request.args.get("architecture", ""),
+        "product": flask.request.args.get("product", ""),
     }
 
 

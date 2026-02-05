@@ -1,103 +1,171 @@
-<section class="p-strip">
-  <div class="row">
-    <div class="col-8">
-      <div>
-        <h1>{{h1}}</h1>
-        <p class="p-heading--4">{{intro_text}}</p>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <form action="https://ubuntu.com/marketo/submit" method="post" style="margin-bottom: 2rem;">
-        <fieldset>
-          <h3>お客様情報</h3> <!-- About you -->
-          <ul class="p-list">
-            <li class="p-list__item">
-              <label for="firstName">姓</label> <!-- First name: -->
-              <input required="" id="firstName" name="firstName" maxlength="255" type="text">
-            </li>
-            <li class="p-list__item">
-              <label for="lastName">名</label> <!-- Last name: -->
-              <input required="" id="lastName" name="lastName" maxlength="255" type="text">
-            </li>
-            <li class="p-list__item">
-              <label for="email">メールアドレス</label> <!-- Email address: -->
-              <input required="" id="email" name="email" maxlength="255" type="email" pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$">
-            </li>
-            <li class="p-list__item">
-              <label for="phone">携帯電話番号</label> <!-- Phone number: -->
-              <input required="" id="phone" name="phone" maxlength="255" type="tel">
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset>
-          <h3>会社情報</h3> <!-- About your company -->
-          <ul class="p-list">
-            <li class="p-list__item">
-              <label for="company">会社名</label> <!-- Company name: -->
-              <input required="" id="company" name="company" maxlength="255" type="text">
-            </li>
-            <li class="p-list__item">
-              <label for="title">役職</label> <!-- Job title: -->
-              <input required="" id="title" name="title" maxlength="255" type="text">
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset>
-          <h3>問い合わせ欄</h3> <!-- Your comments -->
-          <ul class="p-list">
-            <li class="p-list__item">
-              <label for="Comments_from_lead__c">ご質問及び依頼内容を記載ください。</label> <!-- What would you like to talk to us about? -->
-              <textarea id="Comments_from_lead__c" name="Comments_from_lead__c" rows="4" maxlength="2000"></textarea>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset>
-          <label class="p-checkbox">
-            <input value="yes" aria-labelledby="canonicalUpdatesOptInLabel" id="canonicalUpdatesOptIn" name="canonicalUpdatesOptIn" type="checkbox" class="p-checkbox__input">
-            <span class="p-checkbox__label" id="canonicalUpdatesOptInLabel">不定期配信のニュースメールを希望の方はこちらをチェックください。</span>
-          </label>
-          <label class="p-checkbox">
-            <input value="yes" aria-labelledby="NewsletterOpt-InLabel" id="NewsletterOpt-In" name="NewsletterOpt-In" type="checkbox" class="p-checkbox__input">
-            <span class="p-checkbox__label" id="NewsletterOpt-InLabel">月次配信のCloudニュースレター配信を希望の方はこちらをチェックください。</span>
-          </label>
-          <p><a href="https://ubuntu.com/legal" target="_blank">記載頂いた情報はCanonicalの個人情報保護ポリシーに基づき管理いたします。</a>.</p>
-          <ul class="p-list u-no-margin--bottom">
-            <li class="p-list__item">
-              <button type="submit" class="p-button--positive" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Form', 'eventAction' : 'cloud contact-us', 'eventLabel' : 'generic-contact-us', 'eventValue' : undefined });">送信</button>
-            </li> <!-- Submit -->
-          </ul>
-          <!-- hidden fields -->
-          <input type="hidden" name="formid" value="2549">
-          <input type="hidden" aria-hidden="true" aria-label="hidden field" name="returnURL" value="{{returnURL}}" />
-          <input type="hidden" name="acquisition_url" aria-label="acquisition_url" value="{{ request.url }}">
-          <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_campaign" id="utm_campaign" value="" />
-          <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_medium" id="utm_medium" value="" />
-          <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_source" id="utm_source" value="" />
-          <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_content" id="utm_content" value="" />
-          <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_term" id="utm_term" value="" />
-        </fieldset>
-      </form>
-    </div>
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 
-    <div class="col-4">
-      <div class="p-card">
-        <h4 class="p-card__title">その他のご質問については、以下の電話番号からお問い合わせください</h4>
-        <ul class="p-list--divided u-no-margin--bottom">
-          <li class="p-list__item">北米 <a href="tel:+18889861322" class="u-float--right">+1 888 9861322</a></li>
-          <li class="p-list__item">日本 <a href="tel:+81362053075" class="u-float--right">+81 3 6205 3075</a></li>
-        </ul>
+{% call(slot) vf_hero(
+  title_text=h1,
+  subtitle_text=intro_text,
+  layout='fallback',
+  is_split_on_medium=true
+) -%}
+{%- endcall %}
 
+<form action="https://ubuntu.com/marketo/submit" method="post" onsubmit="getCustomFields()" id="mktoForm_2549">
+  <section class="p-section">
+    <div class="grid-row--50-50">
+      <hr />
+      <div class="grid-col">
+        <h2>お客様の基本情報</h2>
       </div>
-      <div class="p-card">
-        <h4 class="p-card__title">Ubuntuに関するヘルプ</h4>
-        <p>無料サポートをお探しの場合は、以下のサイトをご利用になれます</p>
-        <ul class="p-list--divided u-no-margin--bottom">
-          <li class="p-list__item"><a class="p-link--external" href="http://askubuntu.com/">Ask Ubuntu</a></li>
-          <li class="p-list__item"><a class="p-link--external" href="http://discourse.ubuntu.com">Ubuntu Community hub</a></li>
-          <li class="p-list__item"><a class="p-link--external" href="https://help.ubuntu.com/">Help docs</a></li>
+      <div class="grid-col">
+        <ul class="p-list">
+          <li class="p-list__item">
+            <label for="firstName" class="is-required">姓</label> <!-- First name: -->
+            <input required="" id="firstName" name="firstName" maxlength="255" type="text">
+          </li>
+          <li class="p-list__item">
+            <label for="lastName" class="is-required">名</label> <!-- Last name: -->
+            <input required="" id="lastName" name="lastName" maxlength="255" type="text">
+          </li>
+          <li class="p-list__item">
+            <label for="email" class="is-required">メールアドレス</label> <!-- Email address: -->
+            <input required="" id="email" name="email" maxlength="255" type="email" pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$">
+          </li>
+          <li class="p-list__item">
+            <label for="phone" class="is-required">電話番号</label> <!-- Phone number: -->
+            <input required="" id="phone" name="phone" maxlength="255" type="tel">
+          </li>
         </ul>
       </div>
     </div>
   </section>
+
+  <section class="p-section">
+    <div class="grid-row--50-50">
+      <hr class="p-rule--muted" />
+      <div class="grid-col">
+        <h2>会社情報</h2>
+      </div>
+      <div class="grid-col">
+        <ul class="p-list">
+          <li class="p-list__item">
+            <label for="company" class="is-required">会社名</label> <!-- Company name: -->
+            <input required="" id="company" name="company" maxlength="255" type="text">
+          </li>
+          <li class="p-list__item">
+            <label for="title" class="is-required">担当業務</label> <!-- Job title: -->
+            <input required="" id="title" name="title" maxlength="255" type="text">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section">
+    <div class="grid-row--50-50">
+      <hr class="p-rule--muted" />
+      <div class="grid-col">
+        <h2>お客様からのご意見</h2>
+      </div>
+      <div class="grid-col">
+        <ul class="p-list">
+          <li class="p-list__item js-formfield">
+            <label for="comments" class="js-formfield-title is-required">
+              当社へのご要望はございますか？
+            </label>
+            <textarea required id="comments" rows="5" maxlength="2000"></textarea>
+          </li>
+          <li class="p-list__item js-formfield">
+            <label for="ubuntuUsage" class="js-formfield-title">
+              現在Ubuntuをどのようにご利用いただいていますか？
+            </label>
+            <textarea id="ubuntuUsage" rows="5" maxlength="2000"></textarea>
+          </li>
+          <li class="p-list__item js-formfield">
+            <label for="employees" class="js-formfield-title is-required">
+              ご所属の組織の従業員数を教えてください。
+            </label>
+            <input required="" id="employees" maxlength="255" type="text">
+          </li>
+          <li class="p-list__item js-formfield">
+            <label for="ubuntuServers" class="js-formfield-title is-required">
+              現在デプロイしているUbuntuサーバーの数:
+            </label>
+            <input required="" id="ubuntuServers" maxlength="255" type="text">
+          </li>
+          <li class="p-list__item js-formfield">
+            <label for="interestInCloud" class="js-formfield-title is-required">
+              クラウドに関心をお持ちになった理由を教えてください。
+            </label>
+            <textarea required id="interestInCloud" rows="5" maxlength="2000"></textarea>
+          </li>
+          <li class="p-list__item js-formfield">
+            <label for="whenDeploy" class="js-formfield-title is-required">
+              いつごろクラウドソリューションのデプロイを計画されていますか？
+            </label>
+            <input required="" id="whenDeploy" maxlength="255" type="text">
+          </li>
+          <li class="p-list__item">
+            <label class="p-checkbox">
+              <input value="yes" aria-labelledby="canonicalUpdatesOptInLabel" id="canonicalUpdatesOptIn" name="canonicalUpdatesOptIn" type="checkbox" class="p-checkbox__input">
+              <span class="p-checkbox__label" id="canonicalUpdatesOptInLabel">Canonicalの製品やサービスについての情報を受け取ることに同意します。</span>
+            </label>
+          </li>
+        </ul>
+        <p>このフォームの送信によって、私は Canonical の<a href="https://canonical.com/legal/data-privacy" target="_blank">プライバシーについての通知とプライバシー</a>ポリシーを読み、同意したことを確認します。</p>
+        <button type="submit" class="p-button" onclick="dataLayer.push({'event' : 'GAEvent', 'eventCategory' : 'Form', 'eventAction' : 'cloud contact-us', 'eventLabel' : 'generic-contact-us', 'eventValue' : undefined });">送信</button>
+
+        <!-- hidden fields -->
+        <div class="u-off-screen">
+          <textarea type="hidden" id="Comments_from_lead__c" name="Comments_from_lead__c"></textarea>
+        </div>
+        <input type="hidden" name="formid" value="2549" />
+        <input type="hidden" aria-hidden="true" aria-label="hidden field" name="returnURL" value="{{returnURL}}" />
+        <input type="hidden" name="acquisition_url" aria-label="acquisition_url" value="{{ request.url }}" />
+        <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_campaign" id="utm_campaign" value="" />
+        <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_medium" id="utm_medium" value="" />
+        <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_source" id="utm_source" value="" />
+        <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_content" id="utm_content" value="" />
+        <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_term" id="utm_term" value="" />
+      </div>
+    </div>
+  </section>
+</form>
+
+{%- call(slot) vf_tiered_list(is_list_full_width_on_tablet=false, padding="deep") -%}
+  {%- if slot == 'title' -%}
+    <h2>その他の情報</h2>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_1' -%}
+    <h3 class="p-heading--5">その他のご質問については、以下の電話番号からお問い合わせください</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_1' -%}
+    <ul class="p-list--divided">
+      <li class="p-list__item has-bullet">
+        日本 <a href="tel:+81362053075">+81 3 6205 3075</a>
+      </li>
+    </ul>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_2' -%}
+    <h3 class="p-heading--5">Ubuntuに関するヘルプ</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_2' -%}
+    <p>無料サポートをお探しの場合は、以下のサイトをご利用になれます</p>
+    <ul class="p-list--divided">
+      <li class="p-list__item has-bullet">
+        <a href="https://askubuntu.com">Ask Ubuntu</a>
+      </li>
+      <li class="p-list__item has-bullet">
+        <a href="https://discourse.ubuntu.com/">The Ubuntu forum</a>
+      </li>
+      <li class="p-list__item has-bullet">
+        <a href="https://help.ubuntu.com/">Help docs</a>
+      </li>
+    </ul>
+  {%- endif -%}
+{%- endcall -%}
+
+<script defer src="{{ versioned_static('js/modals.js') }}"></script>
