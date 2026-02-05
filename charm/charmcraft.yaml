@@ -35,5 +35,4 @@ config:
     cookie-service-api-key:
       description: "Cookie Service API Key"
       default: "cookie_service_api_key"
-      type: secret
       
