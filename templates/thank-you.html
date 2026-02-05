@@ -19,7 +19,14 @@
   ) -%}
     {%- if slot == 'image' -%}
       <div class="p-image-container--3-2 is-cover">
-        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/be940751-thank_you_hero.jpg" alt="happy group">
+        {{ image(url="https://assets.ubuntu.com/v1/be940751-thank_you_hero.jpg",
+                alt="",
+                width="600",
+                height="400",
+                hi_def=True,
+                loading="auto",
+                attrs={"class": "p-image-container__image"}) | safe
+        }} 
       </div>
     {%- endif -%}
   {% endcall -%}
