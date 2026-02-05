@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - add-charm
+      - samhotep-patch-2 # remove after approval
       - main
 
 env:
@@ -23,14 +23,18 @@ jobs:
       - name: Setup Charmcraft
         run: sudo snap install charmcraft --classic --channel=latest/edge
 
-      - name: Pack charm
-        run: charmcraft pack -v --project-dir ./charm
+      - name: Setup Charmcraft
+        run: sudo snap install charmcraft --classic --channel=latest/edge
 
+      - name: Pack charm
+        run: |
+          cd charm
+          charmcraft pack -v --project-dir ./
       - name: Upload charm
         uses: actions/upload-artifact@v4
         with:
           name: jp-ubuntu-com-charm
-          path: ./*.charm
+          path: ./charm/*.charm
 
   pack-rock:
     runs-on: ubuntu-latest
