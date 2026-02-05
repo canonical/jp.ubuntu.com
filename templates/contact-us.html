@@ -1,4 +1,5 @@
 {% extends "_base/base.html" %}
+
 {% set active_page = "contact-us" %}
 
 {% block title %}お問い合わせフオーム | Ubuntu{% endblock %}
@@ -7,58 +8,53 @@
 
 {% block meta_copydoc %}https://docs.google.com/document/d/1x_Jimq497nQ8mpy5wKZFexWcc1fWPLYnOi3xQP_ts_4/edit{% endblock meta_copydoc %}
 
+{% block body_class %}
+  is-paper
+{% endblock body_class %}
+
 {% block outer_content %}
 
-{% if product == 'openstack' %}
-{% with h1="OpenStackに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you?product=openstack"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
+  {% if product == 'openstack' %}
+    {% with h1="OpenStackに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=openstack" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% elif product == 'kubernetes' %}
+  {% elif product == 'kubernetes' %}
+    {% with h1="Kubernetesに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=kubernetes" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% with h1="Kubernetesに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you?product=kubernetes"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
+  {% elif product == 'ai' %}
+    {% with h1="AI（人工知能）に関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=ai" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% elif product == 'ai' %}
+  {% elif product == 'iot' %}
+    {% with h1="IoTに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=iot" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% with h1="AI（人工知能）に関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you?product=ai"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
+  {% elif product == 'pro' %}
+    {% with h1="Ubuntu Proに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=pro" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% elif product == 'iot' %}
+  {% elif product == 'maas' %}
+    {% with h1="MAASに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=maas" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% with h1="IoTに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you?product=iot"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
+  {% elif product == 'support' %}
+    {% with h1="エンタープライズ向けサポートに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you?product=support" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
+  {% else %}
+    {% with h1="エンタープライズ向けサポートに関するお問い合わせ", intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。", returnURL="https://jp.ubuntu.com/thank-you" %}
+      {% include "shared/_contact-us-form.html" %}
+    {% endwith %}
 
-{% elif product == 'ua' %}
-
-{% with h1="Ubuntu Proに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします" , returnURL="https://jp.ubuntu.com/thank-you?product=ua"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
-
-{% elif product == 'maas' %}
-
-{% with h1="MAASに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you?product=maas"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
-
-{% elif product == 'support' %}
-
-{% with h1="エンタープライズ向けサポートに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you?product=support"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
-
-{% else %}
-
-  {# actually support #}
-{% with h1="エンタープライズ向けサポートに関するお問い合わせ" , intro_text="下欄にお客様の詳細情報をご記入ください。当社クラウドセールス部門の担当者からご連絡いたします。" , returnURL="https://jp.ubuntu.com/thank-you"  %}
-  {% include "shared/_contact-us-form.html" %}
-{% endwith %}
-
-{% endif %}
+  {% endif %}
 
 {% endblock outer_content %}
 
