@@ -1063,17 +1063,17 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@canonical/cookie-policy@3.8.4":
-  version "3.8.4"
-  resolved "https://registry.yarnpkg.com/@canonical/cookie-policy/-/cookie-policy-3.8.4.tgz#38fd82f35d98ab0476bc106b0d813a2719bae26c"
-  integrity sha512-mCPcaqscSt/6gbT9Pmf/VDhTmyGC192xz7N+xLs18hpJuFSrNK44vT9jGwnOS5WsdDW2B7tRc78KioTtATPk2g==
+"@canonical/cookie-policy@3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@canonical/cookie-policy/-/cookie-policy-3.9.0.tgz#8fa2a24f2b884a8f9221f062b2495c2e81a94c5c"
+  integrity sha512-ql3eO/SQD+x9tO+PqPR2CFKAoleHUvi3j0oxkbSjKZ3d2Ddzu05YA/fq40QiojDc7tT/64GoIzSi29n6Nwjtng==
 
-"@canonical/global-nav@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@canonical/global-nav/-/global-nav-3.4.0.tgz#e565c9446fe43281622857e965bcf53bbed0e5c6"
-  integrity sha512-KDlFVPTnO6on8okYfSUtqTdEaMpQE42gqZV82DHcfFOmrDVe8lrLPUl5bS8khJ0WbZhozMIMSTI0PUC/PCgl1Q==
+"@canonical/global-nav@3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@canonical/global-nav/-/global-nav-3.8.0.tgz#3f016b337f93a2b50fccb0cbf8f13c9a10dcee5a"
+  integrity sha512-ioJE4tUENS2L8ubD/lUAA+CvIrtqXB1RTv89vyAW/6eDJWRW8U9Fks+SdKoeoa/IwOtzSC02AOWTPo7rxgj+Mw==
   dependencies:
-    vanilla-framework "3.14.0"
+    vanilla-framework "4.35.0"
 
 "@csstools/selector-specificity@^2.0.2":
   version "2.0.2"
@@ -5110,15 +5110,15 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vanilla-framework@3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/vanilla-framework/-/vanilla-framework-3.14.0.tgz#c5b94d7e2e3ef2d3c9f24091b7efc4abf8054cf9"
-  integrity sha512-06Vr2nhjU72N9IivwCLcd7FgqFNopkiHfzANJUCNdvs8FkbTjIB7fcsFgJ6O76KnOBsEiAoJAssRkTh9x3a2jw==
+vanilla-framework@4.35.0:
+  version "4.35.0"
+  resolved "https://registry.yarnpkg.com/vanilla-framework/-/vanilla-framework-4.35.0.tgz#b01bbb525ad3211690c9f10580ca2e00a37a8ab1"
+  integrity sha512-vF8M9vsXiOpJEonFXiTVhY0rXOzNtoWpkhBcCVpyPb4+oHBx0/FaNcX5GAiQpfdT6Q/AAeRYyWwRUDObq6R8uw==
 
-vanilla-framework@4.41.0:
-  version "4.41.0"
-  resolved "https://registry.yarnpkg.com/vanilla-framework/-/vanilla-framework-4.41.0.tgz#bc981035c536bd6cca5b6f3ded2abad679231499"
-  integrity sha512-UMCb+1+kfSoMFmXwwfjR/oyliojQ6pjOsBYwSRN6HgNtL14KhQc0VECYnv4YlkNTAJqQLR7VFwq95aXJrSrJSw==
+vanilla-framework@4.44.0:
+  version "4.44.0"
+  resolved "https://registry.yarnpkg.com/vanilla-framework/-/vanilla-framework-4.44.0.tgz#0e8c495207b7abdadd6764258712b48f37964134"
+  integrity sha512-+TKWpSsWDMbbO/pUTEImeDOhe2pIztx/lseg79vIoVbnluxJ8u2+EbE8A1q4MrGMGjQcpTVwXoudJEgIkdMHTw==
 
 verbalize@^0.1.2:
   version "0.1.2"
