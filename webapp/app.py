@@ -26,7 +26,6 @@ from webapp.views import (
 from canonicalwebteam.cookie_service import CookieConsent
 from jinja2 import ChoiceLoader, FileSystemLoader
 
-
 session = talisker.requests.get_session()
 app = FlaskBase(
     __name__,
@@ -170,7 +169,10 @@ app.add_url_rule("/takeovers", view_func=takeovers_index)
 url = os.getenv("UBUNTU_COM_RELEASES")
 
 if url is None:
-    raise ValueError("The Ubuntu.com releases.yaml URL was not found or is invalid. Please check the .env file.")
+    raise ValueError(
+        "The Ubuntu.com releases.yaml URL was not found or is invalid. "
+        "Please check the .env file."
+    )
 
 response = requests.get(url)
 response.raise_for_status()
