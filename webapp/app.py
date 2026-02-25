@@ -11,6 +11,8 @@ import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
 
+import requests
+
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
 from canonicalwebteam.flask_base.app import FlaskBase
@@ -23,6 +25,7 @@ from webapp.views import (
 )
 from canonicalwebteam.cookie_service import CookieConsent
 from jinja2 import ChoiceLoader, FileSystemLoader
+
 
 session = talisker.requests.get_session()
 app = FlaskBase(
@@ -163,9 +166,16 @@ def takeovers_index():
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
-# read releases.yaml
-with open("releases.yaml") as releases:
-    releases = yaml.load(releases, Loader=yaml.FullLoader)
+# fetch releases.yaml from the ubuntu.com repo
+url = os.getenv("UBUNTU_COM_RELEASES")
+
+if url is None:
+    raise ValueError("The Ubuntu.com releases.yaml URL was not found or is invalid. Please check the .env file.")
+
+response = requests.get(url)
+response.raise_for_status()
+
+releases = yaml.load(response.text, Loader=yaml.FullLoader)
 
 
 # Image template

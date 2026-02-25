@@ -11,3 +11,4 @@ python-dateutil==2.8.2
 pyyaml==6.0
 vcrpy-unittest==0.1.7
 black==26.1.0
+requests==2.32.5
