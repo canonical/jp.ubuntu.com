@@ -14,7 +14,6 @@ jobs:
       - name: Run image
         run: |
           docker run --detach \
-            --name my-ubuntu-app \
             --env SECRET_KEY=insecure_secret_key \
             --env PORT=8012 \
             --env FLASK_DEBUG=true \
