@@ -15,7 +15,6 @@ jobs:
         run: |
           docker run --detach \
             --env SECRET_KEY=insecure_secret_key \
-            --env PORT=8012 \
             --env UBUNTU_COM_RELEASES="https://raw.githubusercontent.com/canonical/ubuntu.com/main/releases.yaml" \
             --network host \
             jp-ubuntu-com
