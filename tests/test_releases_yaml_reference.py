@@ -8,7 +8,7 @@ from webapp.api import get_releases
 
 class TestReleasesYamlReferences(TestCase):
     """
-    Validates that all `releases_yaml.X` references in templates
+    Validates that all `releases.X` references in templates
     correspond to actual fields in releases.yaml
     """
 
@@ -20,13 +20,13 @@ class TestReleasesYamlReferences(TestCase):
             cls.releases_data = get_releases(releases_url)
 
         cls.valid_paths = set()
-        cls._build_paths(cls.releases_data, "releases_yaml", cls.valid_paths)
+        cls._build_paths(cls.releases_data, "releases", cls.valid_paths)
 
         cls.project_root = Path(__file__).parent.parent
 
     @classmethod
     def _build_paths(cls, data, prefix, paths):
-        """Builds a list of valid paths from releases.yaml"""
+        """Builds a list of valid paths from the releases.yaml"""
         paths.add(prefix)
         if isinstance(data, dict):
             for key, value in data.items():
@@ -37,22 +37,26 @@ class TestReleasesYamlReferences(TestCase):
         return list(templates_dir.rglob("*.html"))
 
     def _extract_releases_references(self, content, pattern):
-        """Extract all releases_yamls.X.Y.Z references from content."""
-        matches = pattern.findall(content)
+        """Extract all releases.X.Y.Z references from within Jinja tags."""
+        jinja_blocks = re.findall(
+            r"\{[\{\%](.*?)[\}\%]\}", content, flags=re.DOTALL
+        )
+
         references = []
-        for match in matches:
-            # Clean up the path, removes trailing punctuation, brackets, etc.
-            path = re.sub(r"[\s\|\}\)\]\,\:\;]+$", "", match)
-            path = re.sub(r"\[.*$", "", path)
-            if path:
-                references.append(f"releases_yaml.{path}")
+        for block in jinja_blocks:
+            matches = pattern.findall(block)
+            for match in matches:
+                path = re.sub(r"[\s\|\}\)\]\,\:\;]+$", "", match)
+                path = re.sub(r"\[.*$", "", path)
+                if path:
+                    references.append(f"releases.{path}")
         return references
 
     def test_template_references_exist(self):
         """
-        Test that all releases_yaml references in html exist in releases.yaml
+        Test that all releases references in html exist in releases.yaml
         """
-        pattern = re.compile(r"releases_yaml\.([a-zA-Z0-9_\.]+)")
+        pattern = re.compile(r"releases\.([a-zA-Z0-9_\.]+)")
 
         template_files = self._find_template_files()
 
