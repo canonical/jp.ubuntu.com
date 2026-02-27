@@ -165,20 +165,6 @@ def takeovers_index():
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
-# fetch releases.yaml from the ubuntu.com repo
-url = os.getenv("UBUNTU_COM_RELEASES")
-
-if url is None:
-    raise ValueError(
-        "The Ubuntu.com releases.yaml URL was not found or is invalid. "
-        "Please check the .env file."
-    )
-
-response = requests.get(url)
-response.raise_for_status()
-
-releases = yaml.load(response.text, Loader=yaml.FullLoader)
-
 
 # Image template
 @app.context_processor
