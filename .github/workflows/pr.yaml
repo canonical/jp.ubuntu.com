@@ -95,9 +95,6 @@ jobs:
 
       - name: Run tests with coverage
         env:
-          PORT: 8012
-          FLASK_DEBUG: true
-          ENVIRONMENT: devel
           UBUNTU_COM_RELEASES: https://raw.githubusercontent.com/canonical/ubuntu.com/main/releases.yaml
         run: |
           SECRET_KEY=insecure_secret_key coverage run  --source=. -m unittest discover tests
