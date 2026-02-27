@@ -13,7 +13,7 @@ cached_request = CachedSession(fallback_cache_duration=expiry_seconds)
 logger = logging.getLogger(__name__)
 
 
-def get_releases(url): 
+def get_releases(url):
     response = requests.get(url)
     response.raise_for_status()
     return yaml.load(response.text, Loader=yaml.FullLoader)
