@@ -9,7 +9,6 @@ import talisker
 import os
 import webapp.template_utils as template_utils
 from flask_caching import Cache
-from datetime import timedelta
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -34,18 +33,6 @@ app = FlaskBase(
     template_500="500.html",
 )
 
-# Configuration for shared cookie service
-
-# Configure Flask session
-app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=365)
-app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-app.config["SESSION_COOKIE_HTTPONLY"] = True
-app.config["SESSION_COOKIE_SECURE"] = True
-
-
-# Initialize Flask-Caching
-app.config["CACHE_TYPE"] = "SimpleCache"
-cache = Cache(app)
 
 # ChoiceLoader attempts loading templates from each path in successive order
 loader = ChoiceLoader(
@@ -60,6 +47,11 @@ loader = ChoiceLoader(
 app.jinja_loader = loader
 
 
+# Initialize Flask-Caching
+app.config["CACHE_TYPE"] = "SimpleCache"
+cache = Cache(app)
+
+
 # Set up cache functions for cookie consent service
 def get_cache(key):
     return cache.get(key)
@@ -69,14 +61,12 @@ def set_cache(key, value, timeout):
     cache.set(key, value, timeout)
 
 
-cookie_service = None
-if not app.debug:
-    cookie_service = CookieConsent().init_app(
-        app,
-        get_cache_func=get_cache,
-        set_cache_func=set_cache,
-        start_health_check=True,
-    )
+cookie_service = CookieConsent().init_app(
+    app,
+    get_cache_func=get_cache,
+    set_cache_func=set_cache,
+    start_health_check=True,
+)
 
 
 blog_views = BlogViews(
