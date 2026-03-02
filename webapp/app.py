@@ -3,7 +3,6 @@ A Flask application for jp.ubuntu.com
 """
 
 # Packages
-import yaml
 import flask
 import talisker
 import os
@@ -21,6 +20,7 @@ from webapp.views import (
     build_engage_page,
     engage_thank_you,
 )
+from webapp.api import get_releases
 from canonicalwebteam.cookie_service import CookieConsent
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -41,6 +41,9 @@ app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=365)
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SECURE"] = True
+app.config["UBUNTU_COM_RELEASES"] = (
+    "https://raw.githubusercontent.com/canonical/ubuntu.com/main/releases.yaml"
+)
 
 
 # Initialize Flask-Caching
@@ -163,9 +166,7 @@ def takeovers_index():
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
-# read releases.yaml
-with open("releases.yaml") as releases:
-    releases = yaml.load(releases, Loader=yaml.FullLoader)
+releases = get_releases(app.config["UBUNTU_COM_RELEASES"])
 
 
 # Image template
