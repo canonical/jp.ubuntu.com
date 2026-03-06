@@ -20,7 +20,8 @@ from webapp.views import (
     build_engage_page,
     engage_thank_you,
 )
-from canonicalwebteam.cookie_service import CookieConsent
+
+# from canonicalwebteam.cookie_service import CookieConsent
 from jinja2 import ChoiceLoader, FileSystemLoader
 
 session = talisker.requests.get_session()
@@ -61,12 +62,12 @@ def set_cache(key, value, timeout):
     cache.set(key, value, timeout)
 
 
-cookie_service = CookieConsent().init_app(
-    app,
-    get_cache_func=get_cache,
-    set_cache_func=set_cache,
-    start_health_check=True,
-)
+# cookie_service = CookieConsent().init_app(
+#     app,
+#     get_cache_func=get_cache,
+#     set_cache_func=set_cache,
+#     start_health_check=True,
+# )
 
 
 blog_views = BlogViews(
