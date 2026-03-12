@@ -22,7 +22,6 @@ from webapp.views import (
 )
 
 from webapp.api import get_releases
-from canonicalwebteam.cookie_service import CookieConsent
 
 from jinja2 import ChoiceLoader, FileSystemLoader
 
