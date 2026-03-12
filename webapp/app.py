@@ -8,7 +8,7 @@ import talisker
 import os
 import webapp.template_utils as template_utils
 from flask_caching import Cache
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -20,8 +20,10 @@ from webapp.views import (
     build_engage_page,
     engage_thank_you,
 )
+
 from webapp.api import get_releases
 from canonicalwebteam.cookie_service import CookieConsent
+
 from jinja2 import ChoiceLoader, FileSystemLoader
 
 session = talisker.requests.get_session()
@@ -33,6 +35,7 @@ app = FlaskBase(
     template_404="404.html",
     template_500="500.html",
 )
+
 
 # Configuration for shared cookie service
 
@@ -50,6 +53,7 @@ app.config["UBUNTU_COM_RELEASES"] = (
 app.config["CACHE_TYPE"] = "SimpleCache"
 cache = Cache(app)
 
+
 # ChoiceLoader attempts loading templates from each path in successive order
 loader = ChoiceLoader(
     [
@@ -63,6 +67,11 @@ loader = ChoiceLoader(
 app.jinja_loader = loader
 
 
+# Initialize Flask-Caching
+app.config["CACHE_TYPE"] = "SimpleCache"
+cache = Cache(app)
+
+
 # Set up cache functions for cookie consent service
 def get_cache(key):
     return cache.get(key)
@@ -72,14 +81,12 @@ def set_cache(key, value, timeout):
     cache.set(key, value, timeout)
 
 
-cookie_service = None
-if not app.debug:
-    cookie_service = CookieConsent().init_app(
-        app,
-        get_cache_func=get_cache,
-        set_cache_func=set_cache,
-        start_health_check=True,
-    )
+# cookie_service = CookieConsent().init_app(
+#     app,
+#     get_cache_func=get_cache,
+#     set_cache_func=set_cache,
+#     start_health_check=True,
+# )
 
 
 blog_views = BlogViews(
