@@ -3,12 +3,12 @@ A Flask application for jp.ubuntu.com
 """
 
 # Packages
-import yaml
 import flask
 import talisker
 import os
 import webapp.template_utils as template_utils
 from flask_caching import Cache
+from datetime import timedelta
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -21,7 +21,8 @@ from webapp.views import (
     engage_thank_you,
 )
 
-# from canonicalwebteam.cookie_service import CookieConsent
+from webapp.api import get_releases
+
 from jinja2 import ChoiceLoader, FileSystemLoader
 
 session = talisker.requests.get_session()
@@ -33,6 +34,23 @@ app = FlaskBase(
     template_404="404.html",
     template_500="500.html",
 )
+
+
+# Configuration for shared cookie service
+
+# Configure Flask session
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=365)
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SECURE"] = True
+app.config["UBUNTU_COM_RELEASES"] = (
+    "https://raw.githubusercontent.com/canonical/ubuntu.com/main/releases.yaml"
+)
+
+
+# Initialize Flask-Caching
+app.config["CACHE_TYPE"] = "SimpleCache"
+cache = Cache(app)
 
 
 # ChoiceLoader attempts loading templates from each path in successive order
@@ -154,9 +172,7 @@ def takeovers_index():
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
-# read releases.yaml
-with open("releases.yaml") as releases:
-    releases = yaml.load(releases, Loader=yaml.FullLoader)
+releases = get_releases(app.config["UBUNTU_COM_RELEASES"])
 
 
 # Image template
