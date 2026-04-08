@@ -43,9 +43,6 @@ app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=365)
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SECURE"] = True
-app.config["UBUNTU_COM_RELEASES"] = (
-    "https://raw.githubusercontent.com/canonical/ubuntu.com/main/releases.yaml"
-)
 
 
 # Initialize Flask-Caching
@@ -172,7 +169,11 @@ def takeovers_index():
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
-releases = get_releases(app.config["UBUNTU_COM_RELEASES"])
+# read releases.yaml
+releases = get_releases(
+    "https://raw.githubusercontent.com/canonical/"
+    "ubuntu.com/main/releases.yaml"
+)
 
 
 # Image template
