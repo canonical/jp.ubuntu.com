@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - samhotep-patch-2 # remove after approval
+      - fix/deployment-test # remove after approval
       - main
 
 env:
@@ -84,7 +84,8 @@ jobs:
         run: skopeo --insecure-policy copy oci-archive:$(ls *.rock) docker://${{ steps.set_image_url.outputs.image_url }} --dest-creds "canonical:${{ secrets.GITHUB_TOKEN }}"
 
   deploy-staging:
-    runs-on: [self-hosted, self-hosted-linux-amd64-noble-private-endpoint-medium]
+    runs-on:
+      [self-hosted, self-hosted-linux-amd64-noble-private-endpoint-medium]
     needs: [pack-charm, publish-image]
     steps:
       - name: Checkout Code
@@ -123,7 +124,8 @@ jobs:
           juju wait-for application jp-ubuntu-com --query='name=="jp-ubuntu-com" && (status=="active" || status=="idle")'
 
   deploy-production:
-    runs-on: [self-hosted, self-hosted-linux-amd64-noble-private-endpoint-medium]
+    runs-on:
+      [self-hosted, self-hosted-linux-amd64-noble-private-endpoint-medium]
     needs: [pack-charm, publish-image]
     steps:
       - name: Checkout Code
@@ -146,7 +148,7 @@ jobs:
           export TF_VAR_login_approle_secret_id=${{ secrets.PROD_VAULT_APPROLE_SECRET_ID }}
           export VAULT_SECRET_PATH_ROLE=secret/prodstack6/roles/prod-jp-ubuntu-com
           export VAULT_SECRET_PATH_COMMON=secret/prodstack6/juju/common
-          VAULT_TOKEN=$(vault write -f -field=token auth/approle/login role_id=${TF_VAR_login_approle_role_id} secret_id=${TF_VAR_login_approle_secret_id}) 
+          VAULT_TOKEN=$(vault write -f -field=token auth/approle/login role_id=${TF_VAR_login_approle_role_id} secret_id=${TF_VAR_login_approle_secret_id})
           export VAULT_TOKEN
           mkdir -p ~/.local/share/juju
           vault read -field=controller_config "${VAULT_SECRET_PATH_COMMON}/controllers/juju-controller-36-production-ps6" | base64 -d > ~/.local/share/juju/controllers.yaml
