@@ -1,3 +1,4 @@
+flask
 canonicalwebteam.flask-base==2.6.0
 canonicalwebteam.discourse==5.4.3
 canonicalwebteam.http==1.0.4
