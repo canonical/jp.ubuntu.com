@@ -171,8 +171,7 @@ app.add_url_rule("/takeovers", view_func=takeovers_index)
 
 def download_releases():
     return flask.render_template(
-        "download/index.html",
-        releases=get_releases_cached(cache)
+        "download/index.html", releases=get_releases_cached(cache)
     )
 
 
