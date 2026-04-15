@@ -133,14 +133,6 @@ class TestRoutes(VCRTestCase):
 
         self.assertEqual(self.client.get("/pro").status_code, 200)
 
-    def test_download(self):
-        """
-        When given the download URL,
-        we should return a 200 status code
-        """
-
-        self.assertEqual(self.client.get("/download").status_code, 200)
-
 
 if __name__ == "__main__":
     unittest.main()

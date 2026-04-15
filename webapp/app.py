@@ -20,8 +20,7 @@ from webapp.views import (
     build_engage_page,
     engage_thank_you,
 )
-
-from webapp.api import get_releases
+from webapp.api import get_releases_cached
 
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -169,11 +168,14 @@ def takeovers_index():
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
-# read releases.yaml
-releases = get_releases(
-    "https://raw.githubusercontent.com/canonical/"
-    "ubuntu.com/main/releases.yaml"
-)
+
+def download_releases():
+    return flask.render_template(
+        "download/index.html", releases=get_releases_cached(cache)
+    )
+
+
+app.add_url_rule("/download", view_func=download_releases)
 
 
 # Image template
@@ -191,7 +193,6 @@ def context():
         "replace_admin": template_utils.replace_admin,
         "truncate_chars": template_utils.truncate_chars,
         "page": flask.request.args.get("page", ""),
-        "releases": releases,
         "platform": flask.request.args.get("platform", ""),
         "version": flask.request.args.get("version", ""),
         "architecture": flask.request.args.get("architecture", ""),
