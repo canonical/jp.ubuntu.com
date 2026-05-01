@@ -14,7 +14,9 @@ def build_engage_index(engage_docs):
         posts_per_page = 14
         offset = (page - 1) * posts_per_page
 
-        (metadata, total_count, active_count, current_total) = engage_docs.get_index(posts_per_page, offset)
+        (metadata, total_count, active_count, current_total) = engage_docs.get_index(
+            posts_per_page, offset
+        )
 
         total_pages = math.ceil(current_total / posts_per_page)
 
@@ -88,9 +90,7 @@ def engage_thank_you(engage_pages):
         related = []
         for item in all_engage_pages:
             # Match language and match tags
-            if match_tags(
-                item["tags"].split(","), metadata["tags"].split(",")
-            ):
+            if match_tags(item["tags"].split(","), metadata["tags"].split(",")):
                 related.append(item)
             if len(related) < total_num_related:
                 # we can only fit 3 related posts, no need to finish the loop
