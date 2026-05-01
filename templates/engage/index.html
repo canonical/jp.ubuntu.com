@@ -9,25 +9,40 @@
 
 {% block outer_content %}
 
-<section class="p-strip u-no-padding--bottom">
-  <div class="row">
-    <h1>Ubuntuのケーススタディ、ホワイトペーパー、ウェビナー</h1>
+<section class="p-section--hero grid-row">
+  <div class="grid-col-start-large-3 grid-col-small-4 grid-col-medium-4 grid-col-6">
+    <h1 class="u-text-align">Ubuntuの導入事例・ホワイトペーパー・ウェビナー</h1>
   </div>
 </section>
 
-<section class="p-strip is-shallow" id="posts-list">
-  <div class="row u-equal-height">
+<section>
+  <div class="grid-row p-engage-list">
     {% for item in metadata %}
-      {% with 
-      title=item.topic_name,
-      title_link=item.path,
-      description=item.subtitle,
-      type=item.type %}
-      {% include "/engage/shared/_article-card.html" %}
-      {% endwith %}
+      {% if page == 1 and loop.index <= 2 and item.image %}
+        {% with
+          title=item.topic_name,
+          title_link=item.path,
+          description=item.subtitle,
+          type=item.type | title,
+          image_src=item.meta_image,
+          image_alt=item.topic_name %}
+          {% include "/engage/shared/_article-card.html" %}
+        {% endwith %}
+      {% else %}
+        {% with
+          title=item.topic_name,
+          title_link=item.path,
+          description=item.subtitle,
+          type=item.type | title %}
+          {% include "/engage/shared/_article-card.html" %}
+        {% endwith %}
+      {% endif %}
     {% endfor %}
-
   </div>
-
+   {% with %}
+      {% set total_pages = total_pages %}
+      {% set current_page = page %}
+      {% include "shared/_pagination.html" %}
+    {% endwith %}
 </section>
 {% endblock outer_content %}
