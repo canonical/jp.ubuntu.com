@@ -16,33 +16,37 @@
 </section>
 
 <section>
-  <div class="grid-row p-engage-list">
-    {% for item in metadata %}
-      {% if page == 1 and loop.index <= 2 and item.image %}
-        {% with
-          title=item.topic_name,
-          title_link=item.path,
-          description=item.subtitle,
-          type=item.type | title,
-          image_src=item.meta_image,
-          image_alt=item.topic_name %}
-          {% include "/engage/shared/_article-card.html" %}
-        {% endwith %}
-      {% else %}
-        {% with
-          title=item.topic_name,
-          title_link=item.path,
-          description=item.subtitle,
-          type=item.type | title %}
-          {% include "/engage/shared/_article-card.html" %}
-        {% endwith %}
-      {% endif %}
-    {% endfor %}
-  </div>
-   {% with %}
+  <section class="p-section">
+    <div class="grid-row p-engage-list">
+      {% for item in metadata %}
+        {% if page == 1 and loop.index <= 2 and item.image %}
+          {% with
+            title=item.topic_name,
+            title_link=item.path,
+            description=item.subtitle,
+            type=item.type | title,
+            image_src=item.meta_image,
+            image_alt=item.topic_name %}
+            {% include "/engage/shared/_article-card.html" %}
+          {% endwith %}
+        {% else %}
+          {% with
+            title=item.topic_name,
+            title_link=item.path,
+            description=item.subtitle,
+            type=item.type | title %}
+            {% include "/engage/shared/_article-card.html" %}
+          {% endwith %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  <section class="p-section--deep">
+    {% with %}
       {% set total_pages = total_pages %}
       {% set current_page = page %}
       {% include "shared/_pagination.html" %}
     {% endwith %}
+  </section>
 </section>
 {% endblock outer_content %}
