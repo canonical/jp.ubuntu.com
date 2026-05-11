@@ -44,31 +44,26 @@
             }
           }
         }
-      },
-      {
-        "type": "signpost_image",
-        "item": {
-          "is_highlighted": false,
-          "attrs": {
-            "src": metadata['image'],
-            "alt": ""
-          }
-        }
-      },
+      }
     ]
   ) -%}
-  {%- endcall -%}
+  {%- if slot == 'signpost_image' -%}
+      <div class="p-image-container u-hide--medium">
+        <img class="p-image-container__image u-no-margin" src="{{metadata['image']}}" alt="signpost_image">
+      </div>
+  {%- endif -%}
+{%- endcall -%}
 
-<section class="p-section">
+<section class="p-section--deep">
   <div class="u-fixed-width">
     <hr class="p-rule" />
   </div>
   <div class="p-strip is-shallow grid-row">
-    <div class="grid-col-start-large-3 grid-col-4" id="the-body">
+    <div class="grid-col-start-large-3 grid-col-4 p-engage-body">
       {{ metadata["body_html"] | safe }}
     </div>
     {% if "form_id" in metadata and metadata["form_id"] != "" %}
-      <div class="col-2" id="the-form">
+      <div class="col-2 p-engage-form">
         {% if "form_cta" in metadata and metadata["form_cta"] != '' %}
           {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you", cta=metadata['form_cta'] %}
             {% include "engage/shared/_form.html" %}
@@ -106,12 +101,4 @@
     </div>
   </section>
 {% endif %}
-
-<style>
-  /* On small screens, form appears before body */
-  @media (max-width: 1035px) {
-    #the-body { order: 2; }
-    #the-form { order: 1; }
-  }
-</style>
 {% endblock outer_content %}
