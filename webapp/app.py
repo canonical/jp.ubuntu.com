@@ -21,6 +21,7 @@ from webapp.views import (
     engage_thank_you,
 )
 from webapp.api import get_releases_cached
+from webapp.context import modify_query
 
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -146,7 +147,8 @@ def takeovers_json():
 
 
 def takeovers_index():
-    all_takeovers = discourse_takeovers.get_index()
+    result = discourse_takeovers.get_index()
+    all_takeovers = result[0]
     all_takeovers.sort(
         key=lambda takeover: takeover["active"] == "true", reverse=True
     )
@@ -197,6 +199,7 @@ def context():
         "version": flask.request.args.get("version", ""),
         "architecture": flask.request.args.get("architecture", ""),
         "product": flask.request.args.get("product", ""),
+        "modify_query": modify_query,
     }
 
 
