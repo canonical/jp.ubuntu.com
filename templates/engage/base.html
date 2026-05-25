@@ -48,10 +48,10 @@
 {%- endcall -%}
 
 <section class="{% if last_section == 'body' %}p-section--deep{% else %}p-section{% endif %}">
-  <div class="u-fixed-width u-hide--small u-hide--medium">
-    <hr class="p-rule" />
-  </div>
   <div class="p-strip is-shallow grid-row">
+    <div class="u-fixed-width u-hide--small u-hide--medium grid-col-start-large-3">
+      <hr class="p-rule" />
+    </div>
     <div class="grid-col-start-large-3 grid-col-4 p-engage-body">
       {{ metadata["body_html"] | safe }}
     </div>
