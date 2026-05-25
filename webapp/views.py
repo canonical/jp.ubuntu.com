@@ -57,7 +57,7 @@ def build_engage_page(engage_pages):
                 "engage/base.html",
                 forum_url=engage_pages.api.base_url,
                 metadata=metadata,
-                related_pages_metadata=related_pages_metadata
+                related_pages_metadata=related_pages_metadata,
             )
 
     return engage_page

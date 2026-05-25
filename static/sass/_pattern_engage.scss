@@ -1,10 +1,10 @@
 // Apply to `grid-col-*` element to make it sticky within its
 // parent container.
 .u-sticky-col {
+  align-self: start;
   position: sticky;
   top: $spv--strip-regular; // Account for navigation
   z-index: 1;
-  align-self: start;
 }
 
 
@@ -16,12 +16,11 @@
     }
 
     .p-engage-form {
-      order: 1;
-
       // disable sticky behavior when stacked on smaller screens
-      position: static;
       max-height: none;
+      order: 1;
       overflow-y: visible;
+      position: static;
     }
   }
 }
