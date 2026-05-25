@@ -5,7 +5,6 @@ A Flask application for jp.ubuntu.com
 # Packages
 import flask
 import talisker
-import os
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
