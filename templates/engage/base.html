@@ -1,5 +1,6 @@
 {% extends "_base/base.html" %}
 {% from "_macros/vf_hero.jinja" import vf_hero %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
 
 {% set section_title="Engage Page" %}
 {% set section_path="/engage" %}
@@ -16,6 +17,15 @@
 
 {% block outer_content %}
 
+{# identify the last section to apply deep padding to #}
+  {% set last_section = "body" %}
+  {% if 'webinar_code' in metadata %}
+    {% set last_section = "webinar" %}
+  {% endif %}
+  {% if related_pages_metadata|length > 0 %}
+    {% set last_section = "related" %}
+  {% endif %}
+
 {% call(slot) vf_hero(
     title_text=metadata["topic_name"],
     layout='25/75',
@@ -27,23 +37,6 @@
           "type": "html",
           "content": '<h2 class="p-heading--4">' + metadata["subtitle"] + '</h2>'
         }
-      },
-      {
-        "type": "cta-block",
-        "item": {
-          "primary": {
-            "content_html": metadata["primary_cta"],
-            "attrs": {
-              "href": metadata['primary_link']
-            }
-          },
-          "link": {
-            "content_html": metadata["secondary_cta"],
-            "attrs": {
-              "href": metadata['secondary_link']
-            }
-          }
-        }
       }
     ]
   ) -%}
@@ -54,28 +47,40 @@
   {%- endif -%}
 {%- endcall -%}
 
-<section class="p-section--deep">
-  <div class="u-fixed-width">
+<section class="{% if last_section == 'body' %}p-section--deep{% else %}p-section{% endif %}">
+  <div class="u-fixed-width u-hide--small u-hide--medium">
     <hr class="p-rule" />
   </div>
   <div class="p-strip is-shallow grid-row">
     <div class="grid-col-start-large-3 grid-col-4 p-engage-body">
       {{ metadata["body_html"] | safe }}
     </div>
-    {% if "form_id" in metadata and metadata["form_id"] != "" %}
-      <div class="col-2 p-engage-form">
+    <div class="col-2 u-sticky-col p-engage-form" style="max-height: 100vh; overflow-y: auto">
+      {% if "form_id" in metadata and metadata["form_id"] != "" %}
         {% if "form_cta" in metadata and metadata["form_cta"] != '' %}
           {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you", cta=metadata['form_cta'] %}
             {% include "engage/shared/_form.html" %}
           {% endwith %}
         {% else %}
-        {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you" %}
-          {% include "engage/shared/_form.html" %}
-        {% endwith %}
+          {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you" %}
+            {% include "engage/shared/_form.html" %}
+          {% endwith %}
         {% endif %}
-
+      {% elif "primary_link" in metadata and metadata["primary_link"] != "" %}
+        <div class="p-section--shallow u-hide--small u-hide--medium">
+          <div class="p-image-container--16-9 is-highlighted">
+            <img class="p-image-container__image"
+                  src="{{ metadata['meta_image'] if metadata['meta_image'] else 'https://assets.ubuntu.com/v1/1199af9d-fallback-thumbnail-dark.jpg' }}"
+                  alt=""
+                  width="{{ metadata['image_width'] }}" />
+          </div>
+        </div>
+        <a href="{{ metadata['primary_link'] }}" class="p-button--positive">{{ metadata["primary_cta"] }}</a>
+      {% endif %}
+      <div class="u-fixed-width u-hide--large">
+        <hr class="p-rule" />
       </div>
-    {% endif %}
+    </div>
   </div>
   
     <!-- calendly -->
@@ -92,7 +97,7 @@
     {% set channel_id = 6793 %}
   {% endif %}
   <!-- webinar -->
-  <section class="p-strip is-shallow" id="register-section">
+  <section class="p-strip {% if last_section == 'webinar' %}p-section--deep{% else %}p-section{% endif %}" id="register-section">
     <div class="row" id="webinar">
       <div class="jsBrightTALKEmbedWrapper" style="width:100%; height:100%; position:relative;background: #ffffff;">
         <script class="jsBrightTALKEmbedConfig" type="application/json">{ "channelId" : {{channel_id}}, "language": "cn-ZH", "commId" : {{ metadata["webinar_code"] }}, "displayMode" : "standalone", "height" : "auto" }</script>
@@ -100,5 +105,50 @@
       </div>
     </div>
   </section>
+{% endif %}
+
+{% if related_pages_metadata|length > 0 %}
+  <div class="p-section--deep">
+    <div class="p-section--shallow">
+      <div class="u-fixed-width">
+        <hr class="p-rule" />
+        <h2>Additional resources</h2>
+      </div>
+    </div>
+    {% for related in related_pages_metadata[:3] %}
+      <div class="p-section--shallow">
+        <div class="grid-row">
+          {% if not loop.first %}<hr class="p-rule--muted" />{% endif %}
+          <div class="grid-col-2">
+            <h3 class="p-text--small-caps">{{ related.type }}</h3>
+          </div>
+          <div class="grid-col-2 u-hide--small u-hide--medium">
+            <div class="p-image-container--16-9 is-highlighted">
+              <img class="p-image-container__image"
+                    src="{% if related.meta_image %}{{ related.meta_image }}{% else %}https://assets.ubuntu.com/v1/c797f1d7-og_%20canonical.png{% endif %}"
+                    alt="" />
+            </div>
+          </div>
+          <div class="grid-col-4">
+            {{- vf_article_block(article_config={
+                          "title": {"text": related.topic_name, "link_attrs": {"href": related.path }},
+                          "description": {"text": "It displays a title, description, and metadata (author and date)."},
+                          "metadata": {
+                          "authors": [
+                          {
+                          "text": "John Doe",
+                          "link": {"href": "#"}
+                          }
+                          ],
+                          "date": {
+                          "text": "15 March 2025"
+                          }
+                          }
+                          }) -}}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endif %}
 {% endblock outer_content %}
