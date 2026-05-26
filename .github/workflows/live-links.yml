@@ -49,6 +49,7 @@ jobs:
           warnings=0
           ignoreerrors=
             ^http?s://.* ^.*(471|500|503|504|400|403|521|401)
+          EOF
 
       - name: Run linkchecker for 404 errors only
         run: linkchecker --no-warning https://jp.ubuntu.com
