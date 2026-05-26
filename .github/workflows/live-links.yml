@@ -1,7 +1,6 @@
 name: Links on jp.ubuntu.com live
 
 on:
-  pull_request:
   schedule:
     - cron: "20 7 * * *"
 
