@@ -1,6 +1,7 @@
 name: Links on jp.ubuntu.com live
 
 on:
+  pull_request:
   schedule:
     - cron: "20 7 * * *"
 
@@ -48,7 +49,10 @@ jobs:
           warnings=0
           ignoreerrors=
             ^http?s://.* ^.*(471|500|503|504|400|403|521|401)
-          EOF
+            ^http?s://.* Connection aborted
+            ^http?s://.* Connection reset by peer
+            ^http?s://.* RemoteDisconnected
+            ^http?s://.* Read timed out
 
       - name: Run linkchecker for 404 errors only
         run: linkchecker --no-warning https://jp.ubuntu.com
