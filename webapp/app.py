@@ -5,7 +5,6 @@ A Flask application for jp.ubuntu.com
 # Packages
 import flask
 import talisker
-import os
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
@@ -13,6 +12,7 @@ from datetime import timedelta
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
 from canonicalwebteam.flask_base.app import FlaskBase
+from canonicalwebteam.flask_base.env import get_flask_env
 from canonicalwebteam.templatefinder import TemplateFinder
 from canonicalwebteam import image_template
 from webapp.views import (
@@ -90,6 +90,8 @@ blog_views = BlogViews(
         api_url="https://ubuntu.com/blog/wp-json/wp/v2",
         thumbnail_width=354,
         thumbnail_height=180,
+        wordpress_username=get_flask_env("WORDPRESS_USERNAME"),
+        wordpress_password=get_flask_env("WORDPRESS_APPLICATION_PASSWORD"),
     ),
     blog_title="Ubuntu blog",
     tag_ids=[3184],
@@ -104,8 +106,8 @@ discourse_api = DiscourseAPI(
     base_url="https://discourse.ubuntu.com/",
     session=session,
     get_topics_query_id=16,
-    api_key=os.getenv("DISCOURSE_API_KEY"),
-    api_username=os.getenv("DISCOURSE_API_USERNAME"),
+    api_key=get_flask_env("DISCOURSE_API_KEY"),
+    api_username=get_flask_env("DISCOURSE_API_USERNAME"),
 )
 
 takeovers_path = "/takeovers"

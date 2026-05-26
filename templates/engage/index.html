@@ -17,7 +17,7 @@
 
 <section class="p-strip is-shallow" id="posts-list">
   <div class="row u-equal-height">
-    {% for item in metadata %}
+    {% for item in metadata[0] %}
       {% with 
       title=item.topic_name,
       title_link=item.path,
