@@ -1,14 +1,12 @@
-// Apply to `grid-col-*` element to make it sticky within its
-// parent container.
-.u-sticky-col {
-  align-self: start;
-  position: sticky;
-  top: $spv--strip-regular; // Account for navigation
-  z-index: 1;
-}
-
-
 @mixin ubuntu-p-engage {
+  // side form is sticky on larger screens
+  .p-engage-form {
+    align-self: start;
+    position: sticky;
+    top: $spv--strip-regular; // Account for navigation
+    z-index: 1;
+  }
+
   // reorder form above body content on smaller screens
   @media (max-width: $breakpoint-large) {
     .p-engage-body {
