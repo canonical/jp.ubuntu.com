@@ -1,4 +1,6 @@
 {% extends "_base/base.html" %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
 
 {% set section_title="Engage Page" %}
 {% set section_path="/engage" %}
@@ -15,88 +17,77 @@
 
 {% block outer_content %}
 
-<section class="is-deep p-takeover--{{metadata['banner_class']}}">
-  <div class="u-fixed-width navigation-logo-engage">
-    <a href="/">
-      {% if metadata['banner_class'] == 'light' %}
-        {{
-          image(
-            url="https://assets.ubuntu.com/v1/04115a7e-ubuntu_black-orange_hex.svg",
-            alt="Ubuntu",
-            height="32",
-            width="143",
-            hi_def=True,
-            loading="auto"
-          ) | safe
-        }}
-      {% else %}
-        {{
-          image(
-            url="https://assets.ubuntu.com/v1/f263d9c4-logo-ubuntu-white.svg",
-            alt="Ubuntu",
-            height="32",
-            width="143",
-            hi_def=True,
-            loading="auto"
-          ) | safe
-        }}
-      {% endif %}
+{# identify the last section to apply deep padding to #}
+  {% set last_section = "body" %}
+  {% if 'webinar_code' in metadata %}
+    {% set last_section = "webinar" %}
+  {% endif %}
+  {% if related_pages_metadata|length > 0 %}
+    {% set last_section = "related" %}
+  {% endif %}
 
-    </a>
-  </div>
-  <div class="row">
-    <div class="col-7 u-vertically-center">
-      <h1>{{metadata["topic_name"]}}</h1>
-      <p class="u-no-padding--top p-heading--4">
-        {{metadata['subtitle']}}
-      </p>
-      {% if "primary_cta" in metadata and metadata["primary_cta"] != "" %}
-      <p class="{% if 'secondary_cta' not in metadata %}u-hide--large{% endif %}">
-        <a href="{{ metadata['primary_link'] }}" class="p-button--positive">
-          {{ metadata["primary_cta"] }}
-        </a>
-        {% if "secondary_cta" in metadata and metadata['secondary_cta'] != "" %}
-          <a href="{{ metadata['secondary_link'] }}" class="p-button">
-            {{metadata['secondary_cta']}}
-          </a>
-        {% endif %}
-      </p>
-      {% endif %}
-    </div>
-    {% if metadata["image"] != '' %}
-    <div class="col-5 u-hide--small u-vertically-center u-align--center">
-      <img src="{{metadata['image']}}" alt="" style="width:{{ metadata['image_width'] }}px; height:{{ metadata['image_height'] }}px"/>
-    </div>
-    {% endif %}
-  </div>
-</section>
+{% call(slot) vf_hero(
+    title_text=metadata["topic_name"],
+    layout='25/75',
+    blocks=[
+      {
+        "type": "description",
+        "padding": "shallow",
+        "item": {
+          "type": "html",
+          "content": '<h2 class="p-heading--4">' + metadata["subtitle"] + '</h2>'
+        }
+      }
+    ]
+  ) -%}
+  {%- if slot == 'signpost_image' -%}
+      <div class="p-image-container u-hide--medium">
+        <img class="p-image-container__image u-no-margin" src="{{metadata['image']}}" alt="signpost_image">
+      </div>
+  {%- endif -%}
+{%- endcall -%}
 
-<section class="p-strip is-shallow is-bordered">
-  <div class="row">
-    <div class="{% if metadata['form_id'] != '' %}col-7{% else %}col-8{% endif %}">
+<section class="{% if last_section == 'body' %}p-section--deep{% else %}p-section{% endif %}">
+  <div class="p-strip is-shallow grid-row">
+    <div class="u-fixed-width u-hide--small u-hide--medium grid-col-start-large-3">
+      <hr class="p-rule" />
+    </div>
+    <div class="grid-col-start-large-3 grid-col-4 p-engage-body">
       {{ metadata["body_html"] | safe }}
     </div>
-    {% if "form_id" in metadata and metadata["form_id"] != "" %}
-    <div class="col-5" id="the-form">
-      {% if "form_cta" in metadata and metadata["form_cta"] != '' %}
-        {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you", cta=metadata['form_cta'] %}
-          {% include "engage/shared/_form.html" %}
-        {% endwith %}
-      {% else %}
-      {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you" %}
-        {% include "engage/shared/_form.html" %}
-      {% endwith %}
+    <div class="col-2 u-sticky-col p-engage-form" style="max-height: 100vh; overflow-y: auto">
+      {% if "form_id" in metadata and metadata["form_id"] != "" %}
+        {% if "form_cta" in metadata and metadata["form_cta"] != '' %}
+          {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you", cta=metadata['form_cta'] %}
+            {% include "engage/shared/_form.html" %}
+          {% endwith %}
+        {% else %}
+          {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you" %}
+            {% include "engage/shared/_form.html" %}
+          {% endwith %}
+        {% endif %}
+      {% elif "primary_link" in metadata and metadata["primary_link"] != "" %}
+        <div class="p-section--shallow u-hide--small u-hide--medium">
+          <div class="p-image-container--16-9 is-highlighted">
+            <img class="p-image-container__image"
+                  src="{{ metadata['meta_image'] if metadata['meta_image'] else 'https://assets.ubuntu.com/v1/1199af9d-fallback-thumbnail-dark.jpg' }}"
+                  alt=""
+                  width="{{ metadata['image_width'] }}" />
+          </div>
+        </div>
+        <a href="{{ metadata['primary_link'] }}" class="p-button--positive">{{ metadata["primary_cta"] }}</a>
       {% endif %}
-
+      <div class="u-fixed-width u-hide--large">
+        <hr class="p-rule" />
+      </div>
     </div>
-    {% endif %}
   </div>
   
-  <!-- calendly -->
-  {% if "calendly_url" in metadata and metadata.calendly_url != "" %}
-    <div class="calendly-inline-widget" data-url="{{ metadata.calendly_url }}" style="min-width:320px;height:700px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  {% endif %}
+    <!-- calendly -->
+    {% if "calendly_url" in metadata and metadata.calendly_url != "" %}
+      <div class="calendly-inline-widget" data-url="{{ metadata.calendly_url }}" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    {% endif %}
 </section>
 
 {% if "webinar_code" in metadata and metadata.webinar_code != "" %}
@@ -106,7 +97,7 @@
     {% set channel_id = 6793 %}
   {% endif %}
   <!-- webinar -->
-  <section class="p-strip is-shallow" id="register-section">
+  <section class="p-strip {% if last_section == 'webinar' %}p-section--deep{% else %}p-section{% endif %}" id="register-section">
     <div class="row" id="webinar">
       <div class="jsBrightTALKEmbedWrapper" style="width:100%; height:100%; position:relative;background: #ffffff;">
         <script class="jsBrightTALKEmbedConfig" type="application/json">{ "channelId" : {{channel_id}}, "language": "cn-ZH", "commId" : {{ metadata["webinar_code"] }}, "displayMode" : "standalone", "height" : "auto" }</script>
@@ -114,5 +105,39 @@
       </div>
     </div>
   </section>
+{% endif %}
+
+{% if related_pages_metadata|length > 0 %}
+  <div class="p-section--deep">
+    <div class="p-section--shallow">
+      <div class="u-fixed-width">
+        <hr class="p-rule" />
+        <h2>Additional resources</h2>
+      </div>
+    </div>
+    {% for related in related_pages_metadata[:3] %}
+      <div class="p-section--shallow">
+        <div class="grid-row">
+          {% if not loop.first %}<hr class="p-rule--muted" />{% endif %}
+          <div class="grid-col-2">
+            <h3 class="p-text--small-caps">{{ related.type }}</h3>
+          </div>
+          <div class="grid-col-2 u-hide--small u-hide--medium">
+            <div class="p-image-container--16-9 is-highlighted">
+              <img class="p-image-container__image"
+                    src="{% if related.meta_image %}{{ related.meta_image }}{% else %}https://assets.ubuntu.com/v1/c797f1d7-og_%20canonical.png{% endif %}"
+                    alt="" />
+            </div>
+          </div>
+          <div class="grid-col-4">
+            {{- vf_article_block(article_config={
+                          "title": {"text": related.topic_name, "link_attrs": {"href": related.path }},
+                          "description": {"text": related.subtitle}
+                          }) -}}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endif %}
 {% endblock outer_content %}
