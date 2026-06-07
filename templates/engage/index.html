@@ -1,6 +1,9 @@
 {% set hide_nav = False %}
 {% extends "_base/base.html" %}
 
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+
 {% block title %}Ubuntuのケーススタディ、ホワイトペーパー、ウェビナー{% endblock %}
 
 {% block meta_description %}UbuntuとCanonical全体のリソースが1つのポータルに統合されました{% endblock %}
@@ -9,35 +12,26 @@
 
 {% block outer_content %}
 
-<section class="p-section--hero grid-row">
-  <div class="grid-col-start-large-3 grid-col-small-4 grid-col-medium-4 grid-col-6">
-    <h1 class="u-text-align">Ubuntuの導入事例・ホワイトペーパー・ウェビナー</h1>
-  </div>
-</section>
+{% call(slot) vf_hero(
+    title_text='Ubuntuの導入事例・ホワイトペーパー・ウェビナー',
+    layout='25/75',
+    display_blank_signpost_image_space=True,
+  ) -%}
+{%- endcall -%}
 
 <section>
   <section class="p-section">
     <div class="grid-row p-engage-list">
       {% for item in metadata %}
-        {% if page == 1 and loop.index <= 2 and item.image %}
-          {% with
-            title=item.topic_name,
-            title_link=item.path,
-            description=item.subtitle,
-            type=item.type | title,
-            image_src=item.meta_image,
-            image_alt=item.topic_name %}
-            {% include "/engage/shared/_article-card.html" %}
-          {% endwith %}
-        {% else %}
-          {% with
-            title=item.topic_name,
-            title_link=item.path,
-            description=item.subtitle,
-            type=item.type | title %}
-            {% include "/engage/shared/_article-card.html" %}
-          {% endwith %}
-        {% endif %}
+        {% set is_featured = page == 1 and loop.index <= 2 and item.image %}
+        {% with
+          title=item.topic_name,
+          title_link=item.path,
+          description=item.subtitle,
+          type=item.type,
+          image_src=(item.meta_image if is_featured else None) %}
+          {% include "/engage/shared/_article-card.html" %}
+        {% endwith %}
       {% endfor %}
     </div>
   </section>
