@@ -15,7 +15,7 @@
   <section class="p-strip">
     <div class="row">
       <div class="col-9 col-medium-4 col-start-large-4 col-start-medium-3">
-        <h1 class="p-heading--display"">博客</h1>
+        <h1 class="p-heading--display"">ブログ</h1>
       </div>
     </div>
     <div class="u-fixed-width u-no-padding u-hide--medium u-hide--small">
@@ -38,20 +38,7 @@
           <hr class="u-hide--large p-rule" />
           <div>{% include 'blog/newsletter-form.html' %}</div>
         {% endif %}
-        
-        {{ vf_card(
-          columns="4",
-          link=article.slug,
-          heading=article.title.rendered|safe,
-          image={
-            "src": article.image.link,
-            "alt": article.image.alt_text
-          },
-          footer={
-            "content_type": article.group.name
-          },
-          description=article.excerpt.raw
-        ) }}
+          {% include "blog/blog-card.html" %}
       {% endfor %}
     </div>
   </section>
