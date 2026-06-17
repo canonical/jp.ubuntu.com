@@ -24,7 +24,7 @@
         data-ga-submit-label="New homepage newsletter signup"
       >
         <p>Ubuntuニュースレターの配信登録</p>
-        <div>
+        <div class="p-section--shallow">
           <label
             for="email"
             class="u-no-margin--top u-no-margin--bottom is-required"
@@ -39,6 +39,23 @@
             type="email"
             pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$"
           />
+        </div>
+        <div class="p-section--shallow">
+          <label id="ubuntu_planned_usage_label">Ubuntuをどのように使用する予定ですか？</label>
+          <div aria-labelledby="ubuntu_planned_usage_label">
+            <label class="p-checkbox">
+              <input type="checkbox" name="UbuntuDesktopPlannedUsage" value="work" aria-labelledby="work" class="p-checkbox__input" />
+              <span class="p-checkbox__label" id="work">ビジネス使用</span>
+            </label>
+            <label class="p-checkbox u-no-margin--top">
+              <input type="checkbox" name="UbuntuDesktopPlannedUsage" value="education" aria-labelledby="education" class="p-checkbox__input" />
+              <span class="p-checkbox__label" id="education">教育使用</span>
+            </label>
+            <label class="p-checkbox u-no-margin--top">
+              <input type="checkbox" name="UbuntuDesktopPlannedUsage" value="personal" aria-labelledby="personal" class="p-checkbox__input" />
+              <span class="p-checkbox__label" id="personal">個人使用</span>
+            </label>
+          </div>
         </div>
         <div>
           <label class="p-checkbox">
