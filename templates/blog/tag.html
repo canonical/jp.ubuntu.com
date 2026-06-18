@@ -9,7 +9,7 @@
 
 {% block outer_content %}
   {% call(slot) vf_hero(
-    title_text='Blog posts tagged "' ~ tag.name ~ '"',
+    title_text='「' ~ tag.name ~ '」タグの記事一覧',
     layout='25/75',
     display_blank_signpost_image_space=True,
   ) -%}
