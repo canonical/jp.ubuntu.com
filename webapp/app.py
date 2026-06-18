@@ -21,6 +21,7 @@ from webapp.views import (
     engage_thank_you,
 )
 from webapp.api import get_releases_cached
+from webapp.context import modify_query
 
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -200,6 +201,7 @@ def context():
         "version": flask.request.args.get("version", ""),
         "architecture": flask.request.args.get("architecture", ""),
         "product": flask.request.args.get("product", ""),
+        "modify_query": modify_query,
     }
 
 
