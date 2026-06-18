@@ -181,6 +181,7 @@ def download_releases():
 
 app.add_url_rule("/download", view_func=download_releases)
 
+
 # Blog pagination
 def modify_query(params):
     query_params = parse_qs(
@@ -189,6 +190,7 @@ def modify_query(params):
     query_params.update(params)
 
     return urlencode(query_params, doseq=True)
+
 
 # Image template
 @app.context_processor
