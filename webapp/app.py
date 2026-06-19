@@ -8,7 +8,7 @@ import talisker
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
-from urllib.parse import parse_qs, urlencode
+from urllib.parse import parse_qs, urlencode, unquote
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -86,6 +86,39 @@ def set_cache(key, value, timeout):
 
 
 class JPBlogViews(BlogViews):
+    def get_article(self, slug):
+        """Fallback for encoded JP slugs that upstream slug sanitizer drops."""
+        context = super().get_article(slug)
+        if context:
+            return context
+
+        # canonicalwebteam.blog sanitizes decoded slugs to ASCII, which can
+        # drop JP characters and cause false 404s for percent-encoded slugs.
+        for candidate_slug in [slug, unquote(slug)]:
+            try:
+                response = self.api.request(
+                    "posts",
+                    {
+                        "slug": candidate_slug,
+                        "tags": self.tag_ids,
+                        "tags_exclude": self.excluded_tags,
+                        "status": self.status,
+                    },
+                )
+                articles = response.json()
+            except Exception:
+                articles = []
+
+            if not articles:
+                continue
+
+            article = self.api._transform_article(articles[0])
+            return self._get_article_context(
+                article, self.tag_ids, self.excluded_tags
+            )
+
+        return {}
+
     def get_tag(self, slug, page=1):
         """Keep tag pages scoped to the site's base JP blog tags."""
         tag = self.api.get_tag_by_slug(slug)
