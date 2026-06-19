@@ -241,14 +241,6 @@ def download_releases():
 
 app.add_url_rule("/download", view_func=download_releases)
 
-# Blog pagination
-def modify_query(params):
-    query_params = parse_qs(
-        flask.request.query_string.decode("utf-8"), keep_blank_values=True
-    )
-    query_params.update(params)
-
-    return urlencode(query_params, doseq=True)
 
 # Blog pagination
 def modify_query(params):
