@@ -81,12 +81,9 @@
                 method="post"
                 id="mktoForm_3659"
                 onsubmit="ga('send', 'Newsletter', 'Signup', 'New homepage newsletter signup');">
-            <div>
-              <label>
-                <span class="u-no-margin--top">メールアドレス:<span>*</span></span>
-                <input required="" id="email" name="email" maxlength="255" type="email" pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$">
-              </label>
-            </div>
+            
+            <label class="is-required" for="email">メールアドレス:</label>
+            <input required="" id="email" name="email" maxlength="255" type="email" pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$">
 
             <div>
               <label id="ubuntu_planned_usage_label">Ubuntuをどのように使用する予定ですか？</label>
@@ -107,16 +104,19 @@
               <hr class="p-rule" />
             </div>
 
-            <label class="p-checkbox">
-              <input class="p-checkbox__input" aria-labelledby="canonicalUpdatesOptIn" value="yes" type="checkbox">
-              <span class="p-checkbox__label" id="canonicalUpdatesOptIn">Canonical の製品やサービスについての情報を受け取ることに同意します。</span>
-            </label>
+            <div class="p-section--shallow">
+              <label class="p-checkbox">
+                <input class="p-checkbox__input" aria-labelledby="canonicalUpdatesOptIn" name="canonicalUpdatesOptIn" value="yes" type="checkbox">
+                <span class="p-checkbox__label" id="canonicalUpdatesOptIn">Canonical の製品やサービスについての情報を受け取ることに同意します。</span>
+              </label>
 
-            <p>
-              <small>お客様が購読登録を行われる場合、以下の条件に同意されたことになります。<a href="https://ubuntu.com/legal/data-privacy/newsletter">Canonicalのプライバシーに関するお知らせ</a><a href="https://ubuntu.com/legal/data-privacy">個人情報保護ポリシー</a></small>
-            </p>
+              <p>
+                <small>お客様が購読登録を行われる場合、以下の条件に同意されたことになります。<a href="https://ubuntu.com/legal/data-privacy/newsletter">Canonicalのプライバシーに関するお知らせ</a><a href="https://ubuntu.com/legal/data-privacy">個人情報保護ポリシー</a></small>
+              </p>
+            </div>
 
             <button type="submit" class="u-no-margin--bottom">送信</button>
+            
             <input value="3659" name="formid" type="hidden">
             <input type="hidden" name="Consent_to_Processing__c" value="yes" />
             <input type="hidden" name="returnURL" aria-label="returnURL" value="https://jp.ubuntu.com/thank-you">
