@@ -8,6 +8,7 @@ import talisker
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
+from urllib.parse import parse_qs, urlencode
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -95,7 +96,7 @@ blog_views = BlogViews(
     ),
     blog_title="Ubuntu blog",
     tag_ids=[3184],
-    per_page=11,
+    per_page=16,
 )
 app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 
@@ -181,6 +182,16 @@ def download_releases():
 app.add_url_rule("/download", view_func=download_releases)
 
 
+# Blog pagination
+def modify_query(params):
+    query_params = parse_qs(
+        flask.request.query_string.decode("utf-8"), keep_blank_values=True
+    )
+    query_params.update(params)
+
+    return urlencode(query_params, doseq=True)
+
+
 # Image template
 @app.context_processor
 def utility_processor():
@@ -191,6 +202,7 @@ def utility_processor():
 @app.context_processor
 def context():
     return {
+        "modify_query": modify_query,
         "format_date": template_utils.format_date,
         "get_json_feed": template_utils.get_json_feed_content,
         "replace_admin": template_utils.replace_admin,
