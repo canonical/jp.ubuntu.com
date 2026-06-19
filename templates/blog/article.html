@@ -14,27 +14,10 @@
 {% endblock body_class %}
 
 {% block outer_content %}
-<section id="main-content" class="p-strip">
-  <div class="row">
-    <div class="col-8 p-blog-post">
-      <h1 class="p-heading--2">{{ article.title.rendered|safe }}</h1>
-      <p>
-        by
-        <a href="/blog/author/{{ article.author.slug }}">{{ article.author.name }}</a>
-        on {{ article.date }}
-      </p>
-      {{ article.content.rendered|safe }}
-    </div>
-    <div class="col-4">
-      {% include 'blog/newsletter-form.html' %}
-    </div>
-  </div>
-</section>
-
   {% set breadcrumbs = [{"name": "ブログ", "href": "/blog"}, {"name": "記事"}] %}
   {% include 'partial/_breadcrumbs.html' %}
 
-  <article id="main-content" class="p-section--shallow">
+  <article id="main-content">
     <header class="row">
       <div class="aside col-3 col-medium-6">
         <div class="p-media-object">
