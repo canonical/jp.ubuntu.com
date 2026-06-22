@@ -55,12 +55,12 @@ def load_form(path, form_id=None, is_modal=None, **kwargs):
     import flask
 
     # Locate the form-data.json relative to the templates folder
-    templates_dir = os.path.join(
-        os.path.dirname(__file__), "..", "templates"
-    )
+    templates_dir = os.path.join(os.path.dirname(__file__), "..", "templates")
     # Strip leading slash and map to directory containing the template
     template_rel = path.lstrip("/")
-    form_data_path = os.path.join(templates_dir, template_rel, "form-data.json")
+    form_data_path = os.path.join(
+        templates_dir, template_rel, "form-data.json"
+    )
 
     # Fall back to searching by page-level form-data.json (e.g. /blog/newsletter
     # lives alongside templates/blog/form-data.json)
