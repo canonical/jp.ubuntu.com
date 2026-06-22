@@ -1,0 +1,68 @@
+{
+  "form": {
+    "/blog/newsletter": {
+      "templatePath": "/blog/newsletter-form.html",
+      "childrenPaths": ["/blog", "/blog/article", "/download/thank-you"],
+      "isModal": false,
+      "formData": {
+        "title": "ニュースレターのサインアップ",
+        "introText": "Ubuntuニュースレターの配信登録",
+        "includeEmail": true,
+        "emailLabel": "＊メールアドレス:",
+        "legalNoticeHtml": "お客様が購読登録を行われる場合、以下の条件に同意されたことになります。<a href=\"https://ubuntu.com/legal/data-privacy/newsletter\" target=\"_blank\">Canonicalのプライバシーに関するお知らせ</a><a href=\"https://ubuntu.com/legal/data-privacy\">個人情報保護ポリシー</a>",
+        "formId": "3659",
+        "returnUrl": "https://jp.ubuntu.com/thank-you",
+        "product": "ubuntu"
+      },
+      "fieldsets": [
+        {
+          "title": "Ubuntuをどのように使用する予定ですか？",
+          "id": "UbuntuDesktopPlannedUsage",
+          "inputType": "checkbox",
+          "isRequired": false,
+          "noCommentsFromLead": false,
+          "fields": [
+            {
+              "type": "checkbox",
+              "id": "UbuntuDesktopPlannedUsage-work",
+              "name": "UbuntuDesktopPlannedUsage",
+              "label": "ビジネス使用",
+              "value": "work"
+            },
+            {
+              "type": "checkbox",
+              "id": "UbuntuDesktopPlannedUsage-education",
+              "name": "UbuntuDesktopPlannedUsage",
+              "label": "教育使用",
+              "value": "education"
+            },
+            {
+              "type": "checkbox",
+              "id": "UbuntuDesktopPlannedUsage-personal",
+              "name": "UbuntuDesktopPlannedUsage",
+              "label": "個人使用",
+              "value": "personal"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "id": "canonical-updates-opt-in",
+          "useShallowSpacing": false,
+          "inputType": "checkbox",
+          "isRequired": true,
+          "noCommentsFromLead": true,
+          "fields": [
+            {
+              "type": "checkbox",
+              "id": "canonicalUpdatesOptIn",
+              "label": "＊Canonicalの製品やサービスについての情報を受け取ることに同意します。",
+              "value": "yes",
+              "isRequired": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
