@@ -62,7 +62,7 @@ def load_form(path, form_id=None, is_modal=None, **kwargs):
         templates_dir, template_rel, "form-data.json"
     )
 
-    # Fall back to searching by page-level form-data.json 
+    # Fall back to searching by page-level form-data.json
     # (e.g. /blog/newsletter lives alongside templates/blog/form-data.json)
     if not os.path.exists(form_data_path):
         parent_dir = os.path.dirname(template_rel)
