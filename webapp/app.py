@@ -8,7 +8,7 @@ import talisker
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
-from urllib.parse import parse_qs, urlencode
+from urllib.parse import parse_qs, urlencode, unquote
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -85,7 +85,100 @@ def set_cache(key, value, timeout):
 # )
 
 
-blog_views = BlogViews(
+class JPBlogViews(BlogViews):
+    def get_article(self, slug):
+        """Fallback for encoded JP slugs that upstream slug sanitizer drops."""
+        context = super().get_article(slug)
+        if context:
+            return context
+
+        # canonicalwebteam.blog sanitizes decoded slugs to ASCII, which can
+        # drop JP characters and cause false 404s for percent-encoded slugs.
+        for candidate_slug in [slug, unquote(slug)]:
+            try:
+                response = self.api.request(
+                    "posts",
+                    {
+                        "slug": candidate_slug,
+                        "tags": self.tag_ids,
+                        "tags_exclude": self.excluded_tags,
+                        "status": self.status,
+                    },
+                )
+                articles = response.json()
+            except Exception:
+                articles = []
+
+            if not articles:
+                continue
+
+            article = self.api._transform_article(articles[0])
+            return self._get_article_context(
+                article, self.tag_ids, self.excluded_tags
+            )
+
+        return {}
+
+    def get_tag(self, slug, page=1):
+        """Keep tag pages scoped to the site's base JP blog tags."""
+        tag = self.api.get_tag_by_slug(slug)
+
+        if not tag:
+            return None
+
+        # WordPress treats multiple tag IDs as OR, so we fetch by selected tag
+        # and then apply an in-app AND filter that also requires base JP tags.
+        required_tag_ids = set(self.tag_ids + [tag["id"]])
+        filtered_articles = []
+        source_page = 1
+        source_total_pages = 1
+
+        # Walk all source pages for the selected tag to build a fully filtered
+        # result set before applying UI pagination.
+        while source_page <= source_total_pages:
+            articles, metadata = self.api.get_articles(
+                tags=[tag["id"]],
+                tags_exclude=self.excluded_tags,
+                page=source_page,
+                per_page=100,
+                status=self.status,
+            )
+
+            # Keep only posts containing every required tag ID.
+            for article in articles:
+                article_tag_ids = set(article.get("tags", []))
+                if required_tag_ids.issubset(article_tag_ids):
+                    filtered_articles.append(article)
+
+            source_total_pages = int(metadata.get("total_pages") or 0)
+            if not articles:
+                break
+
+            source_page += 1
+
+        # Paginate after filtering so counts and pages match rendered results.
+        total_posts = len(filtered_articles)
+        total_pages = (
+            (total_posts + self.per_page - 1) // self.per_page
+            if total_posts
+            else 0
+        )
+        current_page = int(page)
+        start = (current_page - 1) * self.per_page
+        end = start + self.per_page
+        page_articles = filtered_articles[start:end]
+
+        return {
+            "current_page": current_page,
+            "total_pages": total_pages,
+            "total_posts": total_posts,
+            "articles": page_articles,
+            "title": self.blog_title,
+            "tag": tag,
+        }
+
+
+blog_views = JPBlogViews(
     api=BlogAPI(
         session=session,
         api_url="https://ubuntu.com/blog/wp-json/wp/v2",
