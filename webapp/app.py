@@ -207,7 +207,6 @@ def context():
         "get_json_feed": template_utils.get_json_feed_content,
         "replace_admin": template_utils.replace_admin,
         "truncate_chars": template_utils.truncate_chars,
-        "load_form": template_utils.load_form,
         "page": flask.request.args.get("page", ""),
         "platform": flask.request.args.get("platform", ""),
         "version": flask.request.args.get("version", ""),
