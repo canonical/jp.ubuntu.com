@@ -77,7 +77,7 @@ def engage_thank_you(engage_pages):
     def render_template(page):
         path = f"/engage/{page}"
         metadata = engage_pages.get_engage_page(path)
-        all_engage_pages = engage_pages.get_index()
+        all_engage_pages, *_ = engage_pages.get_index()
         if not metadata:
             flask.abort(404)
 
@@ -90,7 +90,7 @@ def engage_thank_you(engage_pages):
                 item["tags"].split(","), metadata["tags"].split(",")
             ):
                 related.append(item)
-            if len(related) < total_num_related:
+            if len(related) >= total_num_related:
                 # we can only fit 3 related posts, no need to finish the loop
                 break
 
@@ -99,8 +99,8 @@ def engage_thank_you(engage_pages):
         return flask.render_template(
             "engage/shared/thank-you.html",
             request_url=flask.request.referrer,
-            resource_name=metadata["type"],
-            resource_url=metadata["resource_url"],
+            resource_name=metadata.get("type"),
+            resource_url=metadata.get("resource_url"),
             related=related,
             thank_you_text=thank_you_text,
         )
