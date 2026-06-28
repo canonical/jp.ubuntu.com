@@ -57,7 +57,7 @@
     <div class="grid-col-start-large-3 grid-col-4 p-engage-body">
       {{ metadata["body_html"] | safe }}
     </div>
-    <div class="col-2 u-sticky-col p-engage-form">
+    <div class="grid-col-2 u-sticky-col p-engage-form">
       {% if "form_id" in metadata and metadata["form_id"] != "" %}
         {% if "form_cta" in metadata and metadata["form_cta"] != '' %}
           {% with id=metadata["form_id"], returnURL="https://jp.ubuntu.com" + metadata['path']+"/thank-you", cta=metadata['form_cta'] %}
