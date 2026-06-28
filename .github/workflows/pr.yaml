@@ -89,8 +89,12 @@ jobs:
         run: yarn build
 
       - name: Run tests with coverage
+        env:
+          DISCOURSE_API_KEY: ${{ secrets.DISCOURSE_API_KEY }}
+          DISCOURSE_API_USERNAME: ${{ secrets.DISCOURSE_API_USERNAME }}
+          SECRET_KEY: insecure_secret_key
         run: |
-          SECRET_KEY=insecure_secret_key coverage run  --source=. -m unittest discover tests
+          coverage run --source=. -m unittest discover tests
           bash <(curl -s https://codecov.io/bash) -cF python
 
   lint-js:
