@@ -1,9 +1,17 @@
 interactions:
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
-    uri: https://ubuntu.com/blog/wp-json/wp/v2/posts?tags=3184&per_page=3&page=1&sticky=true&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+    uri: https://ubuntu.com/blog/wp-json/wp/v2/posts?per_page=3&page=1&categories=4880&sticky=true&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
   response:
     body:
       string: '<!doctype html>
@@ -14,13 +22,13 @@ interactions:
 
         <h1>Redirecting...</h1>
 
-        <p>You should be redirected automatically to the target URL: <a href="https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&amp;per_page=3&amp;page=1&amp;sticky=true&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true">https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&amp;per_page=3&amp;page=1&amp;sticky=true&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true</a>.
+        <p>You should be redirected automatically to the target URL: <a href="https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&amp;page=1&amp;categories=4880&amp;sticky=true&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true">https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&amp;page=1&amp;categories=4880&amp;sticky=true&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true</a>.
         If not, click the link.
 
         '
     headers:
       content-length:
-      - '977'
+      - '989'
       content-security-policy:
       - 'default-src ''self''; img-src data: blob: *; script-src-elem ''self'' assets.ubuntu.com
         www.google-analytics.com www.googletagmanager.com dev.visualwebsiteoptimizer.com
@@ -70,12 +78,12 @@ interactions:
       cross-origin-resource-policy:
       - cross-origin
       date:
-      - Thu, 18 Jun 2026 22:12:07 GMT
+      - Tue, 30 Jun 2026 15:06:45 GMT
       link:
       - <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>;
         rel=preconnect, <https://res.cloudinary.com>; rel=preconnect
       location:
-      - https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&per_page=3&page=1&sticky=true&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+      - https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&categories=4880&sticky=true&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
       permissions-policy:
       - interest-cohort=()
       referrer-policy:
@@ -99,9 +107,17 @@ interactions:
       message: Found
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&per_page=3&page=1&sticky=true&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&categories=4880&sticky=true&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
   response:
     body:
       string: '[]'
@@ -119,7 +135,7 @@ interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Thu, 18 Jun 2026 22:12:07 GMT
+      - Tue, 30 Jun 2026 15:06:45 GMT
       link:
       - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
       server:
@@ -129,7 +145,7 @@ interactions:
       vary:
       - Origin
       x-cache-status:
-      - HIT from content-cache-il3/1
+      - MISS from content-cache-il3/0
       x-content-type-options:
       - nosniff
       x-robots-tag:
@@ -143,7 +159,15 @@ interactions:
       message: OK
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
     uri: https://ubuntu.com/blog/wp-json/wp/v2/categories?slug=events&_fields=id%2Cname%2Cslug%2Cparent
   response:
@@ -212,7 +236,7 @@ interactions:
       cross-origin-resource-policy:
       - cross-origin
       date:
-      - Thu, 18 Jun 2026 22:12:07 GMT
+      - Tue, 30 Jun 2026 15:06:46 GMT
       link:
       - <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>;
         rel=preconnect, <https://res.cloudinary.com>; rel=preconnect
@@ -229,7 +253,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-cache-status:
-      - MISS from content-cache-il3/0
+      - MISS from content-cache-il3/1
       x-clacks-overhead:
       - GNU Terry Pratchett
       x-content-type-options:
@@ -241,7 +265,15 @@ interactions:
       message: Found
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=events&_fields=id%2Cname%2Cslug%2Cparent
   response:
@@ -261,7 +293,7 @@ interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Thu, 18 Jun 2026 22:12:07 GMT
+      - Tue, 30 Jun 2026 15:06:47 GMT
       link:
       - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
       server:
@@ -271,7 +303,7 @@ interactions:
       vary:
       - Origin
       x-cache-status:
-      - HIT from content-cache-il3/0
+      - HIT from content-cache-il3/1
       x-content-type-options:
       - nosniff
       x-robots-tag:
@@ -285,7 +317,15 @@ interactions:
       message: OK
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
     uri: https://ubuntu.com/blog/wp-json/wp/v2/categories?slug=webinars&_fields=id%2Cname%2Cslug%2Cparent
   response:
@@ -354,7 +394,7 @@ interactions:
       cross-origin-resource-policy:
       - cross-origin
       date:
-      - Thu, 18 Jun 2026 22:12:08 GMT
+      - Tue, 30 Jun 2026 15:06:48 GMT
       link:
       - <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>;
         rel=preconnect, <https://res.cloudinary.com>; rel=preconnect
@@ -383,7 +423,15 @@ interactions:
       message: Found
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=webinars&_fields=id%2Cname%2Cslug%2Cparent
   response:
@@ -403,7 +451,7 @@ interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Thu, 18 Jun 2026 22:12:08 GMT
+      - Tue, 30 Jun 2026 15:06:54 GMT
       link:
       - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
       server:
@@ -427,9 +475,17 @@ interactions:
       message: OK
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
-    uri: https://ubuntu.com/blog/wp-json/wp/v2/posts?tags=3184&per_page=3&page=1&categories=1175%2C1187&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+    uri: https://ubuntu.com/blog/wp-json/wp/v2/posts?per_page=3&page=1&categories=1175%2C1187&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
   response:
     body:
       string: '<!doctype html>
@@ -440,13 +496,13 @@ interactions:
 
         <h1>Redirecting...</h1>
 
-        <p>You should be redirected automatically to the target URL: <a href="https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&amp;per_page=3&amp;page=1&amp;categories=1175%2C1187&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true">https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&amp;per_page=3&amp;page=1&amp;categories=1175%2C1187&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true</a>.
+        <p>You should be redirected automatically to the target URL: <a href="https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&amp;page=1&amp;categories=1175%2C1187&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true">https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&amp;page=1&amp;categories=1175%2C1187&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true</a>.
         If not, click the link.
 
         '
     headers:
       content-length:
-      - '999'
+      - '971'
       content-security-policy:
       - 'default-src ''self''; img-src data: blob: *; script-src-elem ''self'' assets.ubuntu.com
         www.google-analytics.com www.googletagmanager.com dev.visualwebsiteoptimizer.com
@@ -496,154 +552,12 @@ interactions:
       cross-origin-resource-policy:
       - cross-origin
       date:
-      - Thu, 18 Jun 2026 22:12:08 GMT
+      - Tue, 30 Jun 2026 15:06:55 GMT
       link:
       - <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>;
         rel=preconnect, <https://res.cloudinary.com>; rel=preconnect
       location:
-      - https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&per_page=3&page=1&categories=1175%2C1187&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
-      permissions-policy:
-      - interest-cohort=()
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      server:
-      - nginx/1.14.0 (Ubuntu)
-      strict-transport-security:
-      - max-age=15724800
-      vary:
-      - Accept-Encoding
-      x-cache-status:
-      - MISS from content-cache-il3/2
-      x-clacks-overhead:
-      - GNU Terry Pratchett
-      x-content-type-options:
-      - NOSNIFF
-      x-permitted-cross-domain-policies:
-      - none
-    status:
-      code: 302
-      message: Found
-- request:
-    body: null
-    headers: {}
-    method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&per_page=3&page=1&categories=1175%2C1187&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
-  response:
-    body:
-      string: '[]'
-    headers:
-      accept-ranges:
-      - bytes
-      access-control-allow-headers:
-      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
-      access-control-expose-headers:
-      - X-WP-Total, X-WP-TotalPages, Link
-      allow:
-      - GET
-      content-length:
-      - '2'
-      content-type:
-      - application/json; charset=UTF-8
-      date:
-      - Thu, 18 Jun 2026 22:12:08 GMT
-      link:
-      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
-      server:
-      - nginx/1.14.0 (Ubuntu)
-      strict-transport-security:
-      - max-age=15724800; includeSubDomains
-      vary:
-      - Origin
-      x-cache-status:
-      - HIT from content-cache-il3/1
-      x-content-type-options:
-      - nosniff
-      x-robots-tag:
-      - noindex
-      x-wp-total:
-      - '0'
-      x-wp-totalpages:
-      - '0'
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers: {}
-    method: GET
-    uri: https://ubuntu.com/blog/wp-json/wp/v2/posts?tags=3184&per_page=16&page=1&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
-  response:
-    body:
-      string: '<!doctype html>
-
-        <html lang=en>
-
-        <title>Redirecting...</title>
-
-        <h1>Redirecting...</h1>
-
-        <p>You should be redirected automatically to the target URL: <a href="https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&amp;per_page=16&amp;page=1&amp;status=publish&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true">https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&amp;per_page=16&amp;page=1&amp;status=publish&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true</a>.
-        If not, click the link.
-
-        '
-    headers:
-      content-length:
-      - '985'
-      content-security-policy:
-      - 'default-src ''self''; img-src data: blob: *; script-src-elem ''self'' assets.ubuntu.com
-        www.google-analytics.com www.googletagmanager.com dev.visualwebsiteoptimizer.com
-        www.youtube.com asciinema.org player.vimeo.com script.crazyegg.com w.usabilla.com
-        munchkin.marketo.net serve.nrich.ai ml314.com scout-cdn.salesloft.com snippet.maze.co
-        www.googleadservices.com js.zi-scripts.com *.g.doubleclick.net www.google.com
-        www.gstatic.com *.googlesyndication.com js.stripe.com d3js.org www.brighttalk.com
-        cdnjs.cloudflare.com static.ads-twitter.com *.cdn.digitaloceanspaces.com www.redditstatic.com
-        snap.licdn.com connect.facebook.net jspm.dev cdn.livechatinc.com api.livechatinc.com
-        secure.livechatinc.com www.tfaforms.com api.usabilla.com *.cloudfront.net
-        cdn.jsdelivr.net *.g.doubleclick.net extend.vimeocdn.com tracking-api.g2.com
-        ''unsafe-inline''; font-src ''self'' assets.ubuntu.com cdn.livechatinc.com
-        secure.livechatinc.com fonts.google.com; script-src ''self'' blob: *.livechatinc.com
-        *.youtube.com *.google.com *.livechat-static.com ''unsafe-eval'' ''unsafe-hashes''
-        ''unsafe-inline''; connect-src ''self'' *.googlesyndication.com www.google.com
-        ubuntu.com analytics.google.com www.googletagmanager.com sentry.is.canonical.com
-        www.google-analytics.com *.crazyegg.com scout.salesloft.com *.g.doubleclick.net
-        js.zi-scripts.com *.mktoresp.com prompts.maze.co *.google-analytics.com pixel-config.reddit.com
-        www.redditstatic.com conversions-config.reddit.com px.ads.linkedin.com ws.zoominfo.com
-        youtube.com google.com fonts.google.com api.text.com raw.githubusercontent.com
-        *.analytics.google.com *.g.doubleclick.net ad.doubleclick.net www.googleadservices.com
-        www.facebook.com *.livechatinc.com *.text.com *.youtube.com *.google.com;
-        frame-src ''self'' *.doubleclick.net www.youtube.com/ asciinema.org player.vimeo.com
-        js.stripe.com www.googletagmanager.com www.google.com www.brighttalk.com cdn.livechatinc.com
-        secure.livechatinc.com cdn.livechat-static.com *.cloudfront.net app3.trueability.com
-        app.trueability.com pay.stripe.com; style-src *.cloudfront.net cdn.jsdelivr.net
-        ''self'' *.livechatinc.com *.youtube.com *.google.com ''unsafe-inline''; media-src
-        ''self'' res.cloudinary.com cdn.livechatinc.com secure.livechatinc.com cdn.livechat-static.com
-        images.zenhubusercontent.com assets.ubuntu.com *.livechatinc.com *.youtube.com
-        *.google.com *.livechat-static.com ubuntu.com; child-src api.livechatinc.com
-        cdn.livechatinc.com secure.livechatinc.com youtube.com google.com fonts.google.com
-        ''self'' *.livechatinc.com *.youtube.com *.google.com blob:; object-src ''self''
-        *.livechatinc.com *.youtube.com *.google.com; frame-ancestors https://edge-billing.stripe.com
-        https://edge-connect.stripe.com https://edge-dashboard-admin.stripe.com https://edge-dashboard.stripe.com
-        https://edge-docs.stripe.com https://edge-marketplace.stripe.com https://edge-support.stripe.com
-        https://billing.stripe.com https://connect.stripe.com https://dashboard-admin.stripe.com
-        https://dashboard.stripe.com https://docs.stripe.com https://edge-support-conversations.stripe.com
-        https://edge.stripe.com https://marketplace.stripe.com https://stripe.com
-        https://support-admin.corp.stripe.com https://support-conversations.stripe.com
-        https://support.stripe.com;'
-      content-type:
-      - text/html; charset=utf-8
-      cross-origin-embedder-policy:
-      - unsafe-none
-      cross-origin-opener-policy:
-      - same-origin-allow-popups
-      cross-origin-resource-policy:
-      - cross-origin
-      date:
-      - Thu, 18 Jun 2026 22:12:09 GMT
-      link:
-      - <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>;
-        rel=preconnect, <https://res.cloudinary.com>; rel=preconnect
-      location:
-      - https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&per_page=16&page=1&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+      - https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&categories=1175%2C1187&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
       permissions-policy:
       - interest-cohort=()
       referrer-policy:
@@ -667,246 +581,178 @@ interactions:
       message: Found
 - request:
     body: null
-    headers: {}
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=3184&per_page=16&page=1&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&categories=1175%2C1187&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
   response:
     body:
-      string: '[{"id":129607,"date_gmt":"2026-06-15T05:34:37","modified_gmt":"2026-06-18T08:01:57","slug":"ubuntu-16-04-lts-has-reached-the-end-of-standard-expanded-security-maintenance-with-ubuntu-pro-here-are-your-options-jp","title":{"rendered":"Ubuntu
-        16.04 LTS\u306eUbuntu Pro\u6a19\u6e96Expanded Security Maintenance\u304c\u7d42\u4e86\u3002\u3053\u306e\u5f8c\u306f\u3069\u3046\u3059\u308b\uff1f"},"excerpt":{"rendered":"<p>Ubuntu
-        16.04 LTS\uff08Xenial Xerus\uff09\u306e5\u5e74\u9593\u306eExpanded Security
-        Maintenance\uff08ESM\uff09\u304c2026\u5e744\u6708\u306b\u7d42\u4e86\u3057\u307e\u3057\u305f\u300216.04\u3092\u307e\u3060\u304a\u4f7f\u3044\u306e\u304a\u5ba2\u69d8\u306f\u3001\u5f15\u304d\u7d9a\u304d\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3068\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\u3092\u4fdd\u3064\u305f\u3081\u3001\u5fc5\u305a\u30b5\u30dd\u30fc\u30c8\u30b9\u30c6\u30fc\u30bf\u30b9\u3092\u66f4\u65b0\u3057\u3066\u304f\u3060\u3055\u3044\u3002
-        \u30b5\u30dd\u30fc\u30c8\u306e\u30aa\u30d7\u30b7\u30e7\u30f3 \u3053\u308c\u306716.04\u306f\u30ec\u30ac\u30b7\u30fc\u6bb5\u968e\u306b\u5165\u308a\u307e\u3057\u305f\u3002\u9078\u629e\u80a2\u306f\u4e3b\u306b2\u3064\u3067\u3059\uff1a
-        \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u3068\u306f \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u3068\u306f\u3001\u6700\u521d\u306e10\u5e74\u9593\u306e\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3092\u5b8c\u4e86\u3057\u305fLTS\u30ea\u30ea\u30fc\u30b9\u306b\u7279\u5316\u3057\u305f\u62e1\u5f35\u6a5f\u80fd\u3067\u3059\u3002\u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u306f\u3001Linux\u30ab\u30fc\u30cd\u30eb\u3001\u91cd\u8981\u306a\u30a4\u30f3\u30d5\u30e9\u30b9\u30c8\u30e9\u30af\u30c1\u30e3\u3001\u304a\u3088\u3073\u6570\u5343\u3082\u306e\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u30d1\u30c3\u30b1\u30fc\u30b8\u7528\u306e\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30d1\u30c3\u30c1\u3092\u3001ESM\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u304c\u3059\u3067\u306b\u5b8c\u4e86\u3057\u305fLTS\u30ea\u30ea\u30fc\u30b9\u7528\u306b\u63d0\u4f9b\u3057\u3066\u3044\u308b\u305f\u3081\u3001\u7279\u5316\u3057\u305f\u30cf\u30fc\u30c9\u30a6\u30a7\u30a2\u3084\u72ec\u81ea\u306e\u30b9\u30bf\u30c3\u30af\u3092\u4fdd\u6709\u3057\u3066\u3044\u3066\u307e\u3060\u79fb\u884c\u3067\u304d\u306a\u3044\u7d44\u7e54\u306b\u6700\u9069\u3067\u3059\u3002
-        \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u306f\u3001Ubuntu Pro\u30b5\u30d6\u30b9\u30af\u30ea\u30d7\u30b7\u30e7\u30f3\u306e\u30d7\u30ec\u30df\u30a2\u30e0\u30a2\u30c9\u30aa\u30f3\u3068\u3057\u3066\u5229\u7528\u53ef\u80fd\u3067\u3059\u3002
-        \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u306e\u5185\u5bb9 \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u3092\u9078\u3076\u7406\u7531
-        10\u5e74\u304c\u7d4c\u904e\u3057\u305f\u30a4\u30f3\u30d5\u30e9\u30b9\u30c8\u30e9\u30af\u30c1\u30e3\u306e\u79fb\u884c\u306f\u5927\u5909\u306a\u4f5c\u696d\u3067\u3059\u3002\u8907\u96d1\u306a\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0\u3001\u30cf\u30fc\u30c9\u30a6\u30a7\u30a2\u306e\u4e92\u63db\u6027\u3001\u53b3\u683c\u306a\u898f\u5236\u306e\u8981\u4ef6\uff08PCI-DSS\u3084EU\u30b5\u30a4\u30d0\u30fc\u30ec\u30b8\u30ea\u30a8\u30f3\u30b9\u6cd5\uff08CRA\uff09\uff09\u306a\u3069\u3001\u4f55\u3089\u304b\u306e\u7406\u7531\u3067\u3059\u3050\u306b\u30a2\u30c3\u30d7\u30b0\u30ec\u30fc\u30c9\u3067\u304d\u306a\u3044\u3053\u3068\u3082\u3042\u308b\u3067\u3057\u3087\u3046\u3002
-        \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u306b\u3088\u308a\u3001\u6b21\u306e\u3053\u3068\u304c\u53ef\u80fd\u306b\u306a\u308a\u307e\u3059\uff1a
-        \u65e9\u6025\u306b\u3054\u5bfe\u5fdc\u304f\u3060\u3055\u3044 2026\u5e744\u6708\u4ee5\u5f8c\u306bUbuntu
-        16.04\u3092\u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u306a\u3057\u3067\u5b9f\u884c\u3059\u308b\u3068\u3001\u30b7\u30b9\u30c6\u30e0\u304c\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u66f4\u65b0\u3092\u53d7\u3051\u3089\u308c\u305a\u3001\u4fb5\u5bb3\u3092\u53d7\u3051\u308b\u30ea\u30b9\u30af\u304c\u751f\u3058\u307e\u3059\u3002
-        \u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3092\u7dad\u6301\u3059\u308b\u305f\u3081\u3001Ubuntu
-        16.04 LTS\u306e\u30ec\u30ac\u30b7\u30fc\u5bfe\u7b56\u3092\u5b9f\u884c\u3059\u308b\u3053\u3068\u3092\u5f37\u304f\u304a\u52e7\u3081\u3057\u307e\u3059\u3002
-        \u30ec\u30ac\u30b7\u30fc\u30a2\u30c9\u30aa\u30f3\u306e\u6709\u52b9\u5316\u306b\u3064\u3044\u3066\u306e\u304a\u554f\u3044\u5408\u308f\u305b<\/p>\n"},"author":217,"categories":[],"tags":[3184,1364,1564,3586],"group":[4501],"_start_day":"18","_start_month":"06","_start_year":"2026","_end_day":"18","_end_month":"06","_end_year":"2026","_links":{"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/129609"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=129607"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=129607"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=129607"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=129607"}]},"_embedded":{"author":[{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Canonical, Author at Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"profile\" \/>\n<meta property=\"og:title\" content=\"Canonical,
-        Author at Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"og:image\"
-        content=\"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=500&#038;d=mm&#038;r=g\"
-        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
-        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
-        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ProfilePage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\",\"name\":\"Canonical,
-        Author at Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives
-        for Canonical\"}]},{\"@type\":\"Person\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/9001d5d80a05d1474308eb21aeb6af61\",\"name\":\"Canonical\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g\",\"caption\":\"Canonical\"},\"mainEntityOfPage\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage\"}}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Canonical, Author at
-        Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","og_locale":"en_US","og_type":"profile","og_title":"Canonical,
-        Author at Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","og_site_name":"Ubuntu
-        Blog","og_image":[{"url":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=500&d=mm&r=g"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","name":"Canonical,
-        Author at Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/author\/canonical\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Archives
-        for Canonical"}]},{"@type":"Person","@id":"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/9001d5d80a05d1474308eb21aeb6af61","name":"Canonical","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g","caption":"Canonical"},"mainEntityOfPage":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage"}}]}},"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"wp:featuredmedia":[{"id":129609,"date":"2026-06-08T05:35:49","slug":"16-04-eol","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2026\/06\/15\/ubuntu-16-04-lts-has-reached-the-end-of-standard-expanded-security-maintenance-with-ubuntu-pro-here-are-your-options-jp\/16-04-eol\/","title":{"rendered":"16.04
-        EOL"},"author":763,"yoast_head":"<!-- This site is optimized with the Yoast
-        SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/ -->\n<title>16.04
-        EOL - Ubuntu Blog<\/title>\n<meta name=\"robots\" content=\"noindex, follow\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"16.04 EOL -
-        Ubuntu Blog\" \/>\n<meta property=\"og:description\" content=\"Ubuntu 16.04
-        LTS\u306eUbuntu Pro\u6a19\u6e96Expanded Security Maintenance\u304c\u7d42\u4e86\"
-        \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"article:publisher\"
-        content=\"https:\/\/www.facebook.com\/ubuntulinux\/\" \/>\n<meta property=\"article:modified_time\"
-        content=\"2026-06-08T05:36:02+00:00\" \/>\n<meta property=\"og:image\" content=\"http:\/\/localhost\/wp-content\/uploads\/8174\/16.04-EOL.png\"
-        \/>\n\t<meta property=\"og:image:width\" content=\"1280\" \/>\n\t<meta property=\"og:image:height\"
-        content=\"720\" \/>\n\t<meta property=\"og:image:type\" content=\"image\/png\"
-        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
-        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
-        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png\",\"name\":\"16.04
-        EOL - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"datePublished\":\"2026-06-08T05:35:49+00:00\",\"dateModified\":\"2026-06-08T05:36:02+00:00\",\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu
-        16.04 LTS\u306eUbuntu Pro\u6a19\u6e96Expanded Security Maintenance\u304c\u7d42\u4e86\u3002\u3053\u306e\u5f8c\u306f\u3069\u3046\u3059\u308b\uff1f\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/2026\/06\/15\/ubuntu-16-04-lts-has-reached-the-end-of-standard-expanded-security-maintenance-with-ubuntu-pro-here-are-your-options-jp\/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"16.04
-        EOL\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"16.04
-        EOL - Ubuntu Blog","robots":{"index":"noindex","follow":"follow"},"og_locale":"en_US","og_type":"article","og_title":"16.04
-        EOL - Ubuntu Blog","og_description":"Ubuntu 16.04 LTS\u306eUbuntu Pro\u6a19\u6e96Expanded
-        Security Maintenance\u304c\u7d42\u4e86","og_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png","og_site_name":"Ubuntu
-        Blog","article_publisher":"https:\/\/www.facebook.com\/ubuntulinux\/","article_modified_time":"2026-06-08T05:36:02+00:00","og_image":[{"width":1280,"height":720,"url":"http:\/\/localhost\/wp-content\/uploads\/8174\/16.04-EOL.png","type":"image\/png"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png#webpage","url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png","name":"16.04
-        EOL - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"datePublished":"2026-06-08T05:35:49+00:00","dateModified":"2026-06-08T05:36:02+00:00","breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu
-        16.04 LTS\u306eUbuntu Pro\u6a19\u6e96Expanded Security Maintenance\u304c\u7d42\u4e86\u3002\u3053\u306e\u5f8c\u306f\u3069\u3046\u3059\u308b\uff1f","item":"https:\/\/admin.insights.ubuntu.com\/2026\/06\/15\/ubuntu-16-04-lts-has-reached-the-end-of-standard-expanded-security-maintenance-with-ubuntu-pro-here-are-your-options-jp\/"},{"@type":"ListItem","position":3,"name":"16.04
-        EOL"}]}]}},"caption":{"rendered":"<p>Ubuntu 16.04 LTS\u306eUbuntu Pro\u6a19\u6e96Expanded
-        Security Maintenance\u304c\u7d42\u4e86<\/p>\n"},"alt_text":"Ubuntu 16.04 LTS\u306eUbuntu
-        Pro\u6a19\u6e96Expanded Security Maintenance\u304c\u7d42\u4e86","media_type":"image","mime_type":"image\/png","media_details":{"width":1280,"height":720,"file":"16.04-EOL.png","filesize":66049,"sizes":{},"image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]}},"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8174\/16.04-EOL.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/129609"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/763"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=129609"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=129609"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=129609"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],"wp:term":[[],[{"id":3184,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","name":"lang:jp","slug":"jp","taxonomy":"post_tag","yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>lang:jp Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"lang:jp Archives
-        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\",\"name\":\"lang:jp
-        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"lang:jp\"}]}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"lang:jp Archives - Ubuntu
-        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","og_locale":"en_US","og_type":"article","og_title":"lang:jp
-        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","name":"lang:jp
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/jp\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"lang:jp"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3184"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3184"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3184"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1364,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/","name":"Security","slug":"security","taxonomy":"post_tag","yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Security Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Security Archives
-        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/\",\"name\":\"Security
-        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/security\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Security\"}]}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Security Archives -
-        Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/","og_locale":"en_US","og_type":"article","og_title":"Security
-        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/","name":"Security
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/security\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/security\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Security"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1364"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1364"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1364"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1564,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/","name":"Ubuntu","slug":"ubuntu","taxonomy":"post_tag","yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Ubuntu Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Archives
-        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/\",\"name\":\"Ubuntu
-        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu\"}]}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu Archives - Ubuntu
-        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
-        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/","name":"Ubuntu
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1564"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1564"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1564"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3586,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","name":"Ubuntu
-        Pro","slug":"ubuntu-pro","taxonomy":"post_tag","yoast_head":"<!-- This site
-        is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Ubuntu Pro Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Pro
-        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\",\"name\":\"Ubuntu
-        Pro Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu
-        Pro\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu
-        Pro Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
-        Pro Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","name":"Ubuntu
-        Pro Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu
-        Pro"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3586"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3586"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3586"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":4034,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/","name":"Security","slug":"security","taxonomy":"topic","yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Security Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Security Archives
-        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/\",\"name\":\"Security
-        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/security\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Security\"}]}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Security Archives -
-        Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/","og_locale":"en_US","og_type":"article","og_title":"Security
-        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/","name":"Security
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/security\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/security\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Security"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/4034"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=4034"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=4034"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=4034"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":4038,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/","name":"Ubuntu","slug":"ubuntu","taxonomy":"topic","yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Ubuntu Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Archives
-        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/\",\"name\":\"Ubuntu
-        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu\"}]}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu Archives - Ubuntu
-        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
-        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/","name":"Ubuntu
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/4038"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=4038"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=4038"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=4038"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":4564,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","name":"Ubuntu
-        Pro","slug":"ubuntu-pro","taxonomy":"topic","yoast_head":"<!-- This site is
-        optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Ubuntu Pro Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Pro
-        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\",\"name\":\"Ubuntu
-        Pro Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu
-        Pro\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu
-        Pro Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
-        Pro Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","name":"Ubuntu
-        Pro Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu
-        Pro"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/4564"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=4564"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=4564"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=4564"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":4501,"link":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/","name":"Ubuntu","slug":"ubuntu-2","taxonomy":"group","yoast_head":"<!--
-        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
-        -->\n<title>Ubuntu Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
-        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
-        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/\"
-        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
-        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Archives
-        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/\"
-        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
-        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
-        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
-        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
-        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/\",\"name\":\"Ubuntu
-        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu\"}]}]}<\/script>\n<!--
-        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu Archives - Ubuntu
-        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
-        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/","og_site_name":"Ubuntu
-        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
-        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
-        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/","name":"Ubuntu
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/ubuntu-2\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/4501"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=4501"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=4501"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=4501"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}},{"id":129605,"date_gmt":"2026-06-11T05:26:14","modified_gmt":"2026-06-15T16:55:35","slug":"ubuntu-pro-on-nutanix-bare-metal-kubernetes-jp","title":{"rendered":"Ubuntu
+      string: '[]'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '2'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Tue, 30 Jun 2026 15:06:55 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '0'
+      x-wp-totalpages:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://ubuntu.com/blog/wp-json/wp/v2/posts?per_page=16&page=1&categories=4880&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+  response:
+    body:
+      string: '<!doctype html>
+
+        <html lang=en>
+
+        <title>Redirecting...</title>
+
+        <h1>Redirecting...</h1>
+
+        <p>You should be redirected automatically to the target URL: <a href="https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=16&amp;page=1&amp;categories=4880&amp;status=publish&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true">https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=16&amp;page=1&amp;categories=4880&amp;status=publish&amp;_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&amp;_embed=true</a>.
+        If not, click the link.
+
+        '
+    headers:
+      content-length:
+      - '997'
+      content-security-policy:
+      - 'default-src ''self''; img-src data: blob: *; script-src-elem ''self'' assets.ubuntu.com
+        www.google-analytics.com www.googletagmanager.com dev.visualwebsiteoptimizer.com
+        www.youtube.com asciinema.org player.vimeo.com script.crazyegg.com w.usabilla.com
+        munchkin.marketo.net serve.nrich.ai ml314.com scout-cdn.salesloft.com snippet.maze.co
+        www.googleadservices.com js.zi-scripts.com *.g.doubleclick.net www.google.com
+        www.gstatic.com *.googlesyndication.com js.stripe.com d3js.org www.brighttalk.com
+        cdnjs.cloudflare.com static.ads-twitter.com *.cdn.digitaloceanspaces.com www.redditstatic.com
+        snap.licdn.com connect.facebook.net jspm.dev cdn.livechatinc.com api.livechatinc.com
+        secure.livechatinc.com www.tfaforms.com api.usabilla.com *.cloudfront.net
+        cdn.jsdelivr.net *.g.doubleclick.net extend.vimeocdn.com tracking-api.g2.com
+        ''unsafe-inline''; font-src ''self'' assets.ubuntu.com cdn.livechatinc.com
+        secure.livechatinc.com fonts.google.com; script-src ''self'' blob: *.livechatinc.com
+        *.youtube.com *.google.com *.livechat-static.com ''unsafe-eval'' ''unsafe-hashes''
+        ''unsafe-inline''; connect-src ''self'' *.googlesyndication.com www.google.com
+        ubuntu.com analytics.google.com www.googletagmanager.com sentry.is.canonical.com
+        www.google-analytics.com *.crazyegg.com scout.salesloft.com *.g.doubleclick.net
+        js.zi-scripts.com *.mktoresp.com prompts.maze.co *.google-analytics.com pixel-config.reddit.com
+        www.redditstatic.com conversions-config.reddit.com px.ads.linkedin.com ws.zoominfo.com
+        youtube.com google.com fonts.google.com api.text.com raw.githubusercontent.com
+        *.analytics.google.com *.g.doubleclick.net ad.doubleclick.net www.googleadservices.com
+        www.facebook.com *.livechatinc.com *.text.com *.youtube.com *.google.com;
+        frame-src ''self'' *.doubleclick.net www.youtube.com/ asciinema.org player.vimeo.com
+        js.stripe.com www.googletagmanager.com www.google.com www.brighttalk.com cdn.livechatinc.com
+        secure.livechatinc.com cdn.livechat-static.com *.cloudfront.net app3.trueability.com
+        app.trueability.com pay.stripe.com; style-src *.cloudfront.net cdn.jsdelivr.net
+        ''self'' *.livechatinc.com *.youtube.com *.google.com ''unsafe-inline''; media-src
+        ''self'' res.cloudinary.com cdn.livechatinc.com secure.livechatinc.com cdn.livechat-static.com
+        images.zenhubusercontent.com assets.ubuntu.com *.livechatinc.com *.youtube.com
+        *.google.com *.livechat-static.com ubuntu.com; child-src api.livechatinc.com
+        cdn.livechatinc.com secure.livechatinc.com youtube.com google.com fonts.google.com
+        ''self'' *.livechatinc.com *.youtube.com *.google.com blob:; object-src ''self''
+        *.livechatinc.com *.youtube.com *.google.com; frame-ancestors https://edge-billing.stripe.com
+        https://edge-connect.stripe.com https://edge-dashboard-admin.stripe.com https://edge-dashboard.stripe.com
+        https://edge-docs.stripe.com https://edge-marketplace.stripe.com https://edge-support.stripe.com
+        https://billing.stripe.com https://connect.stripe.com https://dashboard-admin.stripe.com
+        https://dashboard.stripe.com https://docs.stripe.com https://edge-support-conversations.stripe.com
+        https://edge.stripe.com https://marketplace.stripe.com https://stripe.com
+        https://support-admin.corp.stripe.com https://support-conversations.stripe.com
+        https://support.stripe.com;'
+      content-type:
+      - text/html; charset=utf-8
+      cross-origin-embedder-policy:
+      - unsafe-none
+      cross-origin-opener-policy:
+      - same-origin-allow-popups
+      cross-origin-resource-policy:
+      - cross-origin
+      date:
+      - Tue, 30 Jun 2026 15:06:56 GMT
+      link:
+      - <https://assets.ubuntu.com>; rel=preconnect; crossorigin, <https://assets.ubuntu.com>;
+        rel=preconnect, <https://res.cloudinary.com>; rel=preconnect
+      location:
+      - https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=16&page=1&categories=4880&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+      permissions-policy:
+      - interest-cohort=()
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800
+      vary:
+      - Accept-Encoding
+      x-cache-status:
+      - MISS from content-cache-il3/0
+      x-clacks-overhead:
+      - GNU Terry Pratchett
+      x-content-type-options:
+      - NOSNIFF
+      x-permitted-cross-domain-policies:
+      - none
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=16&page=1&categories=4880&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+  response:
+    body:
+      string: '[{"id":129605,"date_gmt":"2026-06-11T05:26:14","modified_gmt":"2026-06-15T16:55:35","slug":"ubuntu-pro-on-nutanix-bare-metal-kubernetes-jp","title":{"rendered":"Ubuntu
         Pro\u3092Nutanix\u306e\u30d9\u30a2\u30e1\u30bf\u30ebKubernetes\u3067\u63d0\u4f9b"},"excerpt":{"rendered":"<p>Nutanix\u3068Canonical\u306e\u30d1\u30fc\u30c8\u30ca\u30fc\u30b7\u30c3\u30d7\u62e1\u5927\u306b\u3088\u308a\u30b3\u30f3\u30c6\u30ca\u5316\u3055\u308c\u305f\u30ef\u30fc\u30af\u30ed\u30fc\u30c9\u306e\u9078\u629e\u80a2\u304c\u5897\u52a0
         Enterprise Kubernetes\u00ae\u306f\u3001\u67d4\u8edf\u6027\u306e\u9ad8\u3044\u30de\u30eb\u30c1\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u30e2\u30c7\u30eb\u3078\u3068\u9032\u5316\u3057\u3064\u3064\u3042\u308a\u307e\u3059\u3002AI\/ML\u3084\u30c7\u30fc\u30bf\u96c6\u7d04\u578b\u306e\u30ef\u30fc\u30af\u30ed\u30fc\u30c9\u304c\u81a8\u5927\u306a\u30cf\u30fc\u30c9\u30a6\u30a7\u30a2\u30b9\u30eb\u30fc\u30d7\u30c3\u30c8\u3092\u5fc5\u8981\u3068\u3059\u308b\u8fd1\u5e74\u3001\u7d44\u7e54\u306f\u30af\u30e9\u30a6\u30c9\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306e\u5b89\u5b9a\u6027\u3092\u7dad\u6301\u3057\u306a\u304c\u3089\u3001\u30d9\u30a2\u30e1\u30bf\u30eb\u306e\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u3092\u6c42\u3081\u3066\u3044\u307e\u3059\u3002
         \u3053\u306e\u305f\u3081Nutanix\u3068Canonical\u306f\u3001\u3053\u306e\u305f\u3073\u767a\u8868\u3055\u308c\u305fNKP
@@ -4818,7 +4664,306 @@ interactions:
         Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
         Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
         name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/group\/security\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/group\/security\/","name":"Security
-        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/security\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/security\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/security\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Security"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/4035"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=4035"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=4035"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=4035"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}}]'
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/security\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/security\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/security\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Security"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/4035"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=4035"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=4035"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=4035"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}},{"id":128723,"date_gmt":"2026-03-18T05:00:00","modified_gmt":"2026-06-15T16:55:59","slug":"how-to-launch-a-deep-learning-vm-on-google-cloud-jp","title":{"rendered":"Google
+        Cloud\u3067Deep Learning VM\u3092\u8d77\u52d5\u3059\u308b\u306b\u306f"},"excerpt":{"rendered":"<p>Deep
+        Learning\u74b0\u5883\u306e\u8a2d\u5b9a\u306f\u7c21\u5358\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u3002CUDA\u30c9\u30e9\u30a4\u30d0\u30fc\u306e\u7ba1\u7406\u3001Python\u30e9\u30a4\u30d6\u30e9\u30ea\u306e\u7af6\u5408\u89e3\u6d88\u3001\u5341\u5206\u306aGPU\u6027\u80fd\u306e\u78ba\u4fdd\u306a\u3069\u3001\u30b3\u30fc\u30c9\u3092\u66f8\u304f\u3088\u308a\u3082\u74b0\u5883\u8a2d\u5b9a\u306b\u6642\u9593\u304c\u304b\u304b\u308b\u3053\u3068\u304c\u3088\u304f\u3042\u308a\u307e\u3059\u3002
+        Google Cloud\u3068Canonical\u306f\u5354\u529b\u3057\u3001Ubuntu\u30a2\u30af\u30bb\u30e9\u30ec\u30fc\u30bf\u6700\u9069\u5316OS\u3092\u57fa\u672cOS\u3068\u3057\u305fDeep
+        Learning VM\u30a4\u30e1\u30fc\u30b8\u3067\u3053\u306e\u554f\u984c\u3092\u89e3\u6c7a\u3057\u307e\u3059\u3002Deep
+        Learning VM\u30a4\u30e1\u30fc\u30b8\u3068\u306f\u3001\u30c7\u30fc\u30bf\u30b5\u30a4\u30a8\u30f3\u30b9\u3068\u6a5f\u68b0\u5b66\u7fd2\u306e\u30bf\u30b9\u30af\u5411\u3051\u306b\u8a2d\u5b9a\u3092\u6e08\u307e\u305b\u305f\u4eee\u60f3\u30de\u30b7\u30f3\u3067\u3059\u3002PyTorch\u306a\u3069\u306e\u4e00\u822c\u7684\u306a\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u3084\u5fc5\u8981\u306aNVIDIA\u306e\u30c9\u30e9\u30a4\u30d0\u30fc\u3082\u3059\u3067\u306b\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3055\u308c\u3066\u3044\u307e\u3059\u3002
+        \u3053\u306e\u30ac\u30a4\u30c9\u3067\u306f\u3001GCP\u306e\u30b3\u30f3\u30bd\u30fc\u30eb\u3092\u4f7f\u7528\u3057\u3066Deep
+        Learning VM\u3092\u8d77\u52d5\u3057\u3001\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u30b9\u30bf\u30c3\u30af\u3092\u691c\u8a3c\u3057\u3066\u3059\u3050\u306b\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0\u3092\u958b\u59cb\u3059\u308b\u65b9\u6cd5\u3092\u8aac\u660e\u3057\u307e\u3059\u3002
+        Deep Learning VM\u3092\u4f7f\u7528\u3059\u308b\u7406\u7531 GCP\u3067Deep Learning
+        VM\u3092\u4f5c\u6210\u3059\u308b\u306b\u306f \u30b9\u30c6\u30c3\u30d71\uff1aGCP
+        Marketplace\u3092\u958b\u304f \u307e\u305a\u3001Google Cloud\u30b3\u30f3\u30bd\u30fc\u30eb\u306b\u30ed\u30b0\u30a4\u30f3\u3057\u307e\u3059\u3002\u3053\u3053\u3067\u306f\u4e00\u822c\u7684\u306aCompute
+        Engine\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u3092\u4f5c\u6210\u3059\u308b\u306e\u3067\u306f\u306a\u304f\u3001GCP
+        Marketplace\u306b\u3042\u308b\u5c02\u7528\u306e\u30a4\u30e1\u30fc\u30b8\u3092\u4f7f\u7528\u3057\u307e\u3059\u3002
+        \u30b9\u30c6\u30c3\u30d72\uff1a\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u3092\u8a2d\u5b9a\u3059\u308b
+        Marketplace\u306eDeep Learning VM\u30da\u30fc\u30b8\u304c\u958b\u3044\u305f\u3089
+        [Launch] \u3092\u30af\u30ea\u30c3\u30af\u3057\u307e\u3059\u3002\u3053\u308c\u3067\u74b0\u5883\u8a2d\u5b9a\u753b\u9762\u304c\u958b\u304d\u307e\u3059\u3002\u30e2\u30c7\u30eb\u306e\u51e6\u7406\u6027\u80fd\u3092\u8a2d\u5b9a\u3057\u3066\u304f\u3060\u3055\u3044\u3002
+        \u6ce8\u610f\u306e\u5fc5\u8981\u306a\u8a2d\u5b9a\u306f\u4ee5\u4e0b\u306e\u3068\u304a\u308a\u3067\u3059\u3002
+        Google Cloud\u30b3\u30f3\u30bd\u30fc\u30eb\u3067VM\u306e\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u3092\u8a2d\u5b9a\u3057\u307e\u3059\u3002
+        \u9078\u629e\u3057\u305f\u5f8c\u3067 [Deploy] \u3092\u30af\u30ea\u30c3\u30af\u3057\u307e\u3059\u3002
+        \u30b9\u30c6\u30c3\u30d73\uff1a\u63a5\u7d9a\u3057\u3066\u691c\u8a3c\u3059\u308b
+        VM\u306e\u30c7\u30d7\u30ed\u30a4\u306f1\uff5e2\u5206\u3067\u5b8c\u4e86\u3057\u307e\u3059\u3002[Compute
+        Engine] &gt; [VM Instances] \u30da\u30fc\u30b8\u306b\u8868\u793a\u3055\u308c\u308b\u306f\u305a\u3067\u3059\u3002
+        \u30de\u30b7\u30f3\u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b\u306b\u306f\u3001\u65b0\u3057\u3044\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u306e\u6a2a\u306b\u3042\u308bSSH\u306e\u30dc\u30bf\u30f3\u3092\u30af\u30ea\u30c3\u30af\u3057\u307e\u3059\u3002\u3053\u308c\u3067\u30d6\u30e9\u30a6\u30b6\u3067\u30bf\u30fc\u30df\u30ca\u30eb\u30a6\u30a3\u30f3\u30c9\u30a6\u304c\u958b\u304d\u307e\u3059\u3002
+        \u30b9\u30c6\u30c3\u30d74\uff1a\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u30b9\u30bf\u30c3\u30af\u3068\u30c9\u30e9\u30a4\u30d0\u30fc\u3092\u78ba\u8a8d\u3059\u308b
+        \u3059\u3079\u3066\u6b63\u5e38\u306b\u52d5\u4f5c\u3059\u308b\u304b\u30c1\u30a7\u30c3\u30af\u3057\u307e\u3057\u3087\u3046\u3002
+        1. NVIDIA\u306e\u30c9\u30e9\u30a4\u30d0\u30fc\u3092\u78ba\u8a8d\u3059\u308b
+        GPU\u3092\u4f7f\u7528\u3059\u308b\u5834\u5408\u3001\u6700\u3082\u91cd\u8981\u306a\u306e\u306f\u30c9\u30e9\u30a4\u30d0\u30fc\u304c\u6b63\u5e38\u306b\u8aad\u307f\u8fbc\u307e\u308c\u3066\u3044\u308b\u3053\u3068\u306e\u78ba\u8a8d\u3067\u3059\u3002SSH\u30bf\u30fc\u30df\u30ca\u30eb\u3067\u4ee5\u4e0b\u306e\u30b3\u30de\u30f3\u30c9\u3092\u5b9f\u884c\u3057\u307e\u3059\uff1a
+        nvidia-smi GPU\uff08A100\u306a\u3069\uff09\u3068CUDA\u306e\u30d0\u30fc\u30b8\u30e7\u30f3\u3092\u8868\u793a\u3057\u305f\u8868\u304c\u8868\u793a\u3055\u308c\u307e\u3059\u3002
+        2. \u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u6e08\u307f\u306e\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u3092\u78ba\u8a8d\u3059\u308b
+        Google\u306eDeep Learning VM\u3067\u306f\u3001\u901a\u5e38\u3001PyTorch\u304c\u3059\u3067\u306b\u8a2d\u5b9a\u3055\u308c\u3066\u3044\u307e\u3059\u3002\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3055\u308c\u305f\u30d1\u30c3\u30b1\u30fc\u30b8\u306b\u4f7f\u3044\u305f\u3044\u30e9\u30a4\u30d6\u30e9\u30ea\u304c\u5165\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u78ba\u8a8d\u3057\u307e\u3059\u3002
+        [&hellip;]<\/p>\n"},"author":217,"categories":[4880],"tags":[2040,4191,3184,3586],"group":[3367,1706],"_start_day":"05","_start_month":"03","_start_year":"2026","_end_day":"05","_end_month":"03","_end_year":"2026","_links":{"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/128727"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=128723"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=128723"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=128723"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=128723"}]},"_embedded":{"author":[{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Canonical, Author at Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"profile\" \/>\n<meta property=\"og:title\" content=\"Canonical,
+        Author at Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"og:image\"
+        content=\"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=500&#038;d=mm&#038;r=g\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ProfilePage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\",\"name\":\"Canonical,
+        Author at Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives
+        for Canonical\"}]},{\"@type\":\"Person\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/9001d5d80a05d1474308eb21aeb6af61\",\"name\":\"Canonical\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g\",\"caption\":\"Canonical\"},\"mainEntityOfPage\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage\"}}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Canonical, Author at
+        Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","og_locale":"en_US","og_type":"profile","og_title":"Canonical,
+        Author at Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","og_site_name":"Ubuntu
+        Blog","og_image":[{"url":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=500&d=mm&r=g"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","name":"Canonical,
+        Author at Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/author\/canonical\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Archives
+        for Canonical"}]},{"@type":"Person","@id":"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/9001d5d80a05d1474308eb21aeb6af61","name":"Canonical","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g","caption":"Canonical"},"mainEntityOfPage":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/#webpage"}}]}},"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"wp:featuredmedia":[{"id":128727,"date":"2026-03-05T06:37:57","slug":"how-to-launch-a-deep-learning-vm-on-google-cloud-2","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2026\/03\/18\/how-to-launch-a-deep-learning-vm-on-google-cloud-jp\/how-to-launch-a-deep-learning-vm-on-google-cloud-2\/","title":{"rendered":"How
+        to launch a Deep Learning VM on Google Cloud"},"author":763,"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>How to launch a Deep Learning VM on Google Cloud - Ubuntu Blog<\/title>\n<meta
+        name=\"robots\" content=\"noindex, follow\" \/>\n<meta property=\"og:locale\"
+        content=\"en_US\" \/>\n<meta property=\"og:type\" content=\"article\" \/>\n<meta
+        property=\"og:title\" content=\"How to launch a Deep Learning VM on Google
+        Cloud - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"article:publisher\"
+        content=\"https:\/\/www.facebook.com\/ubuntulinux\/\" \/>\n<meta property=\"article:modified_time\"
+        content=\"2026-03-05T06:38:08+00:00\" \/>\n<meta property=\"og:image\" content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png\"
+        \/>\n\t<meta property=\"og:image:width\" content=\"1280\" \/>\n\t<meta property=\"og:image:height\"
+        content=\"720\" \/>\n\t<meta property=\"og:image:type\" content=\"image\/png\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png\",\"name\":\"How
+        to launch a Deep Learning VM on Google Cloud - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"datePublished\":\"2026-03-05T06:37:57+00:00\",\"dateModified\":\"2026-03-05T06:38:08+00:00\",\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Google
+        Cloud\u3067Deep Learning VM\u3092\u8d77\u52d5\u3059\u308b\u306b\u306f\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/2026\/03\/18\/how-to-launch-a-deep-learning-vm-on-google-cloud-jp\/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"How
+        to launch a Deep Learning VM on Google Cloud\"}]}]}<\/script>\n<!-- \/ Yoast
+        SEO plugin. -->","yoast_head_json":{"title":"How to launch a Deep Learning
+        VM on Google Cloud - Ubuntu Blog","robots":{"index":"noindex","follow":"follow"},"og_locale":"en_US","og_type":"article","og_title":"How
+        to launch a Deep Learning VM on Google Cloud - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png","og_site_name":"Ubuntu
+        Blog","article_publisher":"https:\/\/www.facebook.com\/ubuntulinux\/","article_modified_time":"2026-03-05T06:38:08+00:00","og_image":[{"width":1280,"height":720,"url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png","type":"image\/png"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png#webpage","url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png","name":"How
+        to launch a Deep Learning VM on Google Cloud - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"datePublished":"2026-03-05T06:37:57+00:00","dateModified":"2026-03-05T06:38:08+00:00","breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Google
+        Cloud\u3067Deep Learning VM\u3092\u8d77\u52d5\u3059\u308b\u306b\u306f","item":"https:\/\/admin.insights.ubuntu.com\/2026\/03\/18\/how-to-launch-a-deep-learning-vm-on-google-cloud-jp\/"},{"@type":"ListItem","position":3,"name":"How
+        to launch a Deep Learning VM on Google Cloud"}]}]}},"caption":{"rendered":""},"alt_text":"Google
+        Cloud","media_type":"image","mime_type":"image\/png","media_details":{"width":1280,"height":720,"file":"How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png","filesize":585461,"sizes":{},"image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]}},"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/de6e\/How-to-launch-a-Deep-Learning-VM-on-Google-Cloud.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/128727"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/763"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=128727"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=128727"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=128727"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],"wp:term":[[{"id":4880,"link":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/","name":"Jp
+        blog","slug":"jp-blog","taxonomy":"category","yoast_head":"<!-- This site
+        is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Jp blog Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Jp blog Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:description\" content=\"Posts that
+        are to be displayed on https:\/\/jp.ubuntu.com\/blog\" \/>\n<meta property=\"og:url\"
+        content=\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/\" \/>\n<meta
+        property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/\",\"name\":\"Jp
+        blog Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Jp
+        blog\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Jp
+        blog Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/","og_locale":"en_US","og_type":"article","og_title":"Jp
+        blog Archives - Ubuntu Blog","og_description":"Posts that are to be displayed
+        on https:\/\/jp.ubuntu.com\/blog","og_url":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/","name":"Jp
+        blog Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/category\/jp-blog\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Jp
+        blog"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/4880"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=4880"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=4880"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":2040,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/","name":"deep
+        learning","slug":"deep-learning","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>deep learning Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"deep learning
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/\",\"name\":\"deep
+        learning Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"deep
+        learning\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"deep
+        learning Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/","og_locale":"en_US","og_type":"article","og_title":"deep
+        learning Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/","name":"deep
+        learning Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/deep-learning\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"deep
+        learning"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2040"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2040"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2040"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":4191,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/","name":"Google
+        Cloud","slug":"google-cloud","taxonomy":"post_tag","yoast_head":"<!-- This
+        site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Google Cloud Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Google Cloud
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/\",\"name\":\"Google
+        Cloud Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Google
+        Cloud\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Google
+        Cloud Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/","og_locale":"en_US","og_type":"article","og_title":"Google
+        Cloud Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/","name":"Google
+        Cloud Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/google-cloud\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Google
+        Cloud"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/4191"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=4191"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=4191"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3184,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","name":"lang:jp","slug":"jp","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>lang:jp Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"lang:jp Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\",\"name\":\"lang:jp
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"lang:jp\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"lang:jp Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","og_locale":"en_US","og_type":"article","og_title":"lang:jp
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/","name":"lang:jp
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/jp\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/jp\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"lang:jp"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3184"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3184"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3184"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3586,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","name":"Ubuntu
+        Pro","slug":"ubuntu-pro","taxonomy":"post_tag","yoast_head":"<!-- This site
+        is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Ubuntu Pro Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Pro
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\",\"name\":\"Ubuntu
+        Pro Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu
+        Pro\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu
+        Pro Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
+        Pro Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/","name":"Ubuntu
+        Pro Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-pro\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu
+        Pro"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3586"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3586"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3586"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":4746,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/","name":"AI\/ML","slug":"ai-ml","taxonomy":"topic","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>AI\/ML Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"AI\/ML Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/\",\"name\":\"AI\/ML
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"AI\/ML\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"AI\/ML Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/","og_locale":"en_US","og_type":"article","og_title":"AI\/ML
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/","name":"AI\/ML
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ai-ml\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"AI\/ML"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/4746"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=4746"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=4746"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=4746"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1477,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/","name":"Cloud","slug":"cloud","taxonomy":"topic","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Cloud Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\" content=\"index,
+        follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" \/>\n<link
+        rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Cloud Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/\",\"name\":\"Cloud
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Cloud\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Cloud Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/","og_locale":"en_US","og_type":"article","og_title":"Cloud
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/","name":"Cloud
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/cloud\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Cloud"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/1477"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=1477"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=1477"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=1477"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":4564,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","name":"Ubuntu
+        Pro","slug":"ubuntu-pro","taxonomy":"topic","yoast_head":"<!-- This site is
+        optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Ubuntu Pro Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu Pro
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\",\"name\":\"Ubuntu
+        Pro Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu
+        Pro\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu
+        Pro Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
+        Pro Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/","name":"Ubuntu
+        Pro Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/ubuntu-pro\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Ubuntu
+        Pro"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/4564"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=4564"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=4564"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=4564"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":3367,"link":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/","name":"AI","slug":"ai","taxonomy":"group","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>AI Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\" content=\"index,
+        follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" \/>\n<link
+        rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"AI Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/\",\"name\":\"AI
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/ai\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"AI\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"AI Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/","og_locale":"en_US","og_type":"article","og_title":"AI
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/","name":"AI
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/ai\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"AI"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/3367"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=3367"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=3367"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=3367"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1706,"link":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/","name":"Cloud
+        and server","slug":"cloud-and-server","taxonomy":"group","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Cloud and server Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Cloud and server
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/\",\"name\":\"Cloud
+        and server Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Cloud
+        and server\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Cloud
+        and server Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/","og_locale":"en_US","og_type":"article","og_title":"Cloud
+        and server Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/","name":"Cloud
+        and server Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/cloud-and-server\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Cloud
+        and server"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/1706"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=1706"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=1706"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=1706"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}}]'
     headers:
       access-control-allow-headers:
       - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
@@ -4829,9 +4974,9 @@ interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Thu, 18 Jun 2026 22:12:09 GMT
+      - Tue, 30 Jun 2026 15:06:59 GMT
       link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=3184&per_page=16&page=2&status%5B0%5D=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=16&page=2&categories%5B0%5D=4880&status%5B0%5D=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true>;
         rel="next"
       server:
       - nginx/1.14.0 (Ubuntu)
@@ -4842,13 +4987,13 @@ interactions:
       vary:
       - Origin
       x-cache-status:
-      - HIT from content-cache-il3/1
+      - MISS from content-cache-il3/0
       x-content-type-options:
       - nosniff
       x-robots-tag:
       - noindex
       x-wp-total:
-      - '282'
+      - '281'
       x-wp-totalpages:
       - '18'
     status:
