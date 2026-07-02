@@ -10,6 +10,7 @@
 @import "pattern_table";
 @import "patterns_blog-post";
 @import "patterns_blog-card";
+@import "patterns_blog-article";
 @import "utility_crop";
 @import "pattern_footer";
 @import "pattern_lists";
@@ -19,6 +20,7 @@
 
 @include blog-p-post;
 @include blog-p-card;
+@include blog-p-article;
 @include blog-u-crop;
 @include jp-p-contextual-footer;
 @include jp-p-hero;

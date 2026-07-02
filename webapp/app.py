@@ -8,6 +8,7 @@ import talisker
 import webapp.template_utils as template_utils
 from flask_caching import Cache
 from datetime import timedelta
+from urllib.parse import parse_qs, urlencode, unquote
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
 from canonicalwebteam.discourse import DiscourseAPI, EngagePages
@@ -84,7 +85,42 @@ def set_cache(key, value, timeout):
 # )
 
 
-blog_views = BlogViews(
+class JPBlogViews(BlogViews):
+    def get_article(self, slug):
+        """Fallback for encoded JP slugs that upstream slug sanitizer drops."""
+        context = super().get_article(slug)
+        if context:
+            return context
+
+        # canonicalwebteam.blog sanitizes decoded slugs to ASCII, which can
+        # drop JP characters and cause false 404s for percent-encoded slugs.
+        for candidate_slug in [slug, unquote(slug)]:
+            try:
+                response = self.api.request(
+                    "posts",
+                    {
+                        "slug": candidate_slug,
+                        "tags": self.tag_ids,
+                        "tags_exclude": self.excluded_tags,
+                        "status": self.status,
+                    },
+                )
+                articles = response.json()
+            except Exception:
+                articles = []
+
+            if not articles:
+                continue
+
+            article = self.api._transform_article(articles[0])
+            return self._get_article_context(
+                article, self.tag_ids, self.excluded_tags
+            )
+
+        return {}
+
+
+blog_views = JPBlogViews(
     api=BlogAPI(
         session=session,
         api_url="https://ubuntu.com/blog/wp-json/wp/v2",
@@ -94,8 +130,8 @@ blog_views = BlogViews(
         wordpress_password=get_flask_env("WORDPRESS_APPLICATION_PASSWORD"),
     ),
     blog_title="Ubuntu blog",
-    tag_ids=[3184],
-    per_page=11,
+    category_ids=[4880],
+    per_page=16,
 )
 app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 
@@ -181,6 +217,16 @@ def download_releases():
 app.add_url_rule("/download", view_func=download_releases)
 
 
+# Blog pagination
+def modify_query(params):
+    query_params = parse_qs(
+        flask.request.query_string.decode("utf-8"), keep_blank_values=True
+    )
+    query_params.update(params)
+
+    return urlencode(query_params, doseq=True)
+
+
 # Image template
 @app.context_processor
 def utility_processor():
@@ -191,6 +237,7 @@ def utility_processor():
 @app.context_processor
 def context():
     return {
+        "modify_query": modify_query,
         "format_date": template_utils.format_date,
         "get_json_feed": template_utils.get_json_feed_content,
         "replace_admin": template_utils.replace_admin,
