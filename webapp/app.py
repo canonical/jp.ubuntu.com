@@ -130,7 +130,6 @@ blog_views = JPBlogViews(
         wordpress_password=get_flask_env("WORDPRESS_APPLICATION_PASSWORD"),
     ),
     blog_title="Ubuntu blog",
-    # tag_ids=[3184],
     category_ids=[4880],
     per_page=16,
 )
