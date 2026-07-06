@@ -22,4 +22,29 @@
     justify-content: center;
     width: 100%;
   }
+
+  // side form is sticky on larger screens
+  .p-engage-form {
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: $spv--strip-regular; // Account for navigation
+    z-index: 1;
+  }
+
+  // reorder form above body content on smaller screens
+  @media (max-width: $breakpoint-large) {
+    .p-engage-body {
+      order: 2;
+    }
+
+    .p-engage-form {
+      // disable sticky behavior when stacked on smaller screens
+      max-height: none;
+      order: 1;
+      overflow-y: visible;
+      position: static;
+    }
+  }
 }
