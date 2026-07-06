@@ -43,9 +43,11 @@
     ]
   ) -%}
   {%- if slot == 'signpost_image' -%}
+    {% if metadata["image"] != '' %}
       <div class="p-image-container u-hide--medium">
         <img class="p-image-container__image u-no-margin" src="{{metadata['image']}}" alt="signpost_image">
       </div>
+    {% endif %}
   {%- endif -%}
 {%- endcall -%}
 
