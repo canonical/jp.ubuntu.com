@@ -10,7 +10,12 @@ from flask_caching import Cache
 from datetime import timedelta
 
 from canonicalwebteam.blog import build_blueprint, BlogViews, BlogAPI
-from canonicalwebteam.discourse import DiscourseAPI, EngagePages
+from canonicalwebteam.discourse import (
+    DiscourseAPI,
+    EngagePages,
+    RateLimitedError,
+    ResponseCache,
+)
 from canonicalwebteam.flask_base.app import FlaskBase
 from canonicalwebteam.flask_base.env import get_flask_env
 from canonicalwebteam.templatefinder import TemplateFinder
@@ -108,6 +113,7 @@ discourse_api = DiscourseAPI(
     get_topics_query_id=16,
     api_key=get_flask_env("DISCOURSE_API_KEY"),
     api_username=get_flask_env("DISCOURSE_API_USERNAME"),
+    cache=ResponseCache(ttl=300),
 )
 
 takeovers_path = "/takeovers"
@@ -169,6 +175,40 @@ def takeovers_index():
 
 
 app.add_url_rule("/takeovers.json", view_func=takeovers_json)
+
+
+@app.errorhandler(503)
+def service_unavailable(error):
+    """
+    Rendered when an upstream API (e.g. Discourse) is rate-limiting us
+    and there is no cached response to fall back on. Retry-After tells
+    well-behaved clients and crawlers when to come back.
+    """
+    accepts = flask.request.accept_mimetypes
+    wants_json = flask.request.path.endswith(".json") or (
+        accepts.accept_json and not accepts.accept_html
+    )
+    if wants_json:
+        response = flask.make_response(
+            flask.jsonify(error="Service temporarily unavailable"), 503
+        )
+    else:
+        response = flask.make_response(flask.render_template("500.html"), 503)
+    retry_after = getattr(error, "retry_after", None)
+    response.headers["Retry-After"] = str(retry_after or 60)
+    return response
+
+
+@app.errorhandler(RateLimitedError)
+def discourse_rate_limited(error):
+    """
+    The discourse package raises RateLimitedError when Discourse
+    returns 429 and no cached response is available; serve the same
+    503 as any other upstream outage.
+    """
+    return service_unavailable(error)
+
+
 app.add_url_rule("/takeovers", view_func=takeovers_index)
 
 
