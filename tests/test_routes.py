@@ -1,4 +1,5 @@
 import unittest
+import flask
 from vcr_unittest import VCRTestCase
 from webapp.app import app
 
@@ -132,6 +133,28 @@ class TestRoutes(VCRTestCase):
         """
 
         self.assertEqual(self.client.get("/pro").status_code, 200)
+
+    def test_default_cache_control_is_one_hour(self):
+        """
+        Pages should be cacheable by content-cache for 1 hour,
+        overriding the 60s default from flask-base
+        """
+
+        response = self.client.get("/")
+        self.assertEqual(response.cache_control.max_age, 3600)
+
+    def test_explicit_cache_control_is_preserved(self):
+        """
+        Views that set their own max-age (e.g. /takeovers.json)
+        should not be overridden by the 1 hour default
+        """
+
+        with app.test_request_context("/"):
+            response = flask.make_response("ok")
+            response.cache_control.max_age = 300
+            response = app.process_response(response)
+
+        self.assertEqual(response.cache_control.max_age, 300)
 
 
 if __name__ == "__main__":
