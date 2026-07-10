@@ -1,0 +1,50 @@
+@mixin ubuntu-p-engage {
+  .p-engage-list {
+    .p-content-card.p-content-card--cols-4 {
+      height: 100%;
+      min-height: max-content;
+
+      &.has-image {
+        flex-direction: column;
+      }
+
+      .p-content-card__image-wrapper {
+        width: 100%;
+
+        .p-content-card__image {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .p-pagination__items {
+    justify-content: center;
+    width: 100%;
+  }
+
+  // side form is sticky on larger screens
+  .p-engage-form {
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: $spv--strip-regular; // Account for navigation
+    z-index: 1;
+  }
+
+  // reorder form above body content on smaller screens
+  @media (max-width: $breakpoint-large) {
+    .p-engage-body {
+      order: 2;
+    }
+
+    .p-engage-form {
+      // disable sticky behavior when stacked on smaller screens
+      max-height: none;
+      order: 1;
+      overflow-y: visible;
+      position: static;
+    }
+  }
+}
