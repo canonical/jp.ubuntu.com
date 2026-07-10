@@ -84,6 +84,23 @@ def set_cache(key, value, timeout):
 # )
 
 
+# Default to 1h caching, overriding flask-base's 60s default.
+# Responses that set their own max-age or opt out are untouched.
+@app.after_request
+def set_default_cache_control(response):
+    if (
+        response.status_code == 200
+        and not flask.request.path.startswith("/_status")
+        and not response.cache_control.no_store
+        and not response.cache_control.no_cache
+        and not response.cache_control.private
+        and response.cache_control.max_age is None
+    ):
+        response.cache_control.max_age = 3600
+
+    return response
+
+
 blog_views = BlogViews(
     api=BlogAPI(
         session=session,
