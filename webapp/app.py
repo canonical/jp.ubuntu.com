@@ -94,7 +94,7 @@ def set_default_cache_control(response):
         and not response.cache_control.no_store
         and not response.cache_control.no_cache
         and not response.cache_control.private
-        and type(response.cache_control.max_age) is not int
+        and response.cache_control.max_age is None
     ):
         response.cache_control.max_age = 3600
 

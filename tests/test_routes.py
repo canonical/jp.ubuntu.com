@@ -1,7 +1,7 @@
 import unittest
-import flask
+from types import SimpleNamespace
 from vcr_unittest import VCRTestCase
-from webapp.app import app
+from webapp.app import app, set_default_cache_control
 
 
 class TestRoutes(VCRTestCase):
@@ -143,18 +143,25 @@ class TestRoutes(VCRTestCase):
         response = self.client.get("/")
         self.assertEqual(response.cache_control.max_age, 3600)
 
-    def test_explicit_cache_control_is_preserved(self):
+    def test_explicit_string_cache_control_is_preserved(self):
         """
-        Views that set their own max-age (e.g. /takeovers.json)
-        should not be overridden by the 1 hour default
+        Responses with an explicit string max-age should not be overridden
+        by the 1 hour default cache-control policy
         """
 
         with app.test_request_context("/"):
-            response = flask.make_response("ok")
-            response.cache_control.max_age = 300
-            response = app.process_response(response)
+            response = SimpleNamespace(
+                status_code=200,
+                cache_control=SimpleNamespace(
+                    no_store=False,
+                    no_cache=False,
+                    private=False,
+                    max_age="300",
+                ),
+            )
+            response = set_default_cache_control(response)
 
-        self.assertEqual(response.cache_control.max_age, 300)
+        self.assertEqual(response.cache_control.max_age, "300")
 
 
 if __name__ == "__main__":
