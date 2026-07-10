@@ -21,6 +21,7 @@ from webapp.views import (
     engage_thank_you,
 )
 from webapp.api import get_releases_cached
+from webapp.database import build_cache
 
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -108,6 +109,7 @@ discourse_api = DiscourseAPI(
     get_topics_query_id=16,
     api_key=get_flask_env("DISCOURSE_API_KEY"),
     api_username=get_flask_env("DISCOURSE_API_USERNAME"),
+    cache=build_cache("jp-ubuntu-com-discourse"),
 )
 
 takeovers_path = "/takeovers"
