@@ -13,6 +13,7 @@
 @import "utility_crop";
 @import "pattern_footer";
 @import "pattern_lists";
+@import 'pattern_engage';
 
 // import cookie policy
 @import "@canonical/cookie-policy/build/css/cookie-policy";
@@ -27,6 +28,7 @@
 @include jp-p-table;
 @include jp-p-footer;
 @include jp-p-lists;
+@include ubuntu-p-engage;
 
 html {
   font-family: "Ubuntu variable", "Noto Sans JP", -apple-system, "Segoe UI",
