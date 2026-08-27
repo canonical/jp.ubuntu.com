@@ -1,47 +1,212 @@
 {% extends "_base/base.html" %}
 {% set active_page = "blog" %}
 
+{% from "_macros/vf_blog.jinja" import vf_blog %}
+
 {% block title %}{{ article.title.rendered|safe }}{% endblock %}
 
 {% block meta_description %}{{ article.excerpt.raw | truncate (159, True, '&hellip;') | striptags }}{% endblock %}
 
 {% block meta_image %}{{ article.image.source_url }}{% endblock %}
 
-{% block outer_content %}
-<section id="main-content" class="p-strip">
-  <div class="row">
-    <div class="col-8 p-blog-post">
-      <h1 class="p-heading--2">{{ article.title.rendered|safe }}</h1>
-      <p>by {{ article.author.name }} on {{ article.date }}</p>
-      {{ article.content.rendered|safe }}
-    </div>
-    <div class="col-4">
-      {% include 'blog/newsletter-form.html' %}
-    </div>
-  </div>
-</section>
+{% block body_class %}
+  is-paper blog-article
+{% endblock body_class %}
 
-{% if related_articles %}
-  <section class="p-strip is-shallow">
-    <div class="row">
-      <div class="col-12">
-        <h3>
-          関連記事
-        </h3>
-      </div>
-    </div>
-    <div class="row p-divider">
-      {% for related_article in related_articles %}
-        <div class="col-4 p-divider__block">
-          <h4>
-            <a href="/blog/{{ related_article.slug }}">
-              {{ related_article.title.rendered|safe }}
-            </a>
-          </h4>
-          <p>{{ related_article.excerpt.raw }}</p>
+{% block outer_content %}
+  {% set breadcrumbs = [{"name": "ブログ", "href": "/blog"}, {"name": "記事"}] %}
+  {% include 'partial/_breadcrumbs.html' %}
+
+  <article id="main-content">
+    <header class="grid-row">
+      <div class="aside grid-col-2 grid-col-medium-4">
+        <div class="p-media-object">
+          {% if article.author and article.author.avatar_urls %}
+            {# '96' selects the 96x96px avatar variant returned by the WP API #}
+            <img src="{{ article.author.avatar_urls['96'] }}"
+                 class="p-media-object__image is-round"
+                 alt=""
+                 style="align-self: center" />
+          {% endif %}
+
+          <div class="p-media-object__details">
+            <p class="u-no-margin--bottom">
+              {% if article.author %}
+                <span class="p-heading--5">
+                  <a href="/blog/author/{{ article.author.slug }}"
+                     title="{{ article.author.name }}">{{ article.author.name }}</a>
+                </span>
+                <br />
+              {% endif %}
+              <span>{{ article.date }}</span>
+            </p>
+          </div>
         </div>
-      {% endfor %}
+      </div>
+      <div class="grid-col-6 grid-col-medium-4">
+        <div class="p-section--shallow">
+          <div class="p-section--shallow">
+            <h1>{{ article.title.rendered|safe }}</h1>
+          </div>
+
+          {% if tags %}
+            <div class="p-section--shallow">
+              {% for tag in tags %}
+                <a class="p-chip--information" href="/blog/tag/{{ tag.slug }}">
+                  <span class="p-chip__value">{{ tag.name }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </header>
+    <div class="grid-row">
+      <section class="grid-col-4 grid-col-start-large-3 grid-col-medium-4">
+        <hr class="p-rule" />
+        <button type="button"
+                id="shareArticle"
+                class="p-button--base has-icon u-hide--large">
+          <i class="p-icon--share"></i>
+          <span>記事を共有</span>
+        </button>
+        {{ article.content.rendered|safe }}
+      </section>
+      <aside class="aside grid-col-2 grid-col-start-large-7 grid-col-medium-4">
+        <div class="blog-article-newsletter">
+          <div class="p-section--shallow">
+            <h2 class="p-muted-heading">ニュースレターのサインアップ</h2>
+          </div>
+          <form action="https://ubuntu.com/marketo/submit"
+                method="post"
+                id="mktoForm_3659"
+                onsubmit="ga('send', 'Newsletter', 'Signup', 'New homepage newsletter signup');">
+            
+            <label class="is-required" for="email">メールアドレス:</label>
+            <input required="" id="email" name="email" maxlength="255" type="email" pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$">
+
+            <div>
+              <label id="ubuntu_planned_usage_label">Ubuntuをどのように使用する予定ですか？</label>
+              <div class="p-section--shallow blog-newsletter-checkbox-group" aria-labelledby="ubuntu_planned_usage_label">
+                <label class="p-checkbox blog-newsletter-checkbox-group__option">
+                  <input type="checkbox" name="UbuntuDesktopPlannedUsage" value="work" aria-labelledby="work" class="p-checkbox__input" />
+                  <span class="p-checkbox__label" id="work">ビジネス使用</span>
+                </label>
+                <label class="p-checkbox blog-newsletter-checkbox-group__option u-no-margin--top">
+                  <input type="checkbox" name="UbuntuDesktopPlannedUsage" value="education" aria-labelledby="education" class="p-checkbox__input" />
+                  <span class="p-checkbox__label" id="education">教育使用</span>
+                </label>
+                <label class="p-checkbox blog-newsletter-checkbox-group__option u-no-margin--top">
+                  <input type="checkbox" name="UbuntuDesktopPlannedUsage" value="personal" aria-labelledby="personal" class="p-checkbox__input" />
+                  <span class="p-checkbox__label" id="personal">個人使用</span>
+                </label>
+              </div>
+              <hr class="p-rule" />
+            </div>
+
+            <div class="p-section--shallow">
+              <label class="p-checkbox">
+                <input class="p-checkbox__input" aria-labelledby="canonicalUpdatesOptIn" name="canonicalUpdatesOptIn" value="yes" type="checkbox">
+                <span class="p-checkbox__label" id="canonicalUpdatesOptIn">Canonical の製品やサービスについての情報を受け取ることに同意します。</span>
+              </label>
+
+              <p>
+                <small>お客様が購読登録を行われる場合、以下の条件に同意されたことになります。<a href="https://ubuntu.com/legal/data-privacy/newsletter">Canonicalのプライバシーに関するお知らせ</a><a href="https://ubuntu.com/legal/data-privacy">個人情報保護ポリシー</a></small>
+              </p>
+            </div>
+
+            <button type="submit" class="u-no-margin--bottom">送信</button>
+            
+            <input value="3659" name="formid" type="hidden">
+            <input type="hidden" name="Consent_to_Processing__c" value="yes" />
+            <input type="hidden" name="returnURL" aria-label="returnURL" value="https://jp.ubuntu.com/thank-you">
+            <input type="hidden" name="acquisition_url" aria-label="acquisition_url" value="{{ request.url }}">
+            <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_campaign" id="utm_campaign" value="" />
+            <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_medium" id="utm_medium" value="" />
+            <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_source" id="utm_source" value="" />
+            <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_content" id="utm_content" value="" />
+            <input type="hidden" aria-hidden="true" aria-label="hidden field" name="utm_term" id="utm_term" value="" />
+          </form>
+        </div>
+        <div class="blog-article-share u-hide--medium u-hide--small">
+          <h2 class="p-muted-heading">共有</h2>
+          <ul class="p-inline-list u-no-margin--bottom">
+            <li class="p-inline-list__item">
+              <a title="X で共有"
+                 href="https://twitter.com/share?text={{ article.title.rendered|safe|urlencode }}&amp;url=https://jp.ubuntu.com/blog/{{ article.slug }}&amp;hashtags=ubuntu">
+                <img src="https://assets.ubuntu.com/v1/4a485af7-x_icon.svg"
+                     alt="X で共有"
+                     width="24"
+                     height="24" />
+              </a>
+            </li>
+            <li class="p-inline-list__item">
+              <a title="Facebook で共有"
+                 href="https://www.facebook.com/sharer/sharer.php?u=https://jp.ubuntu.com/blog/{{ article.slug }}">
+                <img src="https://assets.ubuntu.com/v1/d78c98ff-fb_icon.svg"
+                     alt="Facebook で共有"
+                     width="24"
+                     height="24" />
+              </a>
+            </li>
+            <li class="p-inline-list__item">
+              <a title="LinkedIn で共有"
+                 href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://jp.ubuntu.com/blog/{{ article.slug }}&amp;title={{ article.title.rendered|safe|urlencode }}">
+                <img src="https://assets.ubuntu.com/v1/af14595b-li_icon.svg"
+                     alt="LinkedIn で共有"
+                     width="24"
+                     height="24" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
     </div>
-  </section>
-{% endif %}
+  </article>
+
+  {% if related_articles %}
+    {% set blog_articles = [] %}
+    {% for article in related_articles %}
+      {% set blog_article = {
+        "title": {
+          "text": article.title.rendered|safe,
+          "link_attrs": {"href": "/blog/" + article.slug}
+        },
+        "description": {
+          "text": article.excerpt.raw.replace('[…]', '')|striptags|truncate(180)
+        },
+        "metadata": {
+          "authors": [{
+            "text": article.author.name,
+            "link_attrs": {"href": "/blog/author/" + article.author.slug}
+          }],
+          "date": {"text": article.date}
+        }
+      } %}
+      {% if article.image and article.image.source_url %}
+        {% set _ = blog_article.update({"image": {"attrs": {"src": article.image.source_url, "alt": ""}}}) %}
+      {% endif %}
+      {% set _ = blog_articles.append(blog_article) %}
+    {% endfor %}
+
+    {{ vf_blog(
+      title={"text": "関連記事"},
+      articles=blog_articles,
+      padding="deep"
+    ) }}
+  {% endif %}
+
+  <script>
+    document
+      .getElementById("shareArticle")
+      ?.addEventListener("click", function () {
+        if (navigator.share) {
+          navigator.share({
+            title: document.title,
+            url: window.location.href,
+          });
+        }
+      });
+  </script>
 {% endblock %}

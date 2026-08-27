@@ -222,212 +222,232 @@
     </div>
   </section>
 
-  {% call(slot) vf_rich_vertical_list(
-    title_text='Ubuntuベースの
-パブリッククラウドKubernetes',
-    list_item_tick_style="tick",
+  {{ vf_rich_vertical_list(
+    title={"text": "Ubuntuベースの<br />パブリッククラウドKubernetes"},
+    items=[
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "クラウド向けの機能、最適化したカーネル、無限のオプション"
+        }
+      },
+      {
+        "type": "list",
+        "item": {
+          "list_items": [
+            {
+              "list_item_type": "tick",
+              "content": "Ubuntuは、世界で最も人気の高いクラウドホスト型KubernetesのホストOS"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "すべての主要パブリッククラウドでパフォーマンス、ブート速度、ドライバーを最適化"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "そのままでクラウドと統合し、エンタープライズグレードの商用サポートオプションも利用可能"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "Ubuntu Proによってさらに深くクラウドサービスと統合"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "クラウド内のUbuntuパッケージミラーによる高帯域幅とローカル更新"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "Canonical Livepatchによってカーネルのセキュリティパッチ適用を全面的に制御"
+            }
+          ]
+        }
+      },
+      {
+        "type": "logo-block",
+        "item": {
+          "logos": [
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/15f4f759-aws-logo.png",
+                "alt": "AWS",
+                "width": "151",
+                "height": "312",
+                "loading": "lazy"
+              }
+            },
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/f1ec4ff5-microsoft-azure-logo%20[DEPRECATED]%20.png",
+                "alt": "Microsoft Azure",
+                "width": "272",
+                "height": "312",
+                "loading": "lazy"
+              }
+            },
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/c09079b4-google-cloud-logo-horizontal.png",
+                "alt": "Google Cloud",
+                "width": "382",
+                "height": "313",
+                "loading": "lazy"
+              },
+              "has_line_break_after": true
+            },
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/4a30e5f7-ibm-cloud-logo.png",
+                "alt": "IBM Cloud",
+                "width": "437",
+                "height": "312",
+                "loading": "lazy"
+              }
+            },
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/dbab531e-oracle-cloud-logo.png",
+                "alt": "Oracle Cloud",
+                "width": "387",
+                "height": "312",
+                "loading": "lazy"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+            "content_html": "パブリッククラウド上のUbuntuの詳細 &rsaquo;",
+            "attrs": {
+              "href": "https://ubuntu.com/cloud/public-cloud"
+            }
+          }
+        }
+      }
+    ],
+    media={
+      "type": "image",
+      "ratio": {
+        "large": "2-3",
+        "medium_small": "3-2"
+      },
+      "fit": "cover",
+      "attrs": {
+        "src": "https://assets.ubuntu.com/v1/5a2779e1-public%20cloud.png",
+        "alt": "",
+        "width": "1800",
+        "height": "2701",
+        "loading": "lazy",
+        "class": "p-image-container__image"
+      }
+    },
     is_flipped=true
-  ) -%}
-    {%- if slot == 'description' -%}
-    <p class="u-no-margin--bottom">
-      クラウド向けの機能、最適化したカーネル、無限のオプション
-    </p>
-    {%- endif -%}
+  ) }}
 
-    {%- if slot == 'list_item_1' -%}
-      Ubuntuは、世界で最も人気の高いクラウドホスト型KubernetesのホストOS
-    {%- endif -%}
-    {%- if slot == 'list_item_2' -%}
-      すべての主要パブリッククラウドでパフォーマンス、ブート速度、ドライバーを最適化
-    {%- endif -%}
-    {%- if slot == 'list_item_3' -%}
-      そのままでクラウドと統合し、エンタープライズグレードの商用サポートオプションも利用可能
-    {%- endif -%}
-    {%- if slot == 'list_item_4' -%}
-      Ubuntu Proによってさらに深くクラウドサービスと統合
-    {%- endif -%}
-    {%- if slot == 'list_item_5' -%}
-      クラウド内のUbuntuパッケージミラーによる高帯域幅とローカル更新
-    {%- endif -%}
-    {%- if slot == 'list_item_6' -%}
-      Canonical Livepatchによってカーネルのセキュリティパッチ適用を全面的に制御
-    {%- endif -%}
-
-    {%- if slot == 'logo_section' -%}
-      <div class="p-logo-section--dense">
-        <div class="p-logo-section__items">
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/15f4f759-aws-logo.png",
-                          alt="AWS",
-                          width="151",
-                          height="312",
-                          hi_def=True,
-                          loading="lazy",
-                          attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/f1ec4ff5-microsoft-azure-logo%20[DEPRECATED]%20.png",
-                          alt="Microsoft Azure",
-                          width="272",
-                          height="312",
-                          hi_def=True,
-                          loading="lazy",
-                          attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/c09079b4-google-cloud-logo-horizontal.png",
-                          alt="Google Cloud",
-                          width="382",
-                          height="313",
-                          hi_def=True,
-                          loading="lazy",
-                          attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-          <br class="u-hide--small u-hide--medium" />
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/4a30e5f7-ibm-cloud-logo.png",
-                          alt="IBM Cloud",
-                          width="437",
-                          height="312",
-                          hi_def=True,
-                          loading="lazy",
-                          attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/dbab531e-oracle-cloud-logo.png",
-                          alt="Oracle Cloud",
-                          width="387",
-                          height="312",
-                          hi_def=True,
-                          loading="lazy",
-                          attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-        </div>
-      </div>
-    {%- endif -%}
-
-    {%- if slot == 'cta' -%}
-      <a href="https://ubuntu.com/cloud/public-cloud">パブリッククラウド上のUbuntuの詳細 &rsaquo;</a>
-    {%- endif -%}
-    {%- if slot == 'image' -%}
-      <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
-        {{ image(url="https://assets.ubuntu.com/v1/5a2779e1-public%20cloud.png",
-                  alt="",
-                  width="1800",
-                  height="2701",
-                  hi_def=True,
-                  loading="lazy",
-                  attrs={"class": "p-image-container__image"}) | safe
-        }}
-      </div>
-      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
-        {{ image(url="https://assets.ubuntu.com/v1/5a2779e1-public%20cloud.png",
-                  alt="",
-                  width="1800",
-                  height="2701",
-                  hi_def=True,
-                  loading="lazy",
-                  attrs={"class": "p-image-container__image"}) | safe
-        }}
-      </div>
-    {%- endif -%}
-  {% endcall -%}
-
-  {% call(slot) vf_rich_vertical_list(
-    title_text='総合的な
-クラスター管理プラットフォーム',
-    list_item_tick_style="tick"
-  ) -%}
-    {%- if slot == 'description' -%}
-    <p class="u-no-margin--bottom">
-      Kubernetesクラスター管理の面倒を解消
-    </p>
-    {%- endif -%}
-
-    {%- if slot == 'list_item_1' -%}
-      yamlやcliは不要、一般的なGUIを統合
-    {%- endif -%}
-    {%- if slot == 'list_item_2' -%}
-      1つの画面でKubernetesとコンテナを可視化
-    {%- endif -%}
-    {%- if slot == 'list_item_3' -%}
-      マルチクラスター管理とリアルタイムモニタリングを統一
-    {%- endif -%}
-    {%- if slot == 'list_item_4' -%}
-      ポリシーベースの管理、ガバナンス、セキュリティ、コンプライアンス
-    {%- endif -%}
-    {%- if slot == 'list_item_5' -%}
-      GitOpsでアプリケーションの大規模な管理と設定に対応
-    {%- endif -%}
-    {%- if slot == 'list_item_6' -%}
-      パブリッククラウドからエッジまで共通する柔軟性
-    {%- endif -%}
-
-    {%- if slot == 'logo_section' -%}
-      <div class="p-logo-section--dense">
-        <div class="p-logo-section__items">
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/58440b6b-rancher-logo.png",
-                            alt="Rancher",
-                            width="107",
-                            height="96",
-                            hi_def=True,
-                            loading="lazy",
-                            attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/19c3c265-spectrocloud-logo.png",
-                            alt="Spectro Cloud",
-                            width="87",
-                            height="96",
-                            hi_def=True,
-                            loading="lazy",
-                            attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-          <div class="p-logo-section__item">
-            {{ image(url="https://assets.ubuntu.com/v1/9ffbe97e-azure-arc-logo.png",
-                            alt="Azure arc",
-                            width="42",
-                            height="96",
-                            hi_def=True,
-                            loading="lazy",
-                            attrs={"class": "p-logo-section__logo"}) | safe
-            }}
-          </div>
-        </div>
-      </div>
-    {%- endif -%}
-
-    {%- if slot == 'image' -%}
-    <div class="p-image-container--2-3 is-cover u-hide--small u-hide--medium">
-        {{ image(url="https://assets.ubuntu.com/v1/9bcc23aa-on%20openstack.png",
-                  alt="",
-                  width="1800",
-                  height="2701",
-                  hi_def=True,
-                  loading="lazy",
-                  attrs={"class": "p-image-container__image"}) | safe
-        }}
-      </div>
-      <div class="p-image-container--3-2-on-medium p-image-container--16-9-on-small is-cover u-hide--large">
-        {{ image(url="https://assets.ubuntu.com/v1/9bcc23aa-on%20openstack.png",
-                  alt="",
-                  width="1800",
-                  height="2701",
-                  hi_def=True,
-                  loading="lazy",
-                  attrs={"class": "p-image-container__image"}) | safe
-        }}
-      </div>
-    {%- endif -%}
-  {% endcall -%}
+  {{ vf_rich_vertical_list(
+    title={"text": "総合的な<br />クラスター管理プラットフォーム"},
+    items=[
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "Kubernetesクラスター管理の面倒を解消"
+        }
+      },
+      {
+        "type": "list",
+        "item": {
+          "list_items": [
+            {
+              "list_item_type": "tick",
+              "content": "yamlやcliは不要、一般的なGUIを統合"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "1つの画面でKubernetesとコンテナを可視化"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "マルチクラスター管理とリアルタイムモニタリングを統一"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "ポリシーベースの管理、ガバナンス、セキュリティ、コンプライアンス"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "GitOpsでアプリケーションの大規模な管理と設定に対応"
+            },
+            {
+              "list_item_type": "tick",
+              "content": "パブリッククラウドからエッジまで共通する柔軟性"
+            }
+          ]
+        }
+      },
+      {
+        "type": "logo-block",
+        "item": {
+          "logos": [
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/58440b6b-rancher-logo.png",
+                "alt": "Rancher",
+                "width": "107",
+                "height": "96",
+                "loading": "lazy"
+              }
+            },
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/19c3c265-spectrocloud-logo.png",
+                "alt": "Spectro Cloud",
+                "width": "87",
+                "height": "96",
+                "loading": "lazy"
+              }
+            },
+            {
+              "attrs": {
+                "class": "p-logo-section__logo",
+                "src": "https://assets.ubuntu.com/v1/9ffbe97e-azure-arc-logo.png",
+                "alt": "Azure arc",
+                "width": "42",
+                "height": "96",
+                "loading": "lazy"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    media={
+      "type": "image",
+      "ratio": {
+        "large": "2-3",
+        "medium_small": "3-2"
+      },
+      "fit": "cover",
+      "attrs": {
+        "src": "https://assets.ubuntu.com/v1/9bcc23aa-on%20openstack.png",
+        "alt": "",
+        "width": "1800",
+        "height": "2701",
+        "loading": "lazy",
+        "class": "p-image-container__image"
+      }
+    }
+  ) }}
 
   <section class="p-section">
     {{ vf_basic_section(
