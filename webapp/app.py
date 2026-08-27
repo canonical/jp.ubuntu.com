@@ -22,6 +22,7 @@ from webapp.views import (
     engage_thank_you,
 )
 from webapp.api import get_releases_cached
+from webapp.context import modify_query
 
 from jinja2 import ChoiceLoader, FileSystemLoader
 
@@ -118,6 +119,23 @@ class JPBlogViews(BlogViews):
             )
 
         return {}
+
+
+# Default to 1h caching, overriding flask-base's 60s default.
+# Responses that set their own max-age or opt out are untouched.
+@app.after_request
+def set_default_cache_control(response):
+    if (
+        response.status_code == 200
+        and not flask.request.path.startswith("/_status")
+        and not response.cache_control.no_store
+        and not response.cache_control.no_cache
+        and not response.cache_control.private
+        and response.cache_control.max_age is None
+    ):
+        response.cache_control.max_age = 3600
+
+    return response
 
 
 blog_views = JPBlogViews(
@@ -247,6 +265,7 @@ def context():
         "version": flask.request.args.get("version", ""),
         "architecture": flask.request.args.get("architecture", ""),
         "product": flask.request.args.get("product", ""),
+        "modify_query": modify_query,
     }
 
 
