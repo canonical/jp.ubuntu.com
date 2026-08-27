@@ -14,7 +14,7 @@ def build_engage_index(engage_docs):
         posts_per_page = 14
         offset = (page - 1) * posts_per_page
 
-        (metadata, total_count, active_count, current_total) = (
+        metadata, total_count, active_count, current_total = (
             engage_docs.get_index(posts_per_page, offset)
         )
 
