@@ -70,7 +70,7 @@
             {% include "engage/shared/_form.html" %}
           {% endwith %}
         {% endif %}
-      {% elif "primary_link" in metadata and metadata["primary_link"] != "" %}
+      {% elif metadata.get("primary_link", "").startswith(("https://", "/")) %}
         <div class="p-section--shallow u-hide--small u-hide--medium">
           <div class="p-image-container--16-9 is-highlighted">
             <img class="p-image-container__image"
