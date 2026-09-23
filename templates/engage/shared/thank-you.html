@@ -31,19 +31,22 @@
     <div class="col-8">
       {% if thank_you_text %}
         {{ thank_you_text }}
-      {% endif %}         
-      {% if 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
-        <p>
-          {{ resource_name }}をダウンロード中です...
-        </p>
-      <p>
-        <a class="p-button--positive" href="{{ resource_url }}">ダウンロード</a>
-      </p>
-      {% else %}
-        <p>
-          申し訳ありませんが、ダウンロードを開始できませんでした。 <a class="p-link--external" href="https://github.com/canonical-web-and-design/cn.ubuntu.com/issues/new?body=Bad+resource+download+link+from {{ request.url | urlencode }}">GitHub</a>から報告してください。
-        </p>
       {% endif %}
+      {% if resource_url %}
+        {% if 'pages.ubuntu.com' or 'assets.ubuntu.com' in resource_url %}
+          <p>
+            {{ resource_name }}をダウンロード中です...
+          </p>
+          <p>
+            <a class="p-button--positive" href="{{ resource_url }}">ダウンロード</a>
+          </p>
+        {% else %}
+          <p>
+            申し訳ありませんが、ダウンロードを開始できませんでした。 <a class="p-link--external" href="https://github.com/canonical-web-and-design/cn.ubuntu.com/issues/new?body=Bad+resource+download+link+from {{ request.url | urlencode }}">GitHub</a>から報告してください。
+          </p>
+        {% endif %}
+      {% endif %}
+
     </div>
   </div>
 </section>
